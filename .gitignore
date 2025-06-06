@@ -23,6 +23,12 @@ bld/
 [Ll]og/
 [Ll]ogs/
 
+# Visual Studio 2015 cache/options directory
+.vs/
+
+# Visual Code cache/options directory
+.vscode/
+
 # .NET Core
 project.lock.json
 project.fragment.lock.json
