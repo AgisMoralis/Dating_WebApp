@@ -58,3 +58,7 @@ CodeCoverage/
 *.VisualState.xml
 TestResult.xml
 nunit-*.xml
+
+# SQLite database files
+datingApp.db-shm
+datingApp.db-wal
