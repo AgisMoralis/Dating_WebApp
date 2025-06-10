@@ -1,2 +1,15 @@
 # Dating_WebApp
-Web App developed with MS Visual Studio 2022 and .NET 8.0 (C# 12) and Angular 18
+- ASP.NET Core (.NET 8.0)
+- Entity Framework
+- SQLite
+- Postman
+- Swagger
+- MVC Pattern
+- Angular (18.2)
+- Bootstrap
+- HTML and CSS
+- Dependency Injection
+- Asynchronous code
+- Routing
+- Repository Pattern
+- Database migration
