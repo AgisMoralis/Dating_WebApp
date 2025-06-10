@@ -4,9 +4,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace DatingApp.API.Controllers;
 
-[ApiController]
-[Route("api/[controller]")]
-public class UsersController(DataContext context) : ControllerBase
+public class UsersController(DataContext context) : BaseAPIController
 {
     [HttpGet]
     public async Task<ActionResult<IEnumerable<Entities.User>>> GetUsersAsync()
