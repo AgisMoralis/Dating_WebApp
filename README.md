@@ -12,4 +12,5 @@
 - Asynchronous code
 - Routing
 - Repository Pattern
+- API securing with JWTBearer tokens
 - Database migration
