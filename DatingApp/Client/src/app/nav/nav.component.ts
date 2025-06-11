@@ -19,7 +19,7 @@ export class NavComponent {
       next: response => {
         console.log(response);
       },
-      error: error => console.log(error)
+      error: error => console.error(error)
     });
   }
   
