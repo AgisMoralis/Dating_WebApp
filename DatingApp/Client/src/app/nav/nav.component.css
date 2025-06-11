@@ -1,0 +1,5 @@
+.dropdown-toggle, .dropdown-item {
+    cursor: pointer;        /* Changes cursor to pointer (hand) for dropdown items */
+    user-select: none;      /* Prevents text selection */
+    outline: none;          /* Removes focus outline */
+}
