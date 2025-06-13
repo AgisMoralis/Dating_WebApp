@@ -13,8 +13,8 @@
         <label>Who is your favourite user?</label>
         <select class="form-select">
             @for (user of usersFromHomeComponent(); track $index) {
-            <option [value]="user.name">
-                {{ user.name }}
+            <option [value]="user.username">
+                {{ user.username }}
             </option>
             }
         </select>
