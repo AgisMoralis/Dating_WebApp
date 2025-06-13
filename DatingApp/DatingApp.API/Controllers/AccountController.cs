@@ -16,7 +16,7 @@ public class AccountController(DataContext context, ITokenService tokenService) 
         using var hmac = new HMACSHA512();
         var user = new Entities.User
         {
-            Name = registerDTO.Username.ToLower(),
+            Username = registerDTO.Username.ToLower(),
             PasswordHash = hmac.ComputeHash(System.Text.Encoding.UTF8.GetBytes(registerDTO.Password)),
             PasswordSalt = hmac.Key
         };
@@ -26,7 +26,7 @@ public class AccountController(DataContext context, ITokenService tokenService) 
 
         var authenticatedUser = new Models.AuthenticatedUserDTO
         {
-            Username = user.Name,
+            Username = user.Username,
             Token = tokenService.CreateToken(user)
         };
         return Ok(authenticatedUser);
@@ -36,7 +36,7 @@ public class AccountController(DataContext context, ITokenService tokenService) 
     public async Task<ActionResult<Models.AuthenticatedUserDTO>> LoginAsync(Models.LoginDTO loginDTO)
     {
         var user = await context.Users
-            .FirstOrDefaultAsync(u => u.Name.ToLower() == loginDTO.Username.ToLower());
+            .FirstOrDefaultAsync(u => u.Username.ToLower() == loginDTO.Username.ToLower());
         if (user == null) return Unauthorized("Invalid username");
 
         using var hmac = new HMACSHA512(user.PasswordSalt);
@@ -48,7 +48,7 @@ public class AccountController(DataContext context, ITokenService tokenService) 
 
         var authenticatedUser = new Models.AuthenticatedUserDTO
         {
-            Username = user.Name,
+            Username = user.Username,
             Token = tokenService.CreateToken(user)
         };
         return Ok(authenticatedUser);
@@ -56,6 +56,6 @@ public class AccountController(DataContext context, ITokenService tokenService) 
 
     private async Task<bool> UserExistsAsync(string username)
     {
-        return await context.Users.AnyAsync(u => u.Name.ToLower() == username.ToLower());
+        return await context.Users.AnyAsync(u => u.Username.ToLower() == username.ToLower());
     }
 }

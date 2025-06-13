@@ -56,7 +56,7 @@
 								},
 								{
 									"key": "Date",
-									"value": "Tue, 10 Jun 2025 17:34:04 GMT"
+									"value": "Fri, 13 Jun 2025 12:42:14 GMT"
 								},
 								{
 									"key": "Server",
@@ -68,7 +68,7 @@
 								}
 							],
 							"cookie": [],
-							"body": "[\n    {\n        \"id\": 1,\n        \"name\": \"Bob\",\n        \"passwordHash\": \"\",\n        \"passwordSalt\": \"\"\n    },\n    {\n        \"id\": 2,\n        \"name\": \"Tom\",\n        \"passwordHash\": \"\",\n        \"passwordSalt\": \"\"\n    },\n    {\n        \"id\": 3,\n        \"name\": \"Jane\",\n        \"passwordHash\": \"\",\n        \"passwordSalt\": \"\"\n    },\n    {\n        \"id\": 4,\n        \"name\": \"dave\",\n        \"passwordHash\": \"KUt7UFjUjLnYenTNm7392fwC0eArnF9/nFZKlXmegJIMmAPQCdfDD2WNy0H5YGTQzlksK1CLmmshfh4hnZB9Qg==\",\n        \"passwordSalt\": \"XKpRA14IU2vMnCeu069Xg85Z5wVW8zfGETEruH4+g/vfdURSGswRZQelA8dVvuu9i31hrpjP5EPUZW2l3bmTUxyJmT4wnSUgnfkQEtfiFXXE9xZot4Zo/HQC5MxTB8keFI+xl5JJiqhH3O6f36fTSOQHFbTBip05I52phmeu7sA=\"\n    }\n]"
+							"body": "[\n    {\n        \"id\": 1,\n        \"username\": \"Bob\",\n        \"passwordHash\": \"\",\n        \"passwordSalt\": \"\"\n    },\n    {\n        \"id\": 2,\n        \"username\": \"Tom\",\n        \"passwordHash\": \"\",\n        \"passwordSalt\": \"\"\n    },\n    {\n        \"id\": 3,\n        \"username\": \"Jane\",\n        \"passwordHash\": \"\",\n        \"passwordSalt\": \"\"\n    },\n    {\n        \"id\": 4,\n        \"username\": \"dave\",\n        \"passwordHash\": \"KUt7UFjUjLnYenTNm7392fwC0eArnF9/nFZKlXmegJIMmAPQCdfDD2WNy0H5YGTQzlksK1CLmmshfh4hnZB9Qg==\",\n        \"passwordSalt\": \"XKpRA14IU2vMnCeu069Xg85Z5wVW8zfGETEruH4+g/vfdURSGswRZQelA8dVvuu9i31hrpjP5EPUZW2l3bmTUxyJmT4wnSUgnfkQEtfiFXXE9xZot4Zo/HQC5MxTB8keFI+xl5JJiqhH3O6f36fTSOQHFbTBip05I52phmeu7sA=\"\n    },\n    {\n        \"id\": 5,\n        \"username\": \"nick\",\n        \"passwordHash\": \"bY660rpTvUgM1aiLHQxfmDckCuvFO4lPHpnrVJLJcV2tXNpdWE+wgHsf51a/AboQSETK6LZ2jAWjfU89e3voug==\",\n        \"passwordSalt\": \"brO8R87W9eBXwLbFrmsecbnih3pqRyoIfY0U3Xnt29hRqDoOSfDSIDDJUi46RIBkL+HgHxoOy+KBQEAx2/3HxxIVFvO6F4eGDC/A3rO00h8uv1Lh08eA9xgAS4xb0zEgwxDaNClMY58vO0v30uVXl4FMJRPtmG2xKyf0ezcy7JY=\"\n    },\n    {\n        \"id\": 6,\n        \"username\": \"nate\",\n        \"passwordHash\": \"EgI7vmTqNH+tm7YvgnggjxFuU7tWZABcpR4gcXkPepnJKdhAStW/gk2c6xRRkvJRyPpicxLdngdK5CH8EKJJvg==\",\n        \"passwordSalt\": \"/XsflMbTYW4jcROZwtwjsRTRtKDsfqcuskCTRHZvmlp2j1h4OrGbW2dmj+xadiivN/Da47GVJanOgTqrM5inNUqAvvTX2GgN7P1vS0H4a9eeospsAltENJOCQonl/o7latkWQMGnQu0+TK8fHCtfcRLaKHEasFVNgYPCprRsM2I=\"\n    },\n    {\n        \"id\": 7,\n        \"username\": \"mat\",\n        \"passwordHash\": \"9w7p8hsthwwRkmtfxMOUN6HB578Kdthp3AK8q3qjN1WZPaNkPWMsxR9EhJtzfk39V5/jcUyW2fvXHDC00dSz7Q==\",\n        \"passwordSalt\": \"koxcH/oHmRMSJoJ0gRuHeDEPxtu9CvSywUjgu9V1nNcbJ1klfc1fO/ABHSIi+Z8p03Jx4F9669ZsG661/yRpPJjKatvdYMMMZLKMXJ3JaKB1kvCbSwEUMsOD8vcrrzlJa7fjW9ETO8ABKC+yWc1VFZMUMq2RO1nK5DoXp/P5Zpo=\"\n    }\n]"
 						}
 					]
 				},
@@ -121,7 +121,7 @@
 								},
 								{
 									"key": "Date",
-									"value": "Tue, 10 Jun 2025 17:37:29 GMT"
+									"value": "Fri, 13 Jun 2025 12:42:40 GMT"
 								},
 								{
 									"key": "Server",
@@ -133,7 +133,7 @@
 								}
 							],
 							"cookie": [],
-							"body": "{\n    \"id\": 2,\n    \"name\": \"Tom\",\n    \"passwordHash\": \"\",\n    \"passwordSalt\": \"\"\n}"
+							"body": "{\n    \"id\": 2,\n    \"username\": \"Tom\",\n    \"passwordHash\": \"\",\n    \"passwordSalt\": \"\"\n}"
 						}
 					]
 				}
@@ -163,7 +163,7 @@
 					},
 					"response": [
 						{
-							"name": "Get User (2nd)",
+							"name": "Get User (2nd) without Bearer token (Fails)",
 							"originalRequest": {
 								"method": "GET",
 								"header": [],
@@ -191,7 +191,7 @@
 								},
 								{
 									"key": "Date",
-									"value": "Tue, 10 Jun 2025 17:38:08 GMT"
+									"value": "Fri, 13 Jun 2025 12:43:56 GMT"
 								},
 								{
 									"key": "Server",
@@ -203,7 +203,7 @@
 								}
 							],
 							"cookie": [],
-							"body": null
+							"body": ""
 						}
 					]
 				},
@@ -215,7 +215,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiJkYXZlIiwibmJmIjoxNzQ5NTc3MTc4LCJleHAiOjE3NTAxODE5NzgsImlhdCI6MTc0OTU3NzE3OH0.nbgxHQ7XQ3L0W67syDNSkv3joqzlOHna05gI0JOQ_gbX9ZLUblljWL3W58ES5-gU49Y-jNOUg1jAO-SuwhvaAQ",
+									"value": "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiJkYXZlIiwibmJmIjoxNzQ5ODE4NjUxLCJleHAiOjE3NTA0MjM0NTEsImlhdCI6MTc0OTgxODY1MX0.bKiQLQhptPQpJDoIERKgVghLU39nnSRp9nnaz4p7WR5Apd0adHlDYglnsvhU9UraxevyP2qrbyeeshNDGeC3IQ",
 									"type": "string"
 								}
 							]
@@ -238,7 +238,7 @@
 					},
 					"response": [
 						{
-							"name": "Get User with Bearer token",
+							"name": "Get User (2nd) with Bearer token",
 							"originalRequest": {
 								"method": "GET",
 								"header": [],
@@ -266,7 +266,7 @@
 								},
 								{
 									"key": "Date",
-									"value": "Tue, 10 Jun 2025 17:40:48 GMT"
+									"value": "Fri, 13 Jun 2025 12:44:21 GMT"
 								},
 								{
 									"key": "Server",
@@ -278,7 +278,7 @@
 								}
 							],
 							"cookie": [],
-							"body": "{\n    \"id\": 2,\n    \"name\": \"Tom\",\n    \"passwordHash\": \"\",\n    \"passwordSalt\": \"\"\n}"
+							"body": "{\n    \"id\": 2,\n    \"username\": \"Tom\",\n    \"passwordHash\": \"\",\n    \"passwordSalt\": \"\"\n}"
 						}
 					]
 				}
@@ -600,7 +600,7 @@
 						},
 						{
 							"key": "Date",
-							"value": "Tue, 10 Jun 2025 17:39:38 GMT"
+							"value": "Fri, 13 Jun 2025 12:44:50 GMT"
 						},
 						{
 							"key": "Server",
@@ -612,7 +612,7 @@
 						}
 					],
 					"cookie": [],
-					"body": "{\n    \"username\": \"dave\",\n    \"token\": \"eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiJkYXZlIiwibmJmIjoxNzQ5NTc3MTc4LCJleHAiOjE3NTAxODE5NzgsImlhdCI6MTc0OTU3NzE3OH0.nbgxHQ7XQ3L0W67syDNSkv3joqzlOHna05gI0JOQ_gbX9ZLUblljWL3W58ES5-gU49Y-jNOUg1jAO-SuwhvaAQ\"\n}"
+					"body": "{\n    \"username\": \"dave\",\n    \"token\": \"eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiJkYXZlIiwibmJmIjoxNzQ5ODE4NjkwLCJleHAiOjE3NTA0MjM0OTAsImlhdCI6MTc0OTgxODY5MH0.OTr7gG0uvDYBo8fIa3sAnAIpEOEAytcT3b2GrVbJ37O1iQtV3uASw3H2fAp4gYmMKv-OT47_oJQNALZW2EsTyg\"\n}"
 				}
 			]
 		},

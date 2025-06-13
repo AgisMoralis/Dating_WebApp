@@ -16,7 +16,7 @@ public class TokenService(IConfiguration config) : ITokenService
         var key = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes(tokenKey));
         var claims = new Claim[]
         {
-            new (ClaimTypes.NameIdentifier, user.Name),
+            new (ClaimTypes.NameIdentifier, user.Username),
         };
         var tokenDescriptor = new SecurityTokenDescriptor
         {
