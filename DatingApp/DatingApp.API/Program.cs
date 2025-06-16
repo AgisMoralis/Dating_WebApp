@@ -1,4 +1,5 @@
 using DatingApp.API.Extensions;
+using DatingApp.API.Middleware;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,9 +11,7 @@ builder.Services.AddIdentityServices(builder.Configuration);
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
-}
+app.UseMiddleware<ExceptionMiddleware>();
 
 app.UseCors("AllowAngularApp");
 
