@@ -1,0 +1,16 @@
+<div class="container">
+    <h1>Internal Server Error</h1>
+    @if (error){
+    <h5 class="text-danger">Error: {{error.message}}</h5>
+    <p class="font-weight-bold">Note: If you are seeing this error, the problem comes from the server</p>
+    <p>What to do next?</p>
+    <ol>
+        <li>Check the server logs for more details.</li>
+        <li>Examine the URL of the failing request.</li>
+        <li>Reproduce the error by using postman - If the error is reproducable, the the problem comes from the server.
+        </li>
+    </ol>
+    <p class="font-weight-bold">Follow the stack trace:</p>
+    <code class="mt-5" style="background-color: whitesmoke;">{{error.details}}</code>
+    }
+</div>
