@@ -203,7 +203,7 @@
 								}
 							],
 							"cookie": [],
-							"body": ""
+							"body": null
 						}
 					]
 				},
@@ -285,37 +285,11 @@
 			]
 		},
 		{
-			"name": "Register New User",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"username\": \"nick\",\r\n    \"password\": \"randomPassword\"\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "https://localhost:{{portNumber}}/api/account/register",
-					"protocol": "https",
-					"host": [
-						"localhost"
-					],
-					"port": "{{portNumber}}",
-					"path": [
-						"api",
-						"account",
-						"register"
-					]
-				}
-			},
-			"response": [
+			"name": "Initial Login and Register Requests",
+			"item": [
 				{
 					"name": "Register New User",
-					"originalRequest": {
+					"request": {
 						"method": "POST",
 						"header": [],
 						"body": {
@@ -341,64 +315,64 @@
 							]
 						}
 					},
-					"status": "OK",
-					"code": 200,
-					"_postman_previewlanguage": "json",
-					"header": [
+					"response": [
 						{
-							"key": "Content-Type",
-							"value": "application/json; charset=utf-8"
-						},
-						{
-							"key": "Date",
-							"value": "Tue, 10 Jun 2025 17:39:14 GMT"
-						},
-						{
-							"key": "Server",
-							"value": "Kestrel"
-						},
-						{
-							"key": "Transfer-Encoding",
-							"value": "chunked"
+							"name": "Register New User",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\": \"nick\",\r\n    \"password\": \"randomPassword\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://localhost:{{portNumber}}/api/account/register",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"port": "{{portNumber}}",
+									"path": [
+										"api",
+										"account",
+										"register"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 10 Jun 2025 17:39:14 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Kestrel"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"username\": \"nick\",\n    \"token\": \"eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiJuaWNrIiwibmJmIjoxNzQ5NTc3MTU0LCJleHAiOjE3NTAxODE5NTQsImlhdCI6MTc0OTU3NzE1NH0.8lK2EFWTJUZFWRslMZjA40Pz8kNBHVtk2ju63S613Ck5Ancs4SbOZ-PyAAgTTtksR8hTQADR_n35N7p0nQU7dg\"\n}"
 						}
-					],
-					"cookie": [],
-					"body": "{\n    \"username\": \"nick\",\n    \"token\": \"eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiJuaWNrIiwibmJmIjoxNzQ5NTc3MTU0LCJleHAiOjE3NTAxODE5NTQsImlhdCI6MTc0OTU3NzE1NH0.8lK2EFWTJUZFWRslMZjA40Pz8kNBHVtk2ju63S613Ck5Ancs4SbOZ-PyAAgTTtksR8hTQADR_n35N7p0nQU7dg\"\n}"
-				}
-			]
-		},
-		{
-			"name": "Register New User (Fails: User already exists)",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"username\": \"bob\",\r\n    \"password\": \"randomPassword\"\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "https://localhost:{{portNumber}}/api/account/register",
-					"protocol": "https",
-					"host": [
-						"localhost"
-					],
-					"port": "{{portNumber}}",
-					"path": [
-						"api",
-						"account",
-						"register"
 					]
-				}
-			},
-			"response": [
+				},
 				{
 					"name": "Register New User (Fails: User already exists)",
-					"originalRequest": {
+					"request": {
 						"method": "POST",
 						"header": [],
 						"body": {
@@ -424,64 +398,64 @@
 							]
 						}
 					},
-					"status": "Bad Request",
-					"code": 400,
-					"_postman_previewlanguage": "plain",
-					"header": [
+					"response": [
 						{
-							"key": "Content-Type",
-							"value": "text/plain; charset=utf-8"
-						},
-						{
-							"key": "Date",
-							"value": "Tue, 10 Jun 2025 17:39:01 GMT"
-						},
-						{
-							"key": "Server",
-							"value": "Kestrel"
-						},
-						{
-							"key": "Transfer-Encoding",
-							"value": "chunked"
+							"name": "Register New User (Fails: User already exists)",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\": \"bob\",\r\n    \"password\": \"randomPassword\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://localhost:{{portNumber}}/api/account/register",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"port": "{{portNumber}}",
+									"path": [
+										"api",
+										"account",
+										"register"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 10 Jun 2025 17:39:01 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Kestrel"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"body": "Username already exists"
 						}
-					],
-					"cookie": [],
-					"body": "Username already exists"
-				}
-			]
-		},
-		{
-			"name": "Register New User (Fails: Blank DTO fields)",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"username\": \"\",\r\n    \"password\": \"\"\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "https://localhost:{{portNumber}}/api/account/register",
-					"protocol": "https",
-					"host": [
-						"localhost"
-					],
-					"port": "{{portNumber}}",
-					"path": [
-						"api",
-						"account",
-						"register"
 					]
-				}
-			},
-			"response": [
+				},
 				{
 					"name": "Register New User (Fails: Blank DTO fields)",
-					"originalRequest": {
+					"request": {
 						"method": "POST",
 						"header": [],
 						"body": {
@@ -507,64 +481,64 @@
 							]
 						}
 					},
-					"status": "Bad Request",
-					"code": 400,
-					"_postman_previewlanguage": "json",
-					"header": [
+					"response": [
 						{
-							"key": "Content-Type",
-							"value": "application/problem+json; charset=utf-8"
-						},
-						{
-							"key": "Date",
-							"value": "Tue, 10 Jun 2025 17:39:22 GMT"
-						},
-						{
-							"key": "Server",
-							"value": "Kestrel"
-						},
-						{
-							"key": "Transfer-Encoding",
-							"value": "chunked"
+							"name": "Register New User (Fails: Blank DTO fields)",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\": \"\",\r\n    \"password\": \"\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://localhost:{{portNumber}}/api/account/register",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"port": "{{portNumber}}",
+									"path": [
+										"api",
+										"account",
+										"register"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/problem+json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 10 Jun 2025 17:39:22 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Kestrel"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"type\": \"https://tools.ietf.org/html/rfc9110#section-15.5.1\",\n    \"title\": \"One or more validation errors occurred.\",\n    \"status\": 400,\n    \"errors\": {\n        \"Password\": [\n            \"The Password field is required.\"\n        ],\n        \"Username\": [\n            \"The Username field is required.\"\n        ]\n    },\n    \"traceId\": \"00-b1439835e0ac6d597da668aa23db57b8-e94c6aa23a061fe5-00\"\n}"
 						}
-					],
-					"cookie": [],
-					"body": "{\n    \"type\": \"https://tools.ietf.org/html/rfc9110#section-15.5.1\",\n    \"title\": \"One or more validation errors occurred.\",\n    \"status\": 400,\n    \"errors\": {\n        \"Password\": [\n            \"The Password field is required.\"\n        ],\n        \"Username\": [\n            \"The Username field is required.\"\n        ]\n    },\n    \"traceId\": \"00-b1439835e0ac6d597da668aa23db57b8-e94c6aa23a061fe5-00\"\n}"
-				}
-			]
-		},
-		{
-			"name": "Login Existing User",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"username\": \"dave\",\r\n    \"password\": \"randomPassword\"\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "https://localhost:{{portNumber}}/api/account/login",
-					"protocol": "https",
-					"host": [
-						"localhost"
-					],
-					"port": "{{portNumber}}",
-					"path": [
-						"api",
-						"account",
-						"login"
 					]
-				}
-			},
-			"response": [
+				},
 				{
 					"name": "Login Existing User",
-					"originalRequest": {
+					"request": {
 						"method": "POST",
 						"header": [],
 						"body": {
@@ -590,64 +564,64 @@
 							]
 						}
 					},
-					"status": "OK",
-					"code": 200,
-					"_postman_previewlanguage": "json",
-					"header": [
+					"response": [
 						{
-							"key": "Content-Type",
-							"value": "application/json; charset=utf-8"
-						},
-						{
-							"key": "Date",
-							"value": "Fri, 13 Jun 2025 12:44:50 GMT"
-						},
-						{
-							"key": "Server",
-							"value": "Kestrel"
-						},
-						{
-							"key": "Transfer-Encoding",
-							"value": "chunked"
+							"name": "Login Existing User",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\": \"dave\",\r\n    \"password\": \"randomPassword\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://localhost:{{portNumber}}/api/account/login",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"port": "{{portNumber}}",
+									"path": [
+										"api",
+										"account",
+										"login"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 13 Jun 2025 12:44:50 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Kestrel"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"username\": \"dave\",\n    \"token\": \"eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiJkYXZlIiwibmJmIjoxNzQ5ODE4NjkwLCJleHAiOjE3NTA0MjM0OTAsImlhdCI6MTc0OTgxODY5MH0.OTr7gG0uvDYBo8fIa3sAnAIpEOEAytcT3b2GrVbJ37O1iQtV3uASw3H2fAp4gYmMKv-OT47_oJQNALZW2EsTyg\"\n}"
 						}
-					],
-					"cookie": [],
-					"body": "{\n    \"username\": \"dave\",\n    \"token\": \"eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiJkYXZlIiwibmJmIjoxNzQ5ODE4NjkwLCJleHAiOjE3NTA0MjM0OTAsImlhdCI6MTc0OTgxODY5MH0.OTr7gG0uvDYBo8fIa3sAnAIpEOEAytcT3b2GrVbJ37O1iQtV3uASw3H2fAp4gYmMKv-OT47_oJQNALZW2EsTyg\"\n}"
-				}
-			]
-		},
-		{
-			"name": "Login Existing User (Fails: Incorrect password)",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"username\": \"dave\",\r\n    \"password\": \"incorrectPassword\"\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "https://localhost:{{portNumber}}/api/account/login",
-					"protocol": "https",
-					"host": [
-						"localhost"
-					],
-					"port": "{{portNumber}}",
-					"path": [
-						"api",
-						"account",
-						"login"
 					]
-				}
-			},
-			"response": [
+				},
 				{
 					"name": "Login Existing User (Fails: Incorrect password)",
-					"originalRequest": {
+					"request": {
 						"method": "POST",
 						"header": [],
 						"body": {
@@ -673,64 +647,64 @@
 							]
 						}
 					},
-					"status": "Unauthorized",
-					"code": 401,
-					"_postman_previewlanguage": "plain",
-					"header": [
+					"response": [
 						{
-							"key": "Content-Type",
-							"value": "text/plain; charset=utf-8"
-						},
-						{
-							"key": "Date",
-							"value": "Tue, 10 Jun 2025 17:39:43 GMT"
-						},
-						{
-							"key": "Server",
-							"value": "Kestrel"
-						},
-						{
-							"key": "Transfer-Encoding",
-							"value": "chunked"
+							"name": "Login Existing User (Fails: Incorrect password)",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\": \"dave\",\r\n    \"password\": \"incorrectPassword\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://localhost:{{portNumber}}/api/account/login",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"port": "{{portNumber}}",
+									"path": [
+										"api",
+										"account",
+										"login"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 10 Jun 2025 17:39:43 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Kestrel"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"body": "Invalid password"
 						}
-					],
-					"cookie": [],
-					"body": "Invalid password"
-				}
-			]
-		},
-		{
-			"name": "Login Unknown User (Fails: Incorrect username)",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"username\": \"Unknown\",\r\n    \"password\": \"randomPassword\"\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "https://localhost:{{portNumber}}/api/account/login",
-					"protocol": "https",
-					"host": [
-						"localhost"
-					],
-					"port": "{{portNumber}}",
-					"path": [
-						"api",
-						"account",
-						"login"
 					]
-				}
-			},
-			"response": [
+				},
 				{
 					"name": "Login Unknown User (Fails: Incorrect username)",
-					"originalRequest": {
+					"request": {
 						"method": "POST",
 						"header": [],
 						"body": {
@@ -756,29 +730,317 @@
 							]
 						}
 					},
-					"status": "Unauthorized",
-					"code": 401,
-					"_postman_previewlanguage": "plain",
-					"header": [
+					"response": [
 						{
-							"key": "Content-Type",
-							"value": "text/plain; charset=utf-8"
-						},
+							"name": "Login Unknown User (Fails: Incorrect username)",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\": \"Unknown\",\r\n    \"password\": \"randomPassword\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://localhost:{{portNumber}}/api/account/login",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"port": "{{portNumber}}",
+									"path": [
+										"api",
+										"account",
+										"login"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 10 Jun 2025 17:39:48 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Kestrel"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"body": "Invalid username"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Extended API",
+			"item": [
+				{
+					"name": "Login Existing User (Delores) and Save Token to Custom Environment",
+					"event": [
 						{
-							"key": "Date",
-							"value": "Tue, 10 Jun 2025 17:39:48 GMT"
-						},
-						{
-							"key": "Server",
-							"value": "Kestrel"
-						},
-						{
-							"key": "Transfer-Encoding",
-							"value": "chunked"
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const user = pm.response.json()\r",
+									"\r",
+									"pm.test(\"Has properties\", function(){\r",
+									"    pm.expect(user).to.have.property('username');\r",
+									"    pm.expect(user).to.have.property('token');\r",
+									"})\r",
+									"\r",
+									"if (pm.test(\"Has properties\")){\r",
+									"    pm.environment.set('token', user.token);\r",
+									"}"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
 						}
 					],
-					"cookie": [],
-					"body": "Invalid username"
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"delores\",\r\n    \"password\": \"pa$$word\"    \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:{{portNumber}}/api/account/login",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "{{portNumber}}",
+							"path": [
+								"api",
+								"account",
+								"login"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Login Existing User (Delores) and Save Token to Custom Environment",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\": \"delores\",\r\n    \"password\": \"pa$$word\"    \r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://localhost:{{portNumber}}/api/account/login",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"port": "{{portNumber}}",
+									"path": [
+										"api",
+										"account",
+										"login"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 16 Jun 2025 15:51:51 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Kestrel"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"username\": \"delores\",\n    \"token\": \"eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiJkZWxvcmVzIiwibmJmIjoxNzUwMDg5MTExLCJleHAiOjE3NTA2OTM5MTEsImlhdCI6MTc1MDA4OTExMX0.gnW2F8VFLupHOEArqQFTiLhLqpBN2sWLAG7EN6y6R7GDOCejr-OEj-DFNbjscpoy4MgECyubSEv39Y6-pcbEBg\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Get Users (using token from environment)",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:{{portNumber}}/api/users",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "{{portNumber}}",
+							"path": [
+								"api",
+								"users"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get Users (using token from environment)",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://localhost:{{portNumber}}/api/users",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"port": "{{portNumber}}",
+									"path": [
+										"api",
+										"users"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 18 Jun 2025 13:39:26 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Kestrel"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": 1,\n        \"username\": \"ida\",\n        \"age\": 47,\n        \"photoUrl\": \"https://randomuser.me/api/portraits/women/14.jpg\",\n        \"knownAs\": \"Ida\",\n        \"created\": \"2019-01-15T00:00:00\",\n        \"lastActive\": \"2020-05-16T00:00:00\",\n        \"gender\": \"female\",\n        \"introduction\": \"Eu esse irure nostrud cupidatat ad. Ex do deserunt pariatur voluptate velit non sit duis. Sint esse nostrud tempor aliquip deserunt id magna.\\r\\n\",\n        \"interests\": \"Consectetur sit mollit anim deserunt et irure pariatur ipsum duis esse proident excepteur culpa fugiat.\",\n        \"lookingFor\": \"Incididunt adipisicing amet ullamco sit amet. Exercitation et veniam ea ullamco. Cupidatat eiusmod anim officia eiusmod ea nisi ad. Do commodo laborum laboris do cupidatat consectetur nisi Lorem excepteur duis mollit nostrud. Eiusmod do eu occaecat esse sunt nulla enim cillum minim excepteur eiusmod culpa voluptate aliqua. Velit esse laboris labore ut eiusmod voluptate commodo tempor.\\r\\n\",\n        \"city\": \"Westboro\",\n        \"country\": \"Saint Vincent and The Grenadines\",\n        \"photos\": [\n            {\n                \"id\": 1,\n                \"url\": \"https://randomuser.me/api/portraits/women/14.jpg\",\n                \"isMain\": true\n            }\n        ]\n    },\n    {\n        \"id\": 2,\n        \"username\": \"luella\",\n        \"age\": 48,\n        \"photoUrl\": \"https://randomuser.me/api/portraits/women/19.jpg\",\n        \"knownAs\": \"Luella\",\n        \"created\": \"2019-02-09T00:00:00\",\n        \"lastActive\": \"2020-06-16T00:00:00\",\n        \"gender\": \"female\",\n        \"introduction\": \"Proident labore dolore nostrud cupidatat amet eiusmod. Incididunt duis tempor eu aliquip aliqua nulla excepteur et excepteur laboris incididunt cupidatat proident commodo. Officia magna velit eiusmod ut qui ullamco. Excepteur Lorem adipisicing voluptate in nulla laborum ea. Labore fugiat sit in minim anim occaecat duis enim Lorem cillum enim. Ad dolor culpa est proident reprehenderit aliquip amet cillum.\\r\\n\",\n        \"interests\": \"Duis id ut ullamco dolore ea occaecat ipsum mollit exercitation esse irure sint veniam ipsum.\",\n        \"lookingFor\": \"Anim quis eu reprehenderit aliquip ullamco proident ipsum consectetur magna culpa eiusmod et sit. Cupidatat voluptate dolore non pariatur ad qui irure labore do officia esse irure. Lorem sint do commodo ex velit cupidatat amet consectetur non Lorem exercitation irure sint. Cillum labore ex consectetur commodo amet eu excepteur mollit sunt ad exercitation qui irure. Enim anim deserunt amet occaecat. Tempor aliqua labore aliquip consectetur ullamco id eu nulla duis nisi. Ea sit veniam nisi deserunt officia magna laboris anim.\\r\\n\",\n        \"city\": \"Cumminsville\",\n        \"country\": \"British Indian Ocean Territory\",\n        \"photos\": [\n            {\n                \"id\": 2,\n                \"url\": \"https://randomuser.me/api/portraits/women/19.jpg\",\n                \"isMain\": true\n            }\n        ]\n    },\n    {\n        \"id\": 3,\n        \"username\": \"delores\",\n        \"age\": 41,\n        \"photoUrl\": \"https://randomuser.me/api/portraits/women/41.jpg\",\n        \"knownAs\": \"Delores\",\n        \"created\": \"2020-03-29T00:00:00\",\n        \"lastActive\": \"2020-06-17T00:00:00\",\n        \"gender\": \"female\",\n        \"introduction\": \"Esse qui nulla nulla nisi dolore elit fugiat ex et sint minim non. Reprehenderit fugiat exercitation laborum nostrud reprehenderit deserunt ad sit incididunt id sunt. Quis cillum occaecat do quis Lorem labore ad.\\r\\n\",\n        \"interests\": \"Sunt minim cupidatat in ut consequat consectetur et velit proident tempor ad mollit.\",\n        \"lookingFor\": \"Labore quis commodo excepteur ullamco ipsum dolore. Ut ad eu deserunt veniam incididunt et sit dolore. Fugiat ea culpa aute est irure cillum laborum incididunt veniam amet in do sit sint. Consequat proident do nostrud cupidatat commodo tempor excepteur nostrud dolore minim eiusmod. Dolore enim esse exercitation dolor voluptate. Cupidatat in non aliquip labore non fugiat nulla quis ad velit magna reprehenderit. In eiusmod consectetur minim irure nisi duis do dolore mollit nostrud sint pariatur ea dolore.\\r\\n\",\n        \"city\": \"Goochland\",\n        \"country\": \"Panama\",\n        \"photos\": [\n            {\n                \"id\": 3,\n                \"url\": \"https://randomuser.me/api/portraits/women/41.jpg\",\n                \"isMain\": true\n            }\n        ]\n    },\n    {\n        \"id\": 4,\n        \"username\": \"desiree\",\n        \"age\": 72,\n        \"photoUrl\": \"https://randomuser.me/api/portraits/women/57.jpg\",\n        \"knownAs\": \"Desiree\",\n        \"created\": \"2019-10-19T00:00:00\",\n        \"lastActive\": \"2020-05-17T00:00:00\",\n        \"gender\": \"female\",\n        \"introduction\": \"Nulla irure consequat occaecat elit voluptate dolor reprehenderit id ipsum. Ea excepteur aliquip exercitation nisi fugiat nulla ullamco aute magna do qui mollit velit. Aliqua irure nostrud aliqua fugiat consectetur eu velit qui in elit enim anim. Dolor occaecat reprehenderit amet qui minim aliqua esse sunt magna adipisicing eiusmod tempor. Excepteur laborum et ad non quis. Lorem eu dolor sit elit dolore esse ea duis nostrud Lorem.\\r\\n\",\n        \"interests\": \"Consequat voluptate eiusmod ullamco commodo dolor do.\",\n        \"lookingFor\": \"Eu eiusmod elit deserunt sit velit dolore velit in est. Consectetur enim qui Lorem qui est. Laborum consequat reprehenderit minim esse magna. In ut aliquip qui do do anim elit consectetur consequat ea consequat proident deserunt. Commodo ex aute excepteur voluptate ea duis tempor. Proident amet exercitation ipsum officia ad non. Elit esse reprehenderit deserunt irure ipsum exercitation eiusmod labore in consectetur cillum ipsum.\\r\\n\",\n        \"city\": \"Johnsonburg\",\n        \"country\": \"Uganda\",\n        \"photos\": [\n            {\n                \"id\": 4,\n                \"url\": \"https://randomuser.me/api/portraits/women/57.jpg\",\n                \"isMain\": true\n            }\n        ]\n    },\n    {\n        \"id\": 5,\n        \"username\": \"susanne\",\n        \"age\": 57,\n        \"photoUrl\": \"https://randomuser.me/api/portraits/women/88.jpg\",\n        \"knownAs\": \"Susanne\",\n        \"created\": \"2020-02-05T00:00:00\",\n        \"lastActive\": \"2020-05-27T00:00:00\",\n        \"gender\": \"female\",\n        \"introduction\": \"Ut ad occaecat laborum voluptate. Elit proident sint magna ullamco enim pariatur anim. Mollit dolore consectetur enim veniam. Incididunt cupidatat eu enim cillum officia irure aute non aute laborum ipsum nostrud irure officia. Deserunt aliqua qui aliqua velit minim aliqua ex ipsum nostrud consectetur excepteur labore veniam. Eiusmod dolor elit culpa proident. Irure incididunt do cillum mollit.\\r\\n\",\n        \"interests\": \"Excepteur aliqua do ea tempor ea adipisicing cupidatat laborum occaecat anim.\",\n        \"lookingFor\": \"Sint mollit incididunt id dolor laborum in do eu enim sit ullamco consequat quis. Veniam officia in pariatur consequat adipisicing non duis amet anim mollit duis. Ex enim ut laboris adipisicing. Laboris aliquip elit quis voluptate. Labore sint nostrud nulla irure sit esse ad amet consequat tempor est quis aute exercitation.\\r\\n\",\n        \"city\": \"Bloomington\",\n        \"country\": \"Hungary\",\n        \"photos\": [\n            {\n                \"id\": 5,\n                \"url\": \"https://randomuser.me/api/portraits/women/88.jpg\",\n                \"isMain\": true\n            }\n        ]\n    },\n    {\n        \"id\": 6,\n        \"username\": \"kirk\",\n        \"age\": 53,\n        \"photoUrl\": \"https://randomuser.me/api/portraits/men/82.jpg\",\n        \"knownAs\": \"Kirk\",\n        \"created\": \"2019-12-03T00:00:00\",\n        \"lastActive\": \"2020-05-13T00:00:00\",\n        \"gender\": \"male\",\n        \"introduction\": \"Minim elit cupidatat aute commodo tempor aliquip est officia culpa consequat. Id eiusmod dolore minim aliquip. Cupidatat ex non do ex labore magna enim. Labore quis veniam quis ea ea.\\r\\n\",\n        \"interests\": \"Eu proident mollit est non.\",\n        \"lookingFor\": \"Laboris elit cillum fugiat elit cupidatat irure nostrud fugiat cillum sint excepteur laboris ipsum eiusmod. Et consequat esse aliqua sunt aliqua mollit fugiat duis. Deserunt proident reprehenderit dolore ut voluptate. Sit esse et do id ex cupidatat eu. In tempor consectetur fugiat ipsum nostrud enim occaecat exercitation cupidatat commodo.\\r\\n\",\n        \"city\": \"Taft\",\n        \"country\": \"Saint Lucia\",\n        \"photos\": [\n            {\n                \"id\": 6,\n                \"url\": \"https://randomuser.me/api/portraits/men/82.jpg\",\n                \"isMain\": true\n            }\n        ]\n    },\n    {\n        \"id\": 7,\n        \"username\": \"cook\",\n        \"age\": 67,\n        \"photoUrl\": \"https://randomuser.me/api/portraits/men/19.jpg\",\n        \"knownAs\": \"Cook\",\n        \"created\": \"2019-08-18T00:00:00\",\n        \"lastActive\": \"2020-05-11T00:00:00\",\n        \"gender\": \"male\",\n        \"introduction\": \"In fugiat veniam fugiat enim magna cillum occaecat esse est anim quis consectetur nostrud deserunt. Sint sit qui non mollit veniam non aliqua laborum tempor aute dolore culpa do aute. Officia aliquip ad eu anim est sit officia Lorem ipsum consequat deserunt amet consequat commodo. Labore magna commodo ea laborum nostrud do cillum nisi dolor excepteur aliqua. Aute amet culpa enim ullamco dolore anim quis ad.\\r\\n\",\n        \"interests\": \"Voluptate duis eu eu sunt dolor ipsum amet velit elit labore dolor tempor occaecat.\",\n        \"lookingFor\": \"Aliqua irure sint Lorem sint sit commodo adipisicing reprehenderit consequat qui mollit. Sint deserunt sit incididunt voluptate voluptate exercitation. Id magna in cupidatat officia irure culpa id elit consequat velit sint excepteur non fugiat. Tempor enim Lorem eiusmod pariatur magna enim enim non anim esse reprehenderit ad. Non veniam excepteur velit est fugiat magna occaecat sint commodo irure reprehenderit. Dolore velit non consequat in ea adipisicing cillum ut sint ad.\\r\\n\",\n        \"city\": \"Caroline\",\n        \"country\": \"India\",\n        \"photos\": [\n            {\n                \"id\": 7,\n                \"url\": \"https://randomuser.me/api/portraits/men/19.jpg\",\n                \"isMain\": true\n            }\n        ]\n    },\n    {\n        \"id\": 8,\n        \"username\": \"stevenson\",\n        \"age\": 61,\n        \"photoUrl\": \"https://randomuser.me/api/portraits/men/9.jpg\",\n        \"knownAs\": \"Stevenson\",\n        \"created\": \"2019-09-08T00:00:00\",\n        \"lastActive\": \"2020-06-06T00:00:00\",\n        \"gender\": \"male\",\n        \"introduction\": \"Amet aliqua irure consectetur irure. Dolor non aliquip quis cupidatat nisi enim id laboris pariatur sint culpa excepteur. Ea voluptate commodo nostrud veniam veniam Lorem ut ut duis cupidatat officia sit ut. Tempor fugiat officia commodo id sit consequat cillum cupidatat deserunt ipsum occaecat. Qui laboris fugiat duis excepteur culpa nulla sint duis dolore fugiat enim elit. Tempor duis ullamco veniam duis. Ad dolor dolor culpa reprehenderit veniam.\\r\\n\",\n        \"interests\": \"Eu tempor qui officia proident aliqua.\",\n        \"lookingFor\": \"Ea quis culpa anim id non cupidatat sit velit. Enim fugiat aliqua eiusmod excepteur aliqua nisi mollit aliqua nostrud fugiat veniam voluptate cillum. Enim ea fugiat non aute culpa est non. Sint reprehenderit fugiat pariatur mollit elit aliquip. Sunt ullamco non Lorem fugiat et est ad tempor et laboris. Tempor enim dolore et eu veniam.\\r\\n\",\n        \"city\": \"Tyro\",\n        \"country\": \"Ethiopia\",\n        \"photos\": [\n            {\n                \"id\": 8,\n                \"url\": \"https://randomuser.me/api/portraits/men/9.jpg\",\n                \"isMain\": true\n            }\n        ]\n    },\n    {\n        \"id\": 9,\n        \"username\": \"roach\",\n        \"age\": 29,\n        \"photoUrl\": \"https://randomuser.me/api/portraits/men/85.jpg\",\n        \"knownAs\": \"Roach\",\n        \"created\": \"2019-02-06T00:00:00\",\n        \"lastActive\": \"2020-05-30T00:00:00\",\n        \"gender\": \"male\",\n        \"introduction\": \"Incididunt culpa reprehenderit excepteur sint irure veniam aliquip officia duis aute amet commodo velit ea. Dolore minim esse eiusmod nulla officia non. Labore ipsum mollit dolor exercitation esse in consequat do elit in veniam culpa. Non consequat magna enim velit adipisicing est velit. Quis et minim sint officia commodo laborum ipsum cillum exercitation duis irure magna reprehenderit esse. Nisi fugiat est qui aliquip irure pariatur aliqua exercitation enim.\\r\\n\",\n        \"interests\": \"Anim mollit mollit duis qui officia aliqua laborum do mollit tempor.\",\n        \"lookingFor\": \"Sit dolor aliquip aliqua cupidatat ea. Aliquip sint nulla est eiusmod non fugiat. Nulla eiusmod adipisicing ex sit minim. Eiusmod tempor excepteur culpa amet sunt occaecat aliquip incididunt sit ullamco. Ipsum officia cupidatat in adipisicing nisi. Aliqua veniam proident ea exercitation dolore ipsum dolor laboris enim culpa deserunt ipsum adipisicing exercitation. Adipisicing cupidatat ad enim id.\\r\\n\",\n        \"city\": \"Indio\",\n        \"country\": \"Puerto Rico\",\n        \"photos\": [\n            {\n                \"id\": 9,\n                \"url\": \"https://randomuser.me/api/portraits/men/85.jpg\",\n                \"isMain\": true\n            }\n        ]\n    },\n    {\n        \"id\": 10,\n        \"username\": \"stout\",\n        \"age\": 50,\n        \"photoUrl\": \"https://randomuser.me/api/portraits/men/82.jpg\",\n        \"knownAs\": \"Stout\",\n        \"created\": \"2020-03-07T00:00:00\",\n        \"lastActive\": \"2020-05-15T00:00:00\",\n        \"gender\": \"male\",\n        \"introduction\": \"Minim aute sint quis aliqua quis aute sint ullamco deserunt proident ut culpa ullamco. Nulla labore adipisicing fugiat consequat sint sint adipisicing. Eiusmod culpa labore exercitation culpa voluptate est est consequat duis. Reprehenderit deserunt id in ipsum voluptate ex fugiat consequat veniam. Sunt in ullamco laboris voluptate enim voluptate elit qui anim mollit ipsum mollit.\\r\\n\",\n        \"interests\": \"Eu irure non nulla cillum ipsum pariatur aliquip anim laboris amet commodo elit.\",\n        \"lookingFor\": \"Velit dolor qui eu sint. Laborum ut quis tempor esse exercitation minim ipsum sunt ea. Voluptate consectetur aliquip dolor mollit velit nulla commodo consectetur. Irure dolore incididunt aliqua qui laborum culpa sit aliquip laboris deserunt sit. Reprehenderit pariatur do cillum voluptate irure nisi culpa ea quis elit ipsum tempor ullamco.\\r\\n\",\n        \"city\": \"Cliffside\",\n        \"country\": \"Spain\",\n        \"photos\": [\n            {\n                \"id\": 10,\n                \"url\": \"https://randomuser.me/api/portraits/men/82.jpg\",\n                \"isMain\": true\n            }\n        ]\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "Get User (Ida) (using token from envioronment)",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:{{portNumber}}/api/users/ida",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "{{portNumber}}",
+							"path": [
+								"api",
+								"users",
+								"ida"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get User (3rd) (using token from envioronment)",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://localhost:{{portNumber}}/api/users/ida",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"port": "{{portNumber}}",
+									"path": [
+										"api",
+										"users",
+										"ida"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 18 Jun 2025 13:39:45 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Kestrel"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 1,\n    \"username\": \"ida\",\n    \"age\": 47,\n    \"photoUrl\": \"https://randomuser.me/api/portraits/women/14.jpg\",\n    \"knownAs\": \"Ida\",\n    \"created\": \"2019-01-15T00:00:00\",\n    \"lastActive\": \"2020-05-16T00:00:00\",\n    \"gender\": \"female\",\n    \"introduction\": \"Eu esse irure nostrud cupidatat ad. Ex do deserunt pariatur voluptate velit non sit duis. Sint esse nostrud tempor aliquip deserunt id magna.\\r\\n\",\n    \"interests\": \"Consectetur sit mollit anim deserunt et irure pariatur ipsum duis esse proident excepteur culpa fugiat.\",\n    \"lookingFor\": \"Incididunt adipisicing amet ullamco sit amet. Exercitation et veniam ea ullamco. Cupidatat eiusmod anim officia eiusmod ea nisi ad. Do commodo laborum laboris do cupidatat consectetur nisi Lorem excepteur duis mollit nostrud. Eiusmod do eu occaecat esse sunt nulla enim cillum minim excepteur eiusmod culpa voluptate aliqua. Velit esse laboris labore ut eiusmod voluptate commodo tempor.\\r\\n\",\n    \"city\": \"Westboro\",\n    \"country\": \"Saint Vincent and The Grenadines\",\n    \"photos\": [\n        {\n            \"id\": 1,\n            \"url\": \"https://randomuser.me/api/portraits/women/14.jpg\",\n            \"isMain\": true\n        }\n    ]\n}"
+						}
+					]
 				}
 			]
 		}

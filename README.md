@@ -7,10 +7,13 @@
 - MVC Pattern
 - Angular (18.2)
 - Bootstrap
+- RxJS
 - HTML and CSS
 - Dependency Injection
 - Asynchronous code
-- Routing
+- AutoMapper
 - Repository Pattern
+- Routing
+- Database migrations
 - API securing with JWTBearer tokens
 - Database migration

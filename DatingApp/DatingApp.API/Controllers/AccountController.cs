@@ -14,22 +14,24 @@ public class AccountController(DataContext context, ITokenService tokenService) 
         if (await UserExistsAsync(registerDTO.Username)) return BadRequest("Username already exists");
 
         using var hmac = new HMACSHA512();
-        var user = new Entities.User
-        {
-            Username = registerDTO.Username.ToLower(),
-            PasswordHash = hmac.ComputeHash(System.Text.Encoding.UTF8.GetBytes(registerDTO.Password)),
-            PasswordSalt = hmac.Key
-        };
 
-        context.Users.Add(user);
-        await context.SaveChangesAsync();
-
-        var authenticatedUser = new Models.AuthenticatedUserDTO
-        {
-            Username = user.Username,
-            Token = tokenService.CreateToken(user)
-        };
-        return Ok(authenticatedUser);
+        return Ok();
+        //var user = new Entities.User
+        //{
+        //    Username = registerDTO.Username.ToLower(),
+        //    PasswordHash = hmac.ComputeHash(System.Text.Encoding.UTF8.GetBytes(registerDTO.Password)),
+        //    PasswordSalt = hmac.Key
+        //};
+        //
+        //context.Users.Add(user);
+        //await context.SaveChangesAsync();
+        //
+        //var authenticatedUser = new Models.AuthenticatedUserDTO
+        //{
+        //    Username = user.Username,
+        //    Token = tokenService.CreateToken(user)
+        //};
+        //return Ok(authenticatedUser);
     }
 
     [HttpPost("login")]
