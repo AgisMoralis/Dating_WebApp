@@ -1,31 +1,34 @@
-using DatingApp.API.Data;
+using AutoMapper;
+using DatingApp.API.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 
 namespace DatingApp.API.Controllers;
 
-public class UsersController(DataContext context) : BaseAPIController
+[Authorize]
+public class UsersController(IUserRepository userRepository, IMapper mapper) : BaseAPIController
 {
-    [AllowAnonymous]
     [HttpGet]
-    public async Task<ActionResult<IEnumerable<Entities.User>>> GetUsersAsync()
+    public async Task<ActionResult<IEnumerable<Models.UserDto>>> GetUsersAsync()
     {
-        var users = await context.Users.ToListAsync();
+        var users = await userRepository.GetUsersAsync();
 
-        return Ok(users);
+        var usersToReturn = mapper.Map<IEnumerable<Models.UserDto>>(users);
+
+        return Ok(usersToReturn);
     }
 
-    [Authorize]
-    [HttpGet("{id:int}")]
-    public async Task<ActionResult<Entities.User>> GetUserAsync(int id)
+    [HttpGet("{username}")]
+    public async Task<ActionResult<Models.UserDto>> GetUserAsync(string username)
     {
-        var user = await context.Users.FindAsync(id);
+        var user = await userRepository.GetUserByUsernameAsync(username);
 
         if (user == null)
         {
             return NotFound();
         }
-        return Ok(user);
+        
+        var userToReturn = mapper.Map<Models.UserDto>(user);
+        return Ok(userToReturn);
     }
 }
