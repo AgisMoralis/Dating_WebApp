@@ -1,5 +1,3 @@
-using DatingApp.API.Extensions;
-
 namespace DatingApp.API.Entities;
 
 public class User
@@ -19,9 +17,4 @@ public class User
     public required string? City { get; set; }
     public required string? Country { get; set; }
     public List<Photo> Photos { get; set; } = new List<Photo>();
-
-    public int GetAge()
-    {
-        return DateOfBirth.CalculateAge();
-    }
 }
