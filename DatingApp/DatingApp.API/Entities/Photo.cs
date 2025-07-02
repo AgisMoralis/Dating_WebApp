@@ -11,5 +11,5 @@ public class Photo
     public string? PublicId { get; set; }
 
     public int AppUserId { get; set; }
-    public User User { get; set; } = null!;
+    public Member Member { get; set; } = null!;
 }

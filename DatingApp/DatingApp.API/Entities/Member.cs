@@ -1,6 +1,6 @@
 namespace DatingApp.API.Entities;
 
-public class User
+public class Member
 {
     public int Id { get; set; }
     public required string Username { get; set; }

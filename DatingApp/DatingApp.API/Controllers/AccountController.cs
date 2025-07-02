@@ -37,7 +37,7 @@ public class AccountController(DataContext context, ITokenService tokenService) 
     [HttpPost("login")]
     public async Task<ActionResult<Models.AuthenticatedUserDTO>> LoginAsync(Models.LoginDTO loginDTO)
     {
-        var user = await context.Users
+        var user = await context.Members
             .FirstOrDefaultAsync(u => u.Username.ToLower() == loginDTO.Username.ToLower());
         if (user == null) return Unauthorized("Invalid username");
 
@@ -58,6 +58,6 @@ public class AccountController(DataContext context, ITokenService tokenService) 
 
     private async Task<bool> UserExistsAsync(string username)
     {
-        return await context.Users.AnyAsync(u => u.Username.ToLower() == username.ToLower());
+        return await context.Members.AnyAsync(u => u.Username.ToLower() == username.ToLower());
     }
 }

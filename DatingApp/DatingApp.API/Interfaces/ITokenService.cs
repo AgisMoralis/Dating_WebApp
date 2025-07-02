@@ -4,5 +4,5 @@ namespace DatingApp.API.Interfaces;
 
 public interface ITokenService
 {
-    string CreateToken(Entities.User user);
+    string CreateToken(Entities.Member user);
 }
