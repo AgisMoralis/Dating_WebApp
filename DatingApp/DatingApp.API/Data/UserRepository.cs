@@ -9,43 +9,43 @@ namespace DatingApp.API.Data;
 
 public class UserRepository(DataContext context, IMapper mapper) : IUserRepository
 {
-    public async Task<User?> GetUserByIdAsync(int id)
+    public async Task<Member?> GetMemberByIdAsync(int id)
     {
-        return await context.Users.FindAsync(id);
+        return await context.Members.FindAsync(id);
     }
 
-    public async Task<User?> GetUserByUsernameAsync(string username)
+    public async Task<Member?> GetMemberByUsernameAsync(string username)
     {
-        return await context.Users
+        return await context.Members
             .Include(u => u.Photos)
             .SingleOrDefaultAsync(u => u.Username == username);
     }
 
-    public async Task<UserDto?> GetUserDtoByUsernameAsync(string username)
+    public async Task<MemberDto?> GetMemberDtoByUsernameAsync(string username)
     {
-        return await context.Users
+        return await context.Members
             .Where(u => u.Username == username)
-            .ProjectTo<UserDto>(mapper.ConfigurationProvider)
+            .ProjectTo<MemberDto>(mapper.ConfigurationProvider)
             .SingleOrDefaultAsync();
     }
 
-    public async Task<IEnumerable<User>> GetUsersAsync()
+    public async Task<IEnumerable<Member>> GetMembersAsync()
     {
-        return await context.Users
+        return await context.Members
             .Include(u => u.Photos)
             .ToListAsync();
     }
 
-    public async Task<IEnumerable<UserDto>> GetUserDtosAsync()
+    public async Task<IEnumerable<MemberDto>> GetMemberDtosAsync()
     {
-        return await context.Users
-            .ProjectTo<UserDto>(mapper.ConfigurationProvider)
+        return await context.Members
+            .ProjectTo<MemberDto>(mapper.ConfigurationProvider)
             .ToListAsync();
     }
 
-    public void Update(User user)
+    public void Update(Member member)
     {
-        context.Entry(user).State = EntityState.Modified;
+        context.Entry(member).State = EntityState.Modified;
     }
 
     public async Task<bool> SaveAllAsync()

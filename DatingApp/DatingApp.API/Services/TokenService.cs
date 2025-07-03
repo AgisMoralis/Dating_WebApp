@@ -8,7 +8,7 @@ namespace DatingApp.API.Services;
 
 public class TokenService(IConfiguration config) : ITokenService
 {
-    public string CreateToken(User user)
+    public string CreateToken(Member user)
     {
         var tokenKey = config["TokenKey"] ?? throw new ArgumentNullException("Cannot access TokenKey from appsettings.json");
         if (tokenKey.Length < 64) throw new ArgumentException("TokenKey must be at least 64 characters long");

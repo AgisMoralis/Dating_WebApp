@@ -9,17 +9,17 @@ namespace DatingApp.API.Controllers;
 public class UsersController(IUserRepository userRepository) : BaseAPIController
 {
     [HttpGet]
-    public async Task<ActionResult<IEnumerable<Models.UserDto>>> GetUsersAsync()
+    public async Task<ActionResult<IEnumerable<Models.MemberDto>>> GetUsersAsync()
     {
-        var users = await userRepository.GetUserDtosAsync();
+        var users = await userRepository.GetMemberDtosAsync();
 
         return Ok(users);
     }
 
     [HttpGet("{username}")]
-    public async Task<ActionResult<Models.UserDto>> GetUserAsync(string username)
+    public async Task<ActionResult<Models.MemberDto>> GetUserAsync(string username)
     {
-        var user = await userRepository.GetUserDtoByUsernameAsync(username);
+        var user = await userRepository.GetMemberDtoByUsernameAsync(username);
 
         if (user == null)
         {
