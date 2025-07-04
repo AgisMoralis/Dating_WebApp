@@ -3,6 +3,7 @@
 - Entity Framework
 - SQLite
 - Postman
+- DBeaver
 - Swagger
 - MVC Pattern
 - Angular (18.2)
@@ -14,6 +15,8 @@
 - AutoMapper
 - Repository Pattern
 - Routing
+- Services & Injection
+- Guards & Interceptors
 - Database migrations
 - API securing with JWTBearer tokens
 - Database migration
