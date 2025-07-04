@@ -968,7 +968,7 @@
 					]
 				},
 				{
-					"name": "Get User (Ida) (using token from envioronment)",
+					"name": "Get User (Delores) (using token from envioronment)",
 					"request": {
 						"auth": {
 							"type": "bearer",
@@ -1039,6 +1039,140 @@
 							],
 							"cookie": [],
 							"body": "{\n    \"id\": 1,\n    \"username\": \"ida\",\n    \"age\": 47,\n    \"photoUrl\": \"https://randomuser.me/api/portraits/women/14.jpg\",\n    \"knownAs\": \"Ida\",\n    \"created\": \"2019-01-15T00:00:00\",\n    \"lastActive\": \"2020-05-16T00:00:00\",\n    \"gender\": \"female\",\n    \"introduction\": \"Eu esse irure nostrud cupidatat ad. Ex do deserunt pariatur voluptate velit non sit duis. Sint esse nostrud tempor aliquip deserunt id magna.\\r\\n\",\n    \"interests\": \"Consectetur sit mollit anim deserunt et irure pariatur ipsum duis esse proident excepteur culpa fugiat.\",\n    \"lookingFor\": \"Incididunt adipisicing amet ullamco sit amet. Exercitation et veniam ea ullamco. Cupidatat eiusmod anim officia eiusmod ea nisi ad. Do commodo laborum laboris do cupidatat consectetur nisi Lorem excepteur duis mollit nostrud. Eiusmod do eu occaecat esse sunt nulla enim cillum minim excepteur eiusmod culpa voluptate aliqua. Velit esse laboris labore ut eiusmod voluptate commodo tempor.\\r\\n\",\n    \"city\": \"Westboro\",\n    \"country\": \"Saint Vincent and The Grenadines\",\n    \"photos\": [\n        {\n            \"id\": 1,\n            \"url\": \"https://randomuser.me/api/portraits/women/14.jpg\",\n            \"isMain\": true\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Update User (Delores)",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"introduction\": \"Updated introduction\",\r\n    \"lookingFor\": \"Updated looking for\",\r\n    \"interests\": \"Updated interests\",\r\n    \"city\": \"Updated city\",\r\n    \"country\": \"Updated country\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:{{portNumber}}/api/users",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "{{portNumber}}",
+							"path": [
+								"api",
+								"users"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Update User (Delores) - First try - success (204 No Content)",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"introduction\": \"Updated introduction\",\r\n    \"lookingFor\": \"Updated looking for\",\r\n    \"interests\": \"Updated interests\",\r\n    \"city\": \"Updated city\",\r\n    \"country\": \"Updated country\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://localhost:{{portNumber}}/api/users",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"port": "{{portNumber}}",
+									"path": [
+										"api",
+										"users"
+									]
+								}
+							},
+							"status": "No Content",
+							"code": 204,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Fri, 04 Jul 2025 14:31:09 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Kestrel"
+								}
+							],
+							"cookie": [],
+							"body": null
+						},
+						{
+							"name": "Update User (Delores) - Second try - failed (400 Bad Request)",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"introduction\": \"Updated introduction\",\r\n    \"lookingFor\": \"Updated looking for\",\r\n    \"interests\": \"Updated interests\",\r\n    \"city\": \"Updated city\",\r\n    \"country\": \"Updated country\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://localhost:{{portNumber}}/api/users",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"port": "{{portNumber}}",
+									"path": [
+										"api",
+										"users"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 04 Jul 2025 14:33:25 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Kestrel"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"body": "Failed to update the user"
 						}
 					]
 				}

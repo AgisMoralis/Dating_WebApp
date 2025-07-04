@@ -1,7 +1,6 @@
 using System.Security.Claims;
 using DatingApp.API.Entities;
 using DatingApp.API.Interfaces;
-using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.IdentityModel.Tokens;
 
 namespace DatingApp.API.Services;
