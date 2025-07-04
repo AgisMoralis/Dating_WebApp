@@ -35,9 +35,7 @@ export class MemberDetailComponent implements OnInit {
             thumb: p.url
           }));
         })
-        console.log(this.images);
       }
     })
   }
-
 }
