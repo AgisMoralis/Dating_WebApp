@@ -968,7 +968,7 @@
 					]
 				},
 				{
-					"name": "Get User (Delores) (using token from envioronment)",
+					"name": "Get User (Ida) (using token from envioronment)",
 					"request": {
 						"auth": {
 							"type": "bearer",
@@ -1043,7 +1043,7 @@
 					]
 				},
 				{
-					"name": "Update User (Delores)",
+					"name": "Update User (based on API key - Delores)",
 					"request": {
 						"auth": {
 							"type": "bearer",
@@ -1173,6 +1173,105 @@
 							],
 							"cookie": [],
 							"body": "Failed to update the user"
+						}
+					]
+				},
+				{
+					"name": "Add Photo (based on API key - Delores)",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "newPhoto",
+									"type": "file",
+									"src": "/C:/Users/Agis/Git/Dating_WebApp/Postman/Data/Delores.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://localhost:{{portNumber}}/api/users/add-photo",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "{{portNumber}}",
+							"path": [
+								"api",
+								"users",
+								"add-photo"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Add Photo (Delores)",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "newPhoto",
+											"type": "file",
+											"src": "/C:/Users/Agis/Git/Dating_WebApp/Postman/Data/Delores.jpg"
+										}
+									]
+								},
+								"url": {
+									"raw": "https://localhost:{{portNumber}}/api/users/add-photo",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"port": "{{portNumber}}",
+									"path": [
+										"api",
+										"users",
+										"add-photo"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 05 Jul 2025 20:32:08 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Kestrel"
+								},
+								{
+									"key": "Location",
+									"value": "https://localhost:5001/api/Users/delores"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 19,\n    \"url\": \"https://res.cloudinary.com/devmediacloudserver/image/upload/v1751747528/DatingApp/rm3ytt4nxystjkdpa6g5.jpg\",\n    \"isMain\": false\n}"
 						}
 					]
 				}
