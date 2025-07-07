@@ -1,3 +1,4 @@
+using AutoMapper;
 using DatingApp.API.Data;
 using DatingApp.API.Interfaces;
 using Microsoft.AspNetCore.Mvc;
@@ -6,7 +7,7 @@ using System.Security.Cryptography;
 
 namespace DatingApp.API.Controllers;
 
-public class AccountController(DataContext context, ITokenService tokenService) : BaseAPIController
+public class AccountController(DataContext context, ITokenService tokenService, IMapper mapper) : BaseAPIController
 {
     [HttpPost("register")]
     public async Task<ActionResult<Models.AuthenticatedUserDTO>> RegisterAsync(Models.RegisterDTO registerDTO)
@@ -14,24 +15,21 @@ public class AccountController(DataContext context, ITokenService tokenService) 
         if (await UserExistsAsync(registerDTO.Username)) return BadRequest("Username already exists");
 
         using var hmac = new HMACSHA512();
+        var newUser = mapper.Map<Entities.Member>(registerDTO);
+        newUser.Username = registerDTO.Username.ToLower();
+        newUser.PasswordHash = hmac.ComputeHash(System.Text.Encoding.UTF8.GetBytes(registerDTO.Password));
+        newUser.PasswordSalt = hmac.Key;
 
-        return Ok();
-        //var user = new Entities.User
-        //{
-        //    Username = registerDTO.Username.ToLower(),
-        //    PasswordHash = hmac.ComputeHash(System.Text.Encoding.UTF8.GetBytes(registerDTO.Password)),
-        //    PasswordSalt = hmac.Key
-        //};
-        //
-        //context.Users.Add(user);
-        //await context.SaveChangesAsync();
-        //
-        //var authenticatedUser = new Models.AuthenticatedUserDTO
-        //{
-        //    Username = user.Username,
-        //    Token = tokenService.CreateToken(user)
-        //};
-        //return Ok(authenticatedUser);
+        context.Members.Add(newUser);
+        await context.SaveChangesAsync();
+        
+        var authenticatedUser = new Models.AuthenticatedUserDTO
+        {
+            Username = newUser.Username,
+            KnownAs = newUser.KnownAs,
+            Token = tokenService.CreateToken(newUser)
+        };
+        return Ok(authenticatedUser);
     }
 
     [HttpPost("login")]
@@ -52,6 +50,7 @@ public class AccountController(DataContext context, ITokenService tokenService) 
         var authenticatedUser = new Models.AuthenticatedUserDTO
         {
             Username = user.Username,
+            KnownAs = user.KnownAs,
             Token = tokenService.CreateToken(user),
             PhotoUrl = user.Photos.FirstOrDefault(p => p.IsMain)?.Url
         };

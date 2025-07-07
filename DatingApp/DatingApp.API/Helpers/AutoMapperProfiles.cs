@@ -12,5 +12,7 @@ public class AutoMapperProfiles : Profile
             .ForMember(d => d.PhotoUrl, o => o.MapFrom(s => s.Photos.FirstOrDefault(p => p.IsMain)!.Url));
         CreateMap<Entities.Photo, Models.PhotoDto>();
         CreateMap<Models.MemberUpdateDto, Entities.Member>();
+        CreateMap<Models.RegisterDTO, Entities.Member>();
+        CreateMap<string, DateOnly>().ConvertUsing(s => DateOnly.Parse(s));
     }
 }
