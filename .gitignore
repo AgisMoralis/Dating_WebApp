@@ -37,6 +37,9 @@ artifacts/
 # ASP.NET Scaffolding
 ScaffoldingReadMe.txt
 
+# Web API project configuration
+DatingApp/DatingApp.API/appsettings.json
+
 # NuGet Packages
 *.nupkg
 # NuGet Symbol Packages

@@ -968,7 +968,7 @@
 					]
 				},
 				{
-					"name": "Get User (Delores) (using token from envioronment)",
+					"name": "Get User (Ida) (using token from envioronment)",
 					"request": {
 						"auth": {
 							"type": "bearer",
@@ -998,7 +998,7 @@
 					},
 					"response": [
 						{
-							"name": "Get User (3rd) (using token from envioronment)",
+							"name": "Get User (Ida) (using token from envioronment)",
 							"originalRequest": {
 								"method": "GET",
 								"header": [],
@@ -1043,7 +1043,7 @@
 					]
 				},
 				{
-					"name": "Update User (Delores)",
+					"name": "Update User (based on API key - Delores)",
 					"request": {
 						"auth": {
 							"type": "bearer",
@@ -1173,6 +1173,322 @@
 							],
 							"cookie": [],
 							"body": "Failed to update the user"
+						}
+					]
+				},
+				{
+					"name": "Add Photo (based on API key - Delores)",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "newPhoto",
+									"type": "file",
+									"src": "/C:/Users/Agis/Git/Dating_WebApp/Postman/Data/Delores.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://localhost:{{portNumber}}/api/users/add-photo",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "{{portNumber}}",
+							"path": [
+								"api",
+								"users",
+								"add-photo"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Add Photo (Delores)",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "newPhoto",
+											"type": "file",
+											"src": "/C:/Users/Agis/Git/Dating_WebApp/Postman/Data/Delores.jpg"
+										}
+									]
+								},
+								"url": {
+									"raw": "https://localhost:{{portNumber}}/api/users/add-photo",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"port": "{{portNumber}}",
+									"path": [
+										"api",
+										"users",
+										"add-photo"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 05 Jul 2025 20:32:08 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Kestrel"
+								},
+								{
+									"key": "Location",
+									"value": "https://localhost:5001/api/Users/delores"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 19,\n    \"url\": \"https://res.cloudinary.com/devmediacloudserver/image/upload/v1751747528/DatingApp/rm3ytt4nxystjkdpa6g5.jpg\",\n    \"isMain\": false\n}"
+						}
+					]
+				},
+				{
+					"name": "Get User (Delores) (using token from envioronment)",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:{{portNumber}}/api/users/delores",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "{{portNumber}}",
+							"path": [
+								"api",
+								"users",
+								"delores"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get User (Delores) (using token from envioronment)",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://localhost:{{portNumber}}/api/users/delores",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"port": "{{portNumber}}",
+									"path": [
+										"api",
+										"users",
+										"delores"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 06 Jul 2025 16:44:47 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Kestrel"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 3,\n    \"username\": \"delores\",\n    \"age\": 41,\n    \"photoUrl\": \"https://randomuser.me/api/portraits/women/41.jpg\",\n    \"knownAs\": \"Delores\",\n    \"created\": \"2020-03-29T00:00:00\",\n    \"lastActive\": \"2020-06-17T00:00:00\",\n    \"gender\": \"female\",\n    \"introduction\": \"Esse qui nulla nulla nisi dolore elit fugiat ex et sint minim non. Reprehenderit fugiat exercitation laborum nostrud reprehenderit deserunt ad sit incididunt id sunt. Quis cillum occaecat do quis Lorem labore ad.\\r\\n\",\n    \"interests\": \"Sunt minim cupidatat in ut consequat consectetur et velit proident tempor ad mollit.\",\n    \"lookingFor\": \"Labore quis commodo excepteur ullamco ipsum dolore. Ut ad eu deserunt veniam incididunt et sit dolore. Fugiat ea culpa aute est irure cillum laborum incididunt veniam amet in do sit sint. Consequat proident do nostrud cupidatat commodo tempor excepteur nostrud dolore minim eiusmod. Dolore enim esse exercitation dolor voluptate. Cupidatat in non aliquip labore non fugiat nulla quis ad velit magna reprehenderit. In eiusmod consectetur minim irure nisi duis do dolore mollit nostrud sint pariatur ea dolore.\\r\\n\",\n    \"city\": \"Goochland\",\n    \"country\": \"Panama\",\n    \"photos\": [\n        {\n            \"id\": 3,\n            \"url\": \"https://randomuser.me/api/portraits/women/41.jpg\",\n            \"isMain\": true\n        },\n        {\n            \"id\": 20,\n            \"url\": \"https://res.cloudinary.com/devmediacloudserver/image/upload/v1751816271/DatingApp/az0anb3sojsrixaltuep.jpg\",\n            \"isMain\": false\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Update Main Photo (based on API key - Delores)",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:{{portNumber}}/api/users/set-main-photo/20",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "{{portNumber}}",
+							"path": [
+								"api",
+								"users",
+								"set-main-photo",
+								"20"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Update Main Photo (based on API key - Delores)",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"url": {
+									"raw": "https://localhost:{{portNumber}}/api/users/set-main-photo/20",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"port": "{{portNumber}}",
+									"path": [
+										"api",
+										"users",
+										"set-main-photo",
+										"20"
+									]
+								}
+							},
+							"status": "No Content",
+							"code": 204,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Sun, 06 Jul 2025 16:46:12 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Kestrel"
+								}
+							],
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "Delete Photo (based on API key - Delores)",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:{{portNumber}}/api/users/delete-photo/20",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "{{portNumber}}",
+							"path": [
+								"api",
+								"users",
+								"delete-photo",
+								"20"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Delete Photo (based on API key - Delores)",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "https://localhost:{{portNumber}}/api/users/delete-photo/20",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"port": "{{portNumber}}",
+									"path": [
+										"api",
+										"users",
+										"delete-photo",
+										"20"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "Content-Length",
+									"value": "0"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 07 Jul 2025 10:07:15 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Kestrel"
+								}
+							],
+							"cookie": [],
+							"body": null
 						}
 					]
 				}
