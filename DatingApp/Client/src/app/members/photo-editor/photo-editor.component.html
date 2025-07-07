@@ -3,8 +3,13 @@
     <div class="col-2">
         <img [src]="photo.url" alt="Photo of user" class="img-thumbnail mb-1" />
         <div class="text-center">
-            <button class="btn btn-sm">Set as main <i class="fa fa-star"></i></button>
-            <button class="btn btn-sm btn-danger">Delete <i class="fa fa-trash"></i></button>
+            <button class="btn btn-sm me-1"
+                    [disabled]="photo.isMain"
+                    (click)="setMainPhoto(photo)"
+                    [ngClass]="photo.isMain ? 'btn-success active': 'btn-outline-success'">
+                Profile <i class="fa fa-star"></i>
+            </button>
+            <button class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></button>
         </div>
     </div>
     }

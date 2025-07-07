@@ -4,6 +4,8 @@ import { DecimalPipe, NgClass, NgFor, NgIf, NgStyle } from '@angular/common';
 import { FileUploader, FileUploadModule } from 'ng2-file-upload';
 import { AccountService } from '../../_services/account.service';
 import { environment } from '../../../environments/environment';
+import { MembersService } from '../../_services/members.service';
+import { Photo } from '../../_models/photo';
 
 @Component({
   selector: 'app-photo-editor',
@@ -14,6 +16,7 @@ import { environment } from '../../../environments/environment';
 })
 export class PhotoEditorComponent implements OnInit {
   private accountService = inject(AccountService);
+  private memberService = inject(MembersService);
   member = input.required<Member>();
   memberChange = output<Member>();
   uploader?: FileUploader;
@@ -26,6 +29,31 @@ export class PhotoEditorComponent implements OnInit {
 
   fileOverBase(e: any){
     this.hasBaseDropZoneOver = e;
+  }
+
+  setMainPhoto(photo: Photo) {
+    return this.memberService.setMainPhoto(photo).subscribe({
+      next: _ => {
+        const user = this.accountService.currentUser();
+        // Update the current user into the "localStorage" of the browser and the signal "currentUser" for the whole app
+        if (user) {
+          user.photoUrl = photo.url;
+          this.accountService.setCurrentUser(user);
+        }
+        // Update the member "IsMain" property and emit the event of the change
+        const updatedMember = { ...this.member() };
+        updatedMember.photoUrl = photo.url;
+        updatedMember.photos.forEach(p => {
+          if (p.isMain){
+            p.isMain = false;
+          }
+          if (p.id == photo.id){
+            p.isMain = true;
+          }
+        });
+        this.memberChange.emit(updatedMember);
+      }
+    });
   }
 
   initializeUploader(){
