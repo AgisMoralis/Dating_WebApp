@@ -9,7 +9,12 @@
                     [ngClass]="photo.isMain ? 'btn-success active': 'btn-outline-success'">
                 Profile <i class="fa fa-star"></i>
             </button>
-            <button class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></button>
+            <button
+                class="btn btn-sm btn-danger"
+                [disabled]="photo.isMain"
+                (click)="deletePhoto(photo)">
+                <i class="fa fa-trash"></i>
+            </button>
         </div>
     </div>
     }
