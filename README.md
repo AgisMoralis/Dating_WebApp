@@ -9,6 +9,7 @@
 - Angular (18.2)
 - Bootstrap
 - RxJS
+- Reactive forms
 - HTML and CSS
 - Dependency Injection
 - Asynchronous code

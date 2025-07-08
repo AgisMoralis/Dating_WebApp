@@ -53,14 +53,7 @@ export class PhotoEditorComponent implements OnInit {
         // Update the member "IsMain" property and emit the event of the change
         const updatedMember = { ...this.member() };
         updatedMember.photoUrl = photo.url;
-        updatedMember.photos.forEach(p => {
-          if (p.isMain){
-            p.isMain = false;
-          }
-          if (p.id == photo.id){
-            p.isMain = true;
-          }
-        });
+        updatedMember.photos.forEach(p => { p.isMain = (p.id === photo.id); });
         this.memberChange.emit(updatedMember);
       }
     });
@@ -86,6 +79,16 @@ export class PhotoEditorComponent implements OnInit {
       const photo = JSON.parse(response);
       const updatedMember = { ...this.member() };
       updatedMember.photos.push(photo);
+      if (photo.isMain) {
+        this.memberService.updateMainPhoto(photo.id, photo.url);
+        const user = this.accountService.currentUser();
+        if (user) {
+          user.photoUrl = photo.url;
+          this.accountService.setCurrentUser(user);
+        }
+        updatedMember.photoUrl = photo.url;
+        updatedMember.photos.forEach(p => { p.isMain = (p.id === photo.id); });
+      }
       this.memberChange.emit(updatedMember);
     }
   }

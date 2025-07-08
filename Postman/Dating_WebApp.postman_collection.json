@@ -791,6 +791,101 @@
 			"name": "Extended API",
 			"item": [
 				{
+					"name": "Register New User (Updated body)",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"gender\": \"male\",\r\n    \"knownAs\": \"Bob\",\r\n    \"username\": \"bob\",\r\n    \"password\": \"pa$$word\",\r\n    \"dateOfBirth\": \"23-01-1989\",\r\n    \"city\": \"London\",\r\n    \"country\": \"UK\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:{{portNumber}}/api/account/register/",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "{{portNumber}}",
+							"path": [
+								"api",
+								"account",
+								"register",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Register New User (Updated body)",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"gender\": \"male\",\r\n    \"knownAs\": \"Bob\",\r\n    \"username\": \"bob\",\r\n    \"password\": \"pa$$word\",\r\n    \"dateOfBirth\": \"23-01-1989\",\r\n    \"city\": \"London\",\r\n    \"country\": \"UK\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://localhost:{{portNumber}}/api/account/register/",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"port": "{{portNumber}}",
+									"path": [
+										"api",
+										"account",
+										"register",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 07 Jul 2025 17:03:31 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Kestrel"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"username\": \"bob\",\n    \"knownAs\": \"Bob\",\n    \"token\": \"eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiJib2IiLCJuYmYiOjE3NTE5MDc4MTEsImV4cCI6MTc1MjUxMjYxMSwiaWF0IjoxNzUxOTA3ODExfQ.alJDdIquOfdkkUkDmsb8ENzfWVCW72XCLWMV5iHcGrbFWH3rTKTVDtuMB1imdRSwDvlcBwhiHVFv7nEG9m9eUQ\",\n    \"photoUrl\": null\n}"
+						}
+					]
+				},
+				{
 					"name": "Login Existing User (Delores) and Save Token to Custom Environment",
 					"event": [
 						{
@@ -878,7 +973,7 @@
 								},
 								{
 									"key": "Date",
-									"value": "Mon, 16 Jun 2025 15:51:51 GMT"
+									"value": "Mon, 07 Jul 2025 17:04:01 GMT"
 								},
 								{
 									"key": "Server",
@@ -890,7 +985,7 @@
 								}
 							],
 							"cookie": [],
-							"body": "{\n    \"username\": \"delores\",\n    \"token\": \"eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiJkZWxvcmVzIiwibmJmIjoxNzUwMDg5MTExLCJleHAiOjE3NTA2OTM5MTEsImlhdCI6MTc1MDA4OTExMX0.gnW2F8VFLupHOEArqQFTiLhLqpBN2sWLAG7EN6y6R7GDOCejr-OEj-DFNbjscpoy4MgECyubSEv39Y6-pcbEBg\"\n}"
+							"body": "{\n    \"username\": \"delores\",\n    \"knownAs\": \"Delores\",\n    \"token\": \"eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiJkZWxvcmVzIiwibmJmIjoxNzUxOTA3ODQxLCJleHAiOjE3NTI1MTI2NDEsImlhdCI6MTc1MTkwNzg0MX0.SS3MkNJq-LfoT4x-kTbQsKkn19PEU1aDbNhYUzT_GBxlDKZGpqER_1Hu-9SUEvZHsralXKXQ1o2PiX975M--og\",\n    \"photoUrl\": \"https://randomuser.me/api/portraits/women/41.jpg\"\n}"
 						}
 					]
 				},
