@@ -1,4 +1,3 @@
-using System.Security.Claims;
 using AutoMapper;
 using DatingApp.API.Extensions;
 using DatingApp.API.Interfaces;
@@ -11,9 +10,12 @@ namespace DatingApp.API.Controllers;
 public class UsersController(IUserRepository userRepository, IMapper mapper, IPhotoService photoService) : BaseAPIController
 {
     [HttpGet]
-    public async Task<ActionResult<IEnumerable<Models.MemberDto>>> GetUsersAsync()
+    public async Task<ActionResult<IEnumerable<Models.MemberDto>>> GetUsersAsync([FromQuery]Models.PaginationParametersDto userParams)
     {
-        var users = await userRepository.GetMemberDtosAsync();
+        var users = await userRepository.GetMemberDtosAsync(userParams);
+
+        Response.AddPaginationHeader(users);
+
         return Ok(users);
     }
 

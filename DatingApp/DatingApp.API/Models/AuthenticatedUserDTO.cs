@@ -1,6 +1,6 @@
 namespace DatingApp.API.Models;
 
-public class AuthenticatedUserDTO
+public class AuthenticatedUserDto
 {
     public required string Username { get; set; }
 
