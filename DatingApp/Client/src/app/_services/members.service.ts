@@ -39,15 +39,19 @@ export class MembersService {
   setMainPhoto(photo: Photo) {
     return this.http.put(this.baseUrl + 'users/set-main-photo/' + photo.id, {}).pipe(
       tap(() => {
-        this.members.update(members =>
-          members.map(m => {
-            if(m.photos.includes(photo)){
-              m.photoUrl = photo.url;
-            }
-            return m;
-          }))
+        this.updateMainPhoto(photo.id, photo.url);
       })
     );
+  }
+
+  updateMainPhoto(id: number, url: string){
+    this.members.update(members =>
+      members.map(m => {
+        if (m.photos.some(p => p.id === id && p.url === url)){
+          m.photoUrl = url;
+        }
+        return m;
+      }))
   }
 
   deletePhoto(photo: Photo) {
