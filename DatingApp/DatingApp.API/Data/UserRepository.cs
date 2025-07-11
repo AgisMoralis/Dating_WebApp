@@ -37,11 +37,25 @@ public class UserRepository(DataContext context, IMapper mapper) : IUserReposito
             .ToListAsync();
     }
 
-    public async Task<PagedList<MemberDto>> GetMemberDtosAsync(PaginationParametersDto userParams)
+    public async Task<PagedList<MemberDto>> GetMemberDtosAsync(MemberParametersDto memberParams)
     {
-        var query = context.Members
-            .ProjectTo<MemberDto>(mapper.ConfigurationProvider);
-        return await PagedList<MemberDto>.CreateAsync(query, userParams.PageNumber, userParams.PageSize);
+        var query = context.Members.AsQueryable()
+            .Where(u => u.Username != memberParams.CurrentUsername);
+
+        if (memberParams.Gender != null)
+        {
+            query = query.Where(u => u.Gender == memberParams.Gender);
+        }
+
+        var minDateOfBirth = DateOnly.FromDateTime(DateTime.Today.AddYears(-memberParams.MaxAge - 1));
+        var maxDateOfBirth = DateOnly.FromDateTime(DateTime.Today.AddYears(-memberParams.MinAge));
+
+        query = query.Where(u => u.DateOfBirth >= minDateOfBirth && u.DateOfBirth <= maxDateOfBirth);
+
+        return await PagedList<MemberDto>.CreateAsync(
+            query.ProjectTo<MemberDto>(mapper.ConfigurationProvider),
+            memberParams.PageNumber,
+            memberParams.PageSize);
     }
 
     public void Update(Member member)

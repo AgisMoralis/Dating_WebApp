@@ -27,6 +27,7 @@ public class AccountController(DataContext context, ITokenService tokenService, 
         {
             Username = newUser.Username,
             KnownAs = newUser.KnownAs,
+            Gender = newUser.Gender,
             Token = tokenService.CreateToken(newUser)
         };
         return Ok(authenticatedUser);
@@ -51,6 +52,7 @@ public class AccountController(DataContext context, ITokenService tokenService, 
         {
             Username = user.Username,
             KnownAs = user.KnownAs,
+            Gender = user.Gender,
             Token = tokenService.CreateToken(user),
             PhotoUrl = user.Photos.FirstOrDefault(p => p.IsMain)?.Url
         };

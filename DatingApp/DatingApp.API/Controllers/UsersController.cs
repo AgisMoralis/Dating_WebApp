@@ -10,9 +10,10 @@ namespace DatingApp.API.Controllers;
 public class UsersController(IUserRepository userRepository, IMapper mapper, IPhotoService photoService) : BaseAPIController
 {
     [HttpGet]
-    public async Task<ActionResult<IEnumerable<Models.MemberDto>>> GetUsersAsync([FromQuery]Models.PaginationParametersDto userParams)
+    public async Task<ActionResult<IEnumerable<Models.MemberDto>>> GetUsersAsync([FromQuery]Models.MemberParametersDto memberParams)
     {
-        var users = await userRepository.GetMemberDtosAsync(userParams);
+        memberParams.CurrentUsername = User.GetUsername();
+        var users = await userRepository.GetMemberDtosAsync(memberParams);
 
         Response.AddPaginationHeader(users);
 
