@@ -47,6 +47,12 @@ public class UserRepository(DataContext context, IMapper mapper) : IUserReposito
             query = query.Where(u => u.Gender == memberParams.Gender);
         }
 
+        query = memberParams.OrderBy switch
+        {
+            "created" => query.OrderByDescending(u => u.Created),
+            _ => query.OrderByDescending(u => u.LastActive)
+        };
+        
         var minDateOfBirth = DateOnly.FromDateTime(DateTime.Today.AddYears(-memberParams.MaxAge - 1));
         var maxDateOfBirth = DateOnly.FromDateTime(DateTime.Today.AddYears(-memberParams.MinAge));
 
