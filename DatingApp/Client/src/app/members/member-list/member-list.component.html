@@ -13,7 +13,7 @@
                     type="number"
                     class="form-control ms-1"
                     style="width: 70px;"
-                    [(ngModel)]="memberParams.minAge">
+                    [(ngModel)]="memberService.memberParams().minAge">
             </div>
             <div class="d-flex mx-2">
                 <label class="col-form-label">Age to: </label>
@@ -21,14 +21,14 @@
                     type="number"
                     class="form-control ms-1"
                     style="width: 70px;"
-                    [(ngModel)]="memberParams.maxAge">
+                    [(ngModel)]="memberService.memberParams().maxAge">
             </div>
             <div class="d-flex mx-2">
                 <label class="col-form-label">Show: </label>
                 <select name="gender"
                     class="form-select ms-1"
                     style="width: 130px;" 
-                    [(ngModel)]="memberParams.gender"
+                    [(ngModel)]="memberService.memberParams().gender"
                 >
                     @for (gender of genderList; track gender.value) {
                         <option [value]="gender.value">
@@ -47,7 +47,7 @@
                            name="orderBy"
                            id="orderByLastActive"
                            value="lastActive"
-                           [(ngModel)]="memberParams.orderBy"
+                           [(ngModel)]="memberService.memberParams().orderBy"
                            (change)="loadMembers()">
                     <label class="form-check-label" for="orderByLastActive">Last active</label>
                 </div>
@@ -57,7 +57,7 @@
                            name="orderBy"
                            id="orderByCreated"
                            value="created"
-                           [(ngModel)]="memberParams.orderBy"
+                           [(ngModel)]="memberService.memberParams().orderBy"
                            (change)="loadMembers()">
                     <label class="form-check-label" for="orderByCreated">Newest Members</label>
                 </div>
@@ -81,6 +81,7 @@
             [totalItems]="memberService.paginatedResults()?.pagination!.totalItems"
             [itemsPerPage]="memberService.paginatedResults()?.pagination!.itemsPerPage"
             (pageChanged)="pageChanged($event)"
+            [(ngModel)]="memberService.paginatedResults()?.pagination!.currentPage"
             [maxSize]="10"
             previousText="&lsaquo;"
             nextText="&rsaquo;"
