@@ -10,7 +10,7 @@ namespace DatingApp.API.Controllers;
 public class AccountController(DataContext context, ITokenService tokenService, IMapper mapper) : BaseAPIController
 {
     [HttpPost("register")]
-    public async Task<ActionResult<Models.AuthenticatedUserDTO>> RegisterAsync(Models.RegisterDTO registerDTO)
+    public async Task<ActionResult<Models.AuthenticatedUserDto>> RegisterAsync(Models.RegisterDto registerDTO)
     {
         if (await UserExistsAsync(registerDTO.Username)) return BadRequest("Username already exists");
 
@@ -23,17 +23,18 @@ public class AccountController(DataContext context, ITokenService tokenService, 
         context.Members.Add(newUser);
         await context.SaveChangesAsync();
         
-        var authenticatedUser = new Models.AuthenticatedUserDTO
+        var authenticatedUser = new Models.AuthenticatedUserDto
         {
             Username = newUser.Username,
             KnownAs = newUser.KnownAs,
+            Gender = newUser.Gender,
             Token = tokenService.CreateToken(newUser)
         };
         return Ok(authenticatedUser);
     }
 
     [HttpPost("login")]
-    public async Task<ActionResult<Models.AuthenticatedUserDTO>> LoginAsync(Models.LoginDTO loginDTO)
+    public async Task<ActionResult<Models.AuthenticatedUserDto>> LoginAsync(Models.LoginDto loginDTO)
     {
         var user = await context.Members
             .Include(u => u.Photos)
@@ -47,10 +48,11 @@ public class AccountController(DataContext context, ITokenService tokenService, 
             if (computedHash[i] != user.PasswordHash[i]) return Unauthorized("Invalid password");
         }
 
-        var authenticatedUser = new Models.AuthenticatedUserDTO
+        var authenticatedUser = new Models.AuthenticatedUserDto
         {
             Username = user.Username,
             KnownAs = user.KnownAs,
+            Gender = user.Gender,
             Token = tokenService.CreateToken(user),
             PhotoUrl = user.Photos.FirstOrDefault(p => p.IsMain)?.Url
         };

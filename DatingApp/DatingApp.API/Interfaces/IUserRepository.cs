@@ -1,15 +1,14 @@
-using DatingApp.API.Entities;
-using DatingApp.API.Models;
+using DatingApp.API.Helpers;
 
 namespace DatingApp.API.Interfaces;
 
 public interface IUserRepository
 {
-    Task<Member?> GetMemberByIdAsync(int id);
-    Task<Member?> GetMemberByUsernameAsync(string username);
-    Task<MemberDto?> GetMemberDtoByUsernameAsync(string username);
-    Task<IEnumerable<Member>> GetMembersAsync();
-    Task<IEnumerable<MemberDto>> GetMemberDtosAsync();
-    void Update(Member member);
+    Task<Entities.Member?> GetMemberByIdAsync(int id);
+    Task<Entities.Member?> GetMemberByUsernameAsync(string username);
+    Task<Models.MemberDto?> GetMemberDtoByUsernameAsync(string username);
+    Task<IEnumerable<Entities.Member>> GetMembersAsync();
+    Task<PagedList<Models.MemberDto>> GetMemberDtosAsync(Models.MemberParametersDto memberParams);
+    void Update(Entities.Member member);
     Task<bool> SaveAllAsync();
 }

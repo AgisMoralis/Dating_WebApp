@@ -1588,6 +1588,738 @@
 					]
 				}
 			]
+		},
+		{
+			"name": "Pagination, Sorting and Filtering",
+			"item": [
+				{
+					"name": "Get Users (No query parameters)",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:{{portNumber}}/api/users",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "{{portNumber}}",
+							"path": [
+								"api",
+								"users"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get Users (No query parameters)",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://localhost:{{portNumber}}/api/users",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"port": "{{portNumber}}",
+									"path": [
+										"api",
+										"users"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 08 Jul 2025 10:04:35 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Kestrel"
+								},
+								{
+									"key": "Access-Control-Expose-Headers",
+									"value": "Pagination"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Pagination",
+									"value": "{\"currentPage\":1,\"totalPages\":2,\"itemsPerPage\":10,\"totalItems\":11}"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": 1,\n        \"username\": \"ida\",\n        \"age\": 47,\n        \"photoUrl\": \"https://randomuser.me/api/portraits/women/14.jpg\",\n        \"knownAs\": \"Ida\",\n        \"created\": \"2019-01-15T00:00:00\",\n        \"lastActive\": \"2020-05-16T00:00:00\",\n        \"gender\": \"female\",\n        \"introduction\": \"Eu esse irure nostrud cupidatat ad. Ex do deserunt pariatur voluptate velit non sit duis. Sint esse nostrud tempor aliquip deserunt id magna.\\r\\n\",\n        \"interests\": \"Consectetur sit mollit anim deserunt et irure pariatur ipsum duis esse proident excepteur culpa fugiat.\",\n        \"lookingFor\": \"Incididunt adipisicing amet ullamco sit amet. Exercitation et veniam ea ullamco. Cupidatat eiusmod anim officia eiusmod ea nisi ad. Do commodo laborum laboris do cupidatat consectetur nisi Lorem excepteur duis mollit nostrud. Eiusmod do eu occaecat esse sunt nulla enim cillum minim excepteur eiusmod culpa voluptate aliqua. Velit esse laboris labore ut eiusmod voluptate commodo tempor.\\r\\n\",\n        \"city\": \"Westboro\",\n        \"country\": \"Saint Vincent and The Grenadines\",\n        \"photos\": [\n            {\n                \"id\": 1,\n                \"url\": \"https://randomuser.me/api/portraits/women/14.jpg\",\n                \"isMain\": true\n            }\n        ]\n    },\n    {\n        \"id\": 2,\n        \"username\": \"luella\",\n        \"age\": 48,\n        \"photoUrl\": \"https://randomuser.me/api/portraits/women/19.jpg\",\n        \"knownAs\": \"Luella\",\n        \"created\": \"2019-02-09T00:00:00\",\n        \"lastActive\": \"2020-06-16T00:00:00\",\n        \"gender\": \"female\",\n        \"introduction\": \"Proident labore dolore nostrud cupidatat amet eiusmod. Incididunt duis tempor eu aliquip aliqua nulla excepteur et excepteur laboris incididunt cupidatat proident commodo. Officia magna velit eiusmod ut qui ullamco. Excepteur Lorem adipisicing voluptate in nulla laborum ea. Labore fugiat sit in minim anim occaecat duis enim Lorem cillum enim. Ad dolor culpa est proident reprehenderit aliquip amet cillum.\\r\\n\",\n        \"interests\": \"Duis id ut ullamco dolore ea occaecat ipsum mollit exercitation esse irure sint veniam ipsum.\",\n        \"lookingFor\": \"Anim quis eu reprehenderit aliquip ullamco proident ipsum consectetur magna culpa eiusmod et sit. Cupidatat voluptate dolore non pariatur ad qui irure labore do officia esse irure. Lorem sint do commodo ex velit cupidatat amet consectetur non Lorem exercitation irure sint. Cillum labore ex consectetur commodo amet eu excepteur mollit sunt ad exercitation qui irure. Enim anim deserunt amet occaecat. Tempor aliqua labore aliquip consectetur ullamco id eu nulla duis nisi. Ea sit veniam nisi deserunt officia magna laboris anim.\\r\\n\",\n        \"city\": \"Cumminsville\",\n        \"country\": \"British Indian Ocean Territory\",\n        \"photos\": [\n            {\n                \"id\": 2,\n                \"url\": \"https://randomuser.me/api/portraits/women/19.jpg\",\n                \"isMain\": true\n            }\n        ]\n    },\n    {\n        \"id\": 3,\n        \"username\": \"delores\",\n        \"age\": 41,\n        \"photoUrl\": \"https://randomuser.me/api/portraits/women/41.jpg\",\n        \"knownAs\": \"Delores\",\n        \"created\": \"2020-03-29T00:00:00\",\n        \"lastActive\": \"2020-06-17T00:00:00\",\n        \"gender\": \"female\",\n        \"introduction\": \"Esse qui nulla nulla nisi dolore elit fugiat ex et sint minim non. Reprehenderit fugiat exercitation laborum nostrud reprehenderit deserunt ad sit incididunt id sunt. Quis cillum occaecat do quis Lorem labore ad.\\r\\n\",\n        \"interests\": \"Sunt minim cupidatat in ut consequat consectetur et velit proident tempor ad mollit.\",\n        \"lookingFor\": \"Labore quis commodo excepteur ullamco ipsum dolore. Ut ad eu deserunt veniam incididunt et sit dolore. Fugiat ea culpa aute est irure cillum laborum incididunt veniam amet in do sit sint. Consequat proident do nostrud cupidatat commodo tempor excepteur nostrud dolore minim eiusmod. Dolore enim esse exercitation dolor voluptate. Cupidatat in non aliquip labore non fugiat nulla quis ad velit magna reprehenderit. In eiusmod consectetur minim irure nisi duis do dolore mollit nostrud sint pariatur ea dolore.\\r\\n\",\n        \"city\": \"Goochland\",\n        \"country\": \"Panama\",\n        \"photos\": [\n            {\n                \"id\": 3,\n                \"url\": \"https://randomuser.me/api/portraits/women/41.jpg\",\n                \"isMain\": true\n            },\n            {\n                \"id\": 24,\n                \"url\": \"https://res.cloudinary.com/devmediacloudserver/image/upload/v1751884234/DatingApp/bwxgzvx3n30kex1j83jp.jpg\",\n                \"isMain\": false\n            }\n        ]\n    },\n    {\n        \"id\": 4,\n        \"username\": \"desiree\",\n        \"age\": 72,\n        \"photoUrl\": \"https://randomuser.me/api/portraits/women/57.jpg\",\n        \"knownAs\": \"Desiree\",\n        \"created\": \"2019-10-19T00:00:00\",\n        \"lastActive\": \"2020-05-17T00:00:00\",\n        \"gender\": \"female\",\n        \"introduction\": \"Nulla irure consequat occaecat elit voluptate dolor reprehenderit id ipsum. Ea excepteur aliquip exercitation nisi fugiat nulla ullamco aute magna do qui mollit velit. Aliqua irure nostrud aliqua fugiat consectetur eu velit qui in elit enim anim. Dolor occaecat reprehenderit amet qui minim aliqua esse sunt magna adipisicing eiusmod tempor. Excepteur laborum et ad non quis. Lorem eu dolor sit elit dolore esse ea duis nostrud Lorem.\\r\\n\",\n        \"interests\": \"Consequat voluptate eiusmod ullamco commodo dolor do.\",\n        \"lookingFor\": \"Eu eiusmod elit deserunt sit velit dolore velit in est. Consectetur enim qui Lorem qui est. Laborum consequat reprehenderit minim esse magna. In ut aliquip qui do do anim elit consectetur consequat ea consequat proident deserunt. Commodo ex aute excepteur voluptate ea duis tempor. Proident amet exercitation ipsum officia ad non. Elit esse reprehenderit deserunt irure ipsum exercitation eiusmod labore in consectetur cillum ipsum.\\r\\n\",\n        \"city\": \"Johnsonburg\",\n        \"country\": \"Uganda\",\n        \"photos\": [\n            {\n                \"id\": 4,\n                \"url\": \"https://randomuser.me/api/portraits/women/57.jpg\",\n                \"isMain\": true\n            }\n        ]\n    },\n    {\n        \"id\": 5,\n        \"username\": \"susanne\",\n        \"age\": 57,\n        \"photoUrl\": \"https://randomuser.me/api/portraits/women/88.jpg\",\n        \"knownAs\": \"Susanne\",\n        \"created\": \"2020-02-05T00:00:00\",\n        \"lastActive\": \"2020-05-27T00:00:00\",\n        \"gender\": \"female\",\n        \"introduction\": \"Ut ad occaecat laborum voluptate. Elit proident sint magna ullamco enim pariatur anim. Mollit dolore consectetur enim veniam. Incididunt cupidatat eu enim cillum officia irure aute non aute laborum ipsum nostrud irure officia. Deserunt aliqua qui aliqua velit minim aliqua ex ipsum nostrud consectetur excepteur labore veniam. Eiusmod dolor elit culpa proident. Irure incididunt do cillum mollit.\\r\\n\",\n        \"interests\": \"Excepteur aliqua do ea tempor ea adipisicing cupidatat laborum occaecat anim.\",\n        \"lookingFor\": \"Sint mollit incididunt id dolor laborum in do eu enim sit ullamco consequat quis. Veniam officia in pariatur consequat adipisicing non duis amet anim mollit duis. Ex enim ut laboris adipisicing. Laboris aliquip elit quis voluptate. Labore sint nostrud nulla irure sit esse ad amet consequat tempor est quis aute exercitation.\\r\\n\",\n        \"city\": \"Bloomington\",\n        \"country\": \"Hungary\",\n        \"photos\": [\n            {\n                \"id\": 5,\n                \"url\": \"https://randomuser.me/api/portraits/women/88.jpg\",\n                \"isMain\": true\n            }\n        ]\n    },\n    {\n        \"id\": 6,\n        \"username\": \"kirk\",\n        \"age\": 53,\n        \"photoUrl\": \"https://randomuser.me/api/portraits/men/12.jpg\",\n        \"knownAs\": \"Kirk\",\n        \"created\": \"2019-12-03T00:00:00\",\n        \"lastActive\": \"2020-05-13T00:00:00\",\n        \"gender\": \"male\",\n        \"introduction\": \"Minim elit cupidatat aute commodo tempor aliquip est officia culpa consequat. Id eiusmod dolore minim aliquip. Cupidatat ex non do ex labore magna enim. Labore quis veniam quis ea ea.\\r\\n\",\n        \"interests\": \"Eu proident mollit est non.\",\n        \"lookingFor\": \"Laboris elit cillum fugiat elit cupidatat irure nostrud fugiat cillum sint excepteur laboris ipsum eiusmod. Et consequat esse aliqua sunt aliqua mollit fugiat duis. Deserunt proident reprehenderit dolore ut voluptate. Sit esse et do id ex cupidatat eu. In tempor consectetur fugiat ipsum nostrud enim occaecat exercitation cupidatat commodo.\\r\\n\",\n        \"city\": \"Taft\",\n        \"country\": \"Saint Lucia\",\n        \"photos\": [\n            {\n                \"id\": 6,\n                \"url\": \"https://randomuser.me/api/portraits/men/12.jpg\",\n                \"isMain\": true\n            }\n        ]\n    },\n    {\n        \"id\": 7,\n        \"username\": \"cook\",\n        \"age\": 67,\n        \"photoUrl\": \"https://randomuser.me/api/portraits/men/19.jpg\",\n        \"knownAs\": \"Cook\",\n        \"created\": \"2019-08-18T00:00:00\",\n        \"lastActive\": \"2020-05-11T00:00:00\",\n        \"gender\": \"male\",\n        \"introduction\": \"In fugiat veniam fugiat enim magna cillum occaecat esse est anim quis consectetur nostrud deserunt. Sint sit qui non mollit veniam non aliqua laborum tempor aute dolore culpa do aute. Officia aliquip ad eu anim est sit officia Lorem ipsum consequat deserunt amet consequat commodo. Labore magna commodo ea laborum nostrud do cillum nisi dolor excepteur aliqua. Aute amet culpa enim ullamco dolore anim quis ad.\\r\\n\",\n        \"interests\": \"Voluptate duis eu eu sunt dolor ipsum amet velit elit labore dolor tempor occaecat.\",\n        \"lookingFor\": \"Aliqua irure sint Lorem sint sit commodo adipisicing reprehenderit consequat qui mollit. Sint deserunt sit incididunt voluptate voluptate exercitation. Id magna in cupidatat officia irure culpa id elit consequat velit sint excepteur non fugiat. Tempor enim Lorem eiusmod pariatur magna enim enim non anim esse reprehenderit ad. Non veniam excepteur velit est fugiat magna occaecat sint commodo irure reprehenderit. Dolore velit non consequat in ea adipisicing cillum ut sint ad.\\r\\n\",\n        \"city\": \"Caroline\",\n        \"country\": \"India\",\n        \"photos\": [\n            {\n                \"id\": 7,\n                \"url\": \"https://randomuser.me/api/portraits/men/19.jpg\",\n                \"isMain\": true\n            }\n        ]\n    },\n    {\n        \"id\": 8,\n        \"username\": \"stevenson\",\n        \"age\": 61,\n        \"photoUrl\": \"https://randomuser.me/api/portraits/men/9.jpg\",\n        \"knownAs\": \"Stevenson\",\n        \"created\": \"2019-09-08T00:00:00\",\n        \"lastActive\": \"2020-06-06T00:00:00\",\n        \"gender\": \"male\",\n        \"introduction\": \"Amet aliqua irure consectetur irure. Dolor non aliquip quis cupidatat nisi enim id laboris pariatur sint culpa excepteur. Ea voluptate commodo nostrud veniam veniam Lorem ut ut duis cupidatat officia sit ut. Tempor fugiat officia commodo id sit consequat cillum cupidatat deserunt ipsum occaecat. Qui laboris fugiat duis excepteur culpa nulla sint duis dolore fugiat enim elit. Tempor duis ullamco veniam duis. Ad dolor dolor culpa reprehenderit veniam.\\r\\n\",\n        \"interests\": \"Eu tempor qui officia proident aliqua.\",\n        \"lookingFor\": \"Ea quis culpa anim id non cupidatat sit velit. Enim fugiat aliqua eiusmod excepteur aliqua nisi mollit aliqua nostrud fugiat veniam voluptate cillum. Enim ea fugiat non aute culpa est non. Sint reprehenderit fugiat pariatur mollit elit aliquip. Sunt ullamco non Lorem fugiat et est ad tempor et laboris. Tempor enim dolore et eu veniam.\\r\\n\",\n        \"city\": \"Tyro\",\n        \"country\": \"Ethiopia\",\n        \"photos\": [\n            {\n                \"id\": 8,\n                \"url\": \"https://randomuser.me/api/portraits/men/9.jpg\",\n                \"isMain\": true\n            }\n        ]\n    },\n    {\n        \"id\": 9,\n        \"username\": \"roach\",\n        \"age\": 29,\n        \"photoUrl\": \"https://randomuser.me/api/portraits/men/85.jpg\",\n        \"knownAs\": \"Roach\",\n        \"created\": \"2019-02-06T00:00:00\",\n        \"lastActive\": \"2020-05-30T00:00:00\",\n        \"gender\": \"male\",\n        \"introduction\": \"Incididunt culpa reprehenderit excepteur sint irure veniam aliquip officia duis aute amet commodo velit ea. Dolore minim esse eiusmod nulla officia non. Labore ipsum mollit dolor exercitation esse in consequat do elit in veniam culpa. Non consequat magna enim velit adipisicing est velit. Quis et minim sint officia commodo laborum ipsum cillum exercitation duis irure magna reprehenderit esse. Nisi fugiat est qui aliquip irure pariatur aliqua exercitation enim.\\r\\n\",\n        \"interests\": \"Anim mollit mollit duis qui officia aliqua laborum do mollit tempor.\",\n        \"lookingFor\": \"Sit dolor aliquip aliqua cupidatat ea. Aliquip sint nulla est eiusmod non fugiat. Nulla eiusmod adipisicing ex sit minim. Eiusmod tempor excepteur culpa amet sunt occaecat aliquip incididunt sit ullamco. Ipsum officia cupidatat in adipisicing nisi. Aliqua veniam proident ea exercitation dolore ipsum dolor laboris enim culpa deserunt ipsum adipisicing exercitation. Adipisicing cupidatat ad enim id.\\r\\n\",\n        \"city\": \"Indio\",\n        \"country\": \"Puerto Rico\",\n        \"photos\": [\n            {\n                \"id\": 9,\n                \"url\": \"https://randomuser.me/api/portraits/men/85.jpg\",\n                \"isMain\": true\n            }\n        ]\n    },\n    {\n        \"id\": 10,\n        \"username\": \"stout\",\n        \"age\": 50,\n        \"photoUrl\": \"https://randomuser.me/api/portraits/men/82.jpg\",\n        \"knownAs\": \"Stout\",\n        \"created\": \"2020-03-07T00:00:00\",\n        \"lastActive\": \"2020-05-15T00:00:00\",\n        \"gender\": \"male\",\n        \"introduction\": \"Minim aute sint quis aliqua quis aute sint ullamco deserunt proident ut culpa ullamco. Nulla labore adipisicing fugiat consequat sint sint adipisicing. Eiusmod culpa labore exercitation culpa voluptate est est consequat duis. Reprehenderit deserunt id in ipsum voluptate ex fugiat consequat veniam. Sunt in ullamco laboris voluptate enim voluptate elit qui anim mollit ipsum mollit.\\r\\n\",\n        \"interests\": \"Eu irure non nulla cillum ipsum pariatur aliquip anim laboris amet commodo elit.\",\n        \"lookingFor\": \"Velit dolor qui eu sint. Laborum ut quis tempor esse exercitation minim ipsum sunt ea. Voluptate consectetur aliquip dolor mollit velit nulla commodo consectetur. Irure dolore incididunt aliqua qui laborum culpa sit aliquip laboris deserunt sit. Reprehenderit pariatur do cillum voluptate irure nisi culpa ea quis elit ipsum tempor ullamco.\\r\\n\",\n        \"city\": \"Cliffside\",\n        \"country\": \"Spain\",\n        \"photos\": [\n            {\n                \"id\": 10,\n                \"url\": \"https://randomuser.me/api/portraits/men/82.jpg\",\n                \"isMain\": true\n            }\n        ]\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "Get Users (With pagination query parameters)",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:{{portNumber}}/api/users?pageNumber=1&pageSize=5",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "{{portNumber}}",
+							"path": [
+								"api",
+								"users"
+							],
+							"query": [
+								{
+									"key": "pageNumber",
+									"value": "1"
+								},
+								{
+									"key": "pageSize",
+									"value": "5"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get Users (With pagination query parameters)",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://localhost:{{portNumber}}/api/users?pageNumber=1&pageSize=5",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"port": "{{portNumber}}",
+									"path": [
+										"api",
+										"users"
+									],
+									"query": [
+										{
+											"key": "pageNumber",
+											"value": "1"
+										},
+										{
+											"key": "pageSize",
+											"value": "5"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 08 Jul 2025 10:08:23 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Kestrel"
+								},
+								{
+									"key": "Access-Control-Expose-Headers",
+									"value": "Pagination"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Pagination",
+									"value": "{\"currentPage\":1,\"totalPages\":3,\"itemsPerPage\":5,\"totalItems\":11}"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": 1,\n        \"username\": \"ida\",\n        \"age\": 47,\n        \"photoUrl\": \"https://randomuser.me/api/portraits/women/14.jpg\",\n        \"knownAs\": \"Ida\",\n        \"created\": \"2019-01-15T00:00:00\",\n        \"lastActive\": \"2020-05-16T00:00:00\",\n        \"gender\": \"female\",\n        \"introduction\": \"Eu esse irure nostrud cupidatat ad. Ex do deserunt pariatur voluptate velit non sit duis. Sint esse nostrud tempor aliquip deserunt id magna.\\r\\n\",\n        \"interests\": \"Consectetur sit mollit anim deserunt et irure pariatur ipsum duis esse proident excepteur culpa fugiat.\",\n        \"lookingFor\": \"Incididunt adipisicing amet ullamco sit amet. Exercitation et veniam ea ullamco. Cupidatat eiusmod anim officia eiusmod ea nisi ad. Do commodo laborum laboris do cupidatat consectetur nisi Lorem excepteur duis mollit nostrud. Eiusmod do eu occaecat esse sunt nulla enim cillum minim excepteur eiusmod culpa voluptate aliqua. Velit esse laboris labore ut eiusmod voluptate commodo tempor.\\r\\n\",\n        \"city\": \"Westboro\",\n        \"country\": \"Saint Vincent and The Grenadines\",\n        \"photos\": [\n            {\n                \"id\": 1,\n                \"url\": \"https://randomuser.me/api/portraits/women/14.jpg\",\n                \"isMain\": true\n            }\n        ]\n    },\n    {\n        \"id\": 2,\n        \"username\": \"luella\",\n        \"age\": 48,\n        \"photoUrl\": \"https://randomuser.me/api/portraits/women/19.jpg\",\n        \"knownAs\": \"Luella\",\n        \"created\": \"2019-02-09T00:00:00\",\n        \"lastActive\": \"2020-06-16T00:00:00\",\n        \"gender\": \"female\",\n        \"introduction\": \"Proident labore dolore nostrud cupidatat amet eiusmod. Incididunt duis tempor eu aliquip aliqua nulla excepteur et excepteur laboris incididunt cupidatat proident commodo. Officia magna velit eiusmod ut qui ullamco. Excepteur Lorem adipisicing voluptate in nulla laborum ea. Labore fugiat sit in minim anim occaecat duis enim Lorem cillum enim. Ad dolor culpa est proident reprehenderit aliquip amet cillum.\\r\\n\",\n        \"interests\": \"Duis id ut ullamco dolore ea occaecat ipsum mollit exercitation esse irure sint veniam ipsum.\",\n        \"lookingFor\": \"Anim quis eu reprehenderit aliquip ullamco proident ipsum consectetur magna culpa eiusmod et sit. Cupidatat voluptate dolore non pariatur ad qui irure labore do officia esse irure. Lorem sint do commodo ex velit cupidatat amet consectetur non Lorem exercitation irure sint. Cillum labore ex consectetur commodo amet eu excepteur mollit sunt ad exercitation qui irure. Enim anim deserunt amet occaecat. Tempor aliqua labore aliquip consectetur ullamco id eu nulla duis nisi. Ea sit veniam nisi deserunt officia magna laboris anim.\\r\\n\",\n        \"city\": \"Cumminsville\",\n        \"country\": \"British Indian Ocean Territory\",\n        \"photos\": [\n            {\n                \"id\": 2,\n                \"url\": \"https://randomuser.me/api/portraits/women/19.jpg\",\n                \"isMain\": true\n            }\n        ]\n    },\n    {\n        \"id\": 3,\n        \"username\": \"delores\",\n        \"age\": 41,\n        \"photoUrl\": \"https://randomuser.me/api/portraits/women/41.jpg\",\n        \"knownAs\": \"Delores\",\n        \"created\": \"2020-03-29T00:00:00\",\n        \"lastActive\": \"2020-06-17T00:00:00\",\n        \"gender\": \"female\",\n        \"introduction\": \"Esse qui nulla nulla nisi dolore elit fugiat ex et sint minim non. Reprehenderit fugiat exercitation laborum nostrud reprehenderit deserunt ad sit incididunt id sunt. Quis cillum occaecat do quis Lorem labore ad.\\r\\n\",\n        \"interests\": \"Sunt minim cupidatat in ut consequat consectetur et velit proident tempor ad mollit.\",\n        \"lookingFor\": \"Labore quis commodo excepteur ullamco ipsum dolore. Ut ad eu deserunt veniam incididunt et sit dolore. Fugiat ea culpa aute est irure cillum laborum incididunt veniam amet in do sit sint. Consequat proident do nostrud cupidatat commodo tempor excepteur nostrud dolore minim eiusmod. Dolore enim esse exercitation dolor voluptate. Cupidatat in non aliquip labore non fugiat nulla quis ad velit magna reprehenderit. In eiusmod consectetur minim irure nisi duis do dolore mollit nostrud sint pariatur ea dolore.\\r\\n\",\n        \"city\": \"Goochland\",\n        \"country\": \"Panama\",\n        \"photos\": [\n            {\n                \"id\": 3,\n                \"url\": \"https://randomuser.me/api/portraits/women/41.jpg\",\n                \"isMain\": true\n            },\n            {\n                \"id\": 24,\n                \"url\": \"https://res.cloudinary.com/devmediacloudserver/image/upload/v1751884234/DatingApp/bwxgzvx3n30kex1j83jp.jpg\",\n                \"isMain\": false\n            }\n        ]\n    },\n    {\n        \"id\": 4,\n        \"username\": \"desiree\",\n        \"age\": 72,\n        \"photoUrl\": \"https://randomuser.me/api/portraits/women/57.jpg\",\n        \"knownAs\": \"Desiree\",\n        \"created\": \"2019-10-19T00:00:00\",\n        \"lastActive\": \"2020-05-17T00:00:00\",\n        \"gender\": \"female\",\n        \"introduction\": \"Nulla irure consequat occaecat elit voluptate dolor reprehenderit id ipsum. Ea excepteur aliquip exercitation nisi fugiat nulla ullamco aute magna do qui mollit velit. Aliqua irure nostrud aliqua fugiat consectetur eu velit qui in elit enim anim. Dolor occaecat reprehenderit amet qui minim aliqua esse sunt magna adipisicing eiusmod tempor. Excepteur laborum et ad non quis. Lorem eu dolor sit elit dolore esse ea duis nostrud Lorem.\\r\\n\",\n        \"interests\": \"Consequat voluptate eiusmod ullamco commodo dolor do.\",\n        \"lookingFor\": \"Eu eiusmod elit deserunt sit velit dolore velit in est. Consectetur enim qui Lorem qui est. Laborum consequat reprehenderit minim esse magna. In ut aliquip qui do do anim elit consectetur consequat ea consequat proident deserunt. Commodo ex aute excepteur voluptate ea duis tempor. Proident amet exercitation ipsum officia ad non. Elit esse reprehenderit deserunt irure ipsum exercitation eiusmod labore in consectetur cillum ipsum.\\r\\n\",\n        \"city\": \"Johnsonburg\",\n        \"country\": \"Uganda\",\n        \"photos\": [\n            {\n                \"id\": 4,\n                \"url\": \"https://randomuser.me/api/portraits/women/57.jpg\",\n                \"isMain\": true\n            }\n        ]\n    },\n    {\n        \"id\": 5,\n        \"username\": \"susanne\",\n        \"age\": 57,\n        \"photoUrl\": \"https://randomuser.me/api/portraits/women/88.jpg\",\n        \"knownAs\": \"Susanne\",\n        \"created\": \"2020-02-05T00:00:00\",\n        \"lastActive\": \"2020-05-27T00:00:00\",\n        \"gender\": \"female\",\n        \"introduction\": \"Ut ad occaecat laborum voluptate. Elit proident sint magna ullamco enim pariatur anim. Mollit dolore consectetur enim veniam. Incididunt cupidatat eu enim cillum officia irure aute non aute laborum ipsum nostrud irure officia. Deserunt aliqua qui aliqua velit minim aliqua ex ipsum nostrud consectetur excepteur labore veniam. Eiusmod dolor elit culpa proident. Irure incididunt do cillum mollit.\\r\\n\",\n        \"interests\": \"Excepteur aliqua do ea tempor ea adipisicing cupidatat laborum occaecat anim.\",\n        \"lookingFor\": \"Sint mollit incididunt id dolor laborum in do eu enim sit ullamco consequat quis. Veniam officia in pariatur consequat adipisicing non duis amet anim mollit duis. Ex enim ut laboris adipisicing. Laboris aliquip elit quis voluptate. Labore sint nostrud nulla irure sit esse ad amet consequat tempor est quis aute exercitation.\\r\\n\",\n        \"city\": \"Bloomington\",\n        \"country\": \"Hungary\",\n        \"photos\": [\n            {\n                \"id\": 5,\n                \"url\": \"https://randomuser.me/api/portraits/women/88.jpg\",\n                \"isMain\": true\n            }\n        ]\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "Get Users (as Delores, check filtering)",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:{{portNumber}}/api/users?gender=female",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "{{portNumber}}",
+							"path": [
+								"api",
+								"users"
+							],
+							"query": [
+								{
+									"key": "gender",
+									"value": "female"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get female Users (as Delores, check filtering)",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://localhost:{{portNumber}}/api/users?gender=female",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"port": "{{portNumber}}",
+									"path": [
+										"api",
+										"users"
+									],
+									"query": [
+										{
+											"key": "gender",
+											"value": "female"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 11 Jul 2025 11:49:40 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Kestrel"
+								},
+								{
+									"key": "Access-Control-Expose-Headers",
+									"value": "Pagination"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Pagination",
+									"value": "{\"currentPage\":1,\"totalPages\":1,\"itemsPerPage\":10,\"totalItems\":4}"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": 1,\n        \"username\": \"ida\",\n        \"age\": 47,\n        \"photoUrl\": \"https://randomuser.me/api/portraits/women/14.jpg\",\n        \"knownAs\": \"Ida\",\n        \"created\": \"2019-01-15T00:00:00\",\n        \"lastActive\": \"2020-05-16T00:00:00\",\n        \"gender\": \"female\",\n        \"introduction\": \"Eu esse irure nostrud cupidatat ad. Ex do deserunt pariatur voluptate velit non sit duis. Sint esse nostrud tempor aliquip deserunt id magna.\\r\\n\",\n        \"interests\": \"Consectetur sit mollit anim deserunt et irure pariatur ipsum duis esse proident excepteur culpa fugiat.\",\n        \"lookingFor\": \"Incididunt adipisicing amet ullamco sit amet. Exercitation et veniam ea ullamco. Cupidatat eiusmod anim officia eiusmod ea nisi ad. Do commodo laborum laboris do cupidatat consectetur nisi Lorem excepteur duis mollit nostrud. Eiusmod do eu occaecat esse sunt nulla enim cillum minim excepteur eiusmod culpa voluptate aliqua. Velit esse laboris labore ut eiusmod voluptate commodo tempor.\\r\\n\",\n        \"city\": \"Westboro\",\n        \"country\": \"Saint Vincent and The Grenadines\",\n        \"photos\": [\n            {\n                \"id\": 1,\n                \"url\": \"https://randomuser.me/api/portraits/women/14.jpg\",\n                \"isMain\": true\n            }\n        ]\n    },\n    {\n        \"id\": 2,\n        \"username\": \"luella\",\n        \"age\": 48,\n        \"photoUrl\": \"https://randomuser.me/api/portraits/women/19.jpg\",\n        \"knownAs\": \"Luella\",\n        \"created\": \"2019-02-09T00:00:00\",\n        \"lastActive\": \"2020-06-16T00:00:00\",\n        \"gender\": \"female\",\n        \"introduction\": \"Proident labore dolore nostrud cupidatat amet eiusmod. Incididunt duis tempor eu aliquip aliqua nulla excepteur et excepteur laboris incididunt cupidatat proident commodo. Officia magna velit eiusmod ut qui ullamco. Excepteur Lorem adipisicing voluptate in nulla laborum ea. Labore fugiat sit in minim anim occaecat duis enim Lorem cillum enim. Ad dolor culpa est proident reprehenderit aliquip amet cillum.\\r\\n\",\n        \"interests\": \"Duis id ut ullamco dolore ea occaecat ipsum mollit exercitation esse irure sint veniam ipsum.\",\n        \"lookingFor\": \"Anim quis eu reprehenderit aliquip ullamco proident ipsum consectetur magna culpa eiusmod et sit. Cupidatat voluptate dolore non pariatur ad qui irure labore do officia esse irure. Lorem sint do commodo ex velit cupidatat amet consectetur non Lorem exercitation irure sint. Cillum labore ex consectetur commodo amet eu excepteur mollit sunt ad exercitation qui irure. Enim anim deserunt amet occaecat. Tempor aliqua labore aliquip consectetur ullamco id eu nulla duis nisi. Ea sit veniam nisi deserunt officia magna laboris anim.\\r\\n\",\n        \"city\": \"Cumminsville\",\n        \"country\": \"British Indian Ocean Territory\",\n        \"photos\": [\n            {\n                \"id\": 2,\n                \"url\": \"https://randomuser.me/api/portraits/women/19.jpg\",\n                \"isMain\": true\n            }\n        ]\n    },\n    {\n        \"id\": 4,\n        \"username\": \"desiree\",\n        \"age\": 72,\n        \"photoUrl\": \"https://randomuser.me/api/portraits/women/57.jpg\",\n        \"knownAs\": \"Desiree\",\n        \"created\": \"2019-10-19T00:00:00\",\n        \"lastActive\": \"2020-05-17T00:00:00\",\n        \"gender\": \"female\",\n        \"introduction\": \"Nulla irure consequat occaecat elit voluptate dolor reprehenderit id ipsum. Ea excepteur aliquip exercitation nisi fugiat nulla ullamco aute magna do qui mollit velit. Aliqua irure nostrud aliqua fugiat consectetur eu velit qui in elit enim anim. Dolor occaecat reprehenderit amet qui minim aliqua esse sunt magna adipisicing eiusmod tempor. Excepteur laborum et ad non quis. Lorem eu dolor sit elit dolore esse ea duis nostrud Lorem.\\r\\n\",\n        \"interests\": \"Consequat voluptate eiusmod ullamco commodo dolor do.\",\n        \"lookingFor\": \"Eu eiusmod elit deserunt sit velit dolore velit in est. Consectetur enim qui Lorem qui est. Laborum consequat reprehenderit minim esse magna. In ut aliquip qui do do anim elit consectetur consequat ea consequat proident deserunt. Commodo ex aute excepteur voluptate ea duis tempor. Proident amet exercitation ipsum officia ad non. Elit esse reprehenderit deserunt irure ipsum exercitation eiusmod labore in consectetur cillum ipsum.\\r\\n\",\n        \"city\": \"Johnsonburg\",\n        \"country\": \"Uganda\",\n        \"photos\": [\n            {\n                \"id\": 4,\n                \"url\": \"https://randomuser.me/api/portraits/women/57.jpg\",\n                \"isMain\": true\n            }\n        ]\n    },\n    {\n        \"id\": 5,\n        \"username\": \"susanne\",\n        \"age\": 57,\n        \"photoUrl\": \"https://randomuser.me/api/portraits/women/88.jpg\",\n        \"knownAs\": \"Susanne\",\n        \"created\": \"2020-02-05T00:00:00\",\n        \"lastActive\": \"2020-05-27T00:00:00\",\n        \"gender\": \"female\",\n        \"introduction\": \"Ut ad occaecat laborum voluptate. Elit proident sint magna ullamco enim pariatur anim. Mollit dolore consectetur enim veniam. Incididunt cupidatat eu enim cillum officia irure aute non aute laborum ipsum nostrud irure officia. Deserunt aliqua qui aliqua velit minim aliqua ex ipsum nostrud consectetur excepteur labore veniam. Eiusmod dolor elit culpa proident. Irure incididunt do cillum mollit.\\r\\n\",\n        \"interests\": \"Excepteur aliqua do ea tempor ea adipisicing cupidatat laborum occaecat anim.\",\n        \"lookingFor\": \"Sint mollit incididunt id dolor laborum in do eu enim sit ullamco consequat quis. Veniam officia in pariatur consequat adipisicing non duis amet anim mollit duis. Ex enim ut laboris adipisicing. Laboris aliquip elit quis voluptate. Labore sint nostrud nulla irure sit esse ad amet consequat tempor est quis aute exercitation.\\r\\n\",\n        \"city\": \"Bloomington\",\n        \"country\": \"Hungary\",\n        \"photos\": [\n            {\n                \"id\": 5,\n                \"url\": \"https://randomuser.me/api/portraits/women/88.jpg\",\n                \"isMain\": true\n            }\n        ]\n    }\n]"
+						},
+						{
+							"name": "Get male Users (as Delores, check filtering)",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://localhost:{{portNumber}}/api/users?gender=male",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"port": "{{portNumber}}",
+									"path": [
+										"api",
+										"users"
+									],
+									"query": [
+										{
+											"key": "gender",
+											"value": "male"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 11 Jul 2025 11:51:44 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Kestrel"
+								},
+								{
+									"key": "Access-Control-Expose-Headers",
+									"value": "Pagination"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Pagination",
+									"value": "{\"currentPage\":1,\"totalPages\":1,\"itemsPerPage\":10,\"totalItems\":6}"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": 6,\n        \"username\": \"kirk\",\n        \"age\": 53,\n        \"photoUrl\": \"https://randomuser.me/api/portraits/men/12.jpg\",\n        \"knownAs\": \"Kirk\",\n        \"created\": \"2019-12-03T00:00:00\",\n        \"lastActive\": \"2020-05-13T00:00:00\",\n        \"gender\": \"male\",\n        \"introduction\": \"Minim elit cupidatat aute commodo tempor aliquip est officia culpa consequat. Id eiusmod dolore minim aliquip. Cupidatat ex non do ex labore magna enim. Labore quis veniam quis ea ea.\\r\\n\",\n        \"interests\": \"Eu proident mollit est non.\",\n        \"lookingFor\": \"Laboris elit cillum fugiat elit cupidatat irure nostrud fugiat cillum sint excepteur laboris ipsum eiusmod. Et consequat esse aliqua sunt aliqua mollit fugiat duis. Deserunt proident reprehenderit dolore ut voluptate. Sit esse et do id ex cupidatat eu. In tempor consectetur fugiat ipsum nostrud enim occaecat exercitation cupidatat commodo.\\r\\n\",\n        \"city\": \"Taft\",\n        \"country\": \"Saint Lucia\",\n        \"photos\": [\n            {\n                \"id\": 6,\n                \"url\": \"https://randomuser.me/api/portraits/men/12.jpg\",\n                \"isMain\": true\n            }\n        ]\n    },\n    {\n        \"id\": 7,\n        \"username\": \"cook\",\n        \"age\": 67,\n        \"photoUrl\": \"https://randomuser.me/api/portraits/men/19.jpg\",\n        \"knownAs\": \"Cook\",\n        \"created\": \"2019-08-18T00:00:00\",\n        \"lastActive\": \"2020-05-11T00:00:00\",\n        \"gender\": \"male\",\n        \"introduction\": \"In fugiat veniam fugiat enim magna cillum occaecat esse est anim quis consectetur nostrud deserunt. Sint sit qui non mollit veniam non aliqua laborum tempor aute dolore culpa do aute. Officia aliquip ad eu anim est sit officia Lorem ipsum consequat deserunt amet consequat commodo. Labore magna commodo ea laborum nostrud do cillum nisi dolor excepteur aliqua. Aute amet culpa enim ullamco dolore anim quis ad.\\r\\n\",\n        \"interests\": \"Voluptate duis eu eu sunt dolor ipsum amet velit elit labore dolor tempor occaecat.\",\n        \"lookingFor\": \"Aliqua irure sint Lorem sint sit commodo adipisicing reprehenderit consequat qui mollit. Sint deserunt sit incididunt voluptate voluptate exercitation. Id magna in cupidatat officia irure culpa id elit consequat velit sint excepteur non fugiat. Tempor enim Lorem eiusmod pariatur magna enim enim non anim esse reprehenderit ad. Non veniam excepteur velit est fugiat magna occaecat sint commodo irure reprehenderit. Dolore velit non consequat in ea adipisicing cillum ut sint ad.\\r\\n\",\n        \"city\": \"Caroline\",\n        \"country\": \"India\",\n        \"photos\": [\n            {\n                \"id\": 7,\n                \"url\": \"https://randomuser.me/api/portraits/men/19.jpg\",\n                \"isMain\": true\n            }\n        ]\n    },\n    {\n        \"id\": 8,\n        \"username\": \"stevenson\",\n        \"age\": 61,\n        \"photoUrl\": \"https://randomuser.me/api/portraits/men/9.jpg\",\n        \"knownAs\": \"Stevenson\",\n        \"created\": \"2019-09-08T00:00:00\",\n        \"lastActive\": \"2020-06-06T00:00:00\",\n        \"gender\": \"male\",\n        \"introduction\": \"Amet aliqua irure consectetur irure. Dolor non aliquip quis cupidatat nisi enim id laboris pariatur sint culpa excepteur. Ea voluptate commodo nostrud veniam veniam Lorem ut ut duis cupidatat officia sit ut. Tempor fugiat officia commodo id sit consequat cillum cupidatat deserunt ipsum occaecat. Qui laboris fugiat duis excepteur culpa nulla sint duis dolore fugiat enim elit. Tempor duis ullamco veniam duis. Ad dolor dolor culpa reprehenderit veniam.\\r\\n\",\n        \"interests\": \"Eu tempor qui officia proident aliqua.\",\n        \"lookingFor\": \"Ea quis culpa anim id non cupidatat sit velit. Enim fugiat aliqua eiusmod excepteur aliqua nisi mollit aliqua nostrud fugiat veniam voluptate cillum. Enim ea fugiat non aute culpa est non. Sint reprehenderit fugiat pariatur mollit elit aliquip. Sunt ullamco non Lorem fugiat et est ad tempor et laboris. Tempor enim dolore et eu veniam.\\r\\n\",\n        \"city\": \"Tyro\",\n        \"country\": \"Ethiopia\",\n        \"photos\": [\n            {\n                \"id\": 8,\n                \"url\": \"https://randomuser.me/api/portraits/men/9.jpg\",\n                \"isMain\": true\n            }\n        ]\n    },\n    {\n        \"id\": 9,\n        \"username\": \"roach\",\n        \"age\": 29,\n        \"photoUrl\": \"https://randomuser.me/api/portraits/men/85.jpg\",\n        \"knownAs\": \"Roach\",\n        \"created\": \"2019-02-06T00:00:00\",\n        \"lastActive\": \"2020-05-30T00:00:00\",\n        \"gender\": \"male\",\n        \"introduction\": \"Incididunt culpa reprehenderit excepteur sint irure veniam aliquip officia duis aute amet commodo velit ea. Dolore minim esse eiusmod nulla officia non. Labore ipsum mollit dolor exercitation esse in consequat do elit in veniam culpa. Non consequat magna enim velit adipisicing est velit. Quis et minim sint officia commodo laborum ipsum cillum exercitation duis irure magna reprehenderit esse. Nisi fugiat est qui aliquip irure pariatur aliqua exercitation enim.\\r\\n\",\n        \"interests\": \"Anim mollit mollit duis qui officia aliqua laborum do mollit tempor.\",\n        \"lookingFor\": \"Sit dolor aliquip aliqua cupidatat ea. Aliquip sint nulla est eiusmod non fugiat. Nulla eiusmod adipisicing ex sit minim. Eiusmod tempor excepteur culpa amet sunt occaecat aliquip incididunt sit ullamco. Ipsum officia cupidatat in adipisicing nisi. Aliqua veniam proident ea exercitation dolore ipsum dolor laboris enim culpa deserunt ipsum adipisicing exercitation. Adipisicing cupidatat ad enim id.\\r\\n\",\n        \"city\": \"Indio\",\n        \"country\": \"Puerto Rico\",\n        \"photos\": [\n            {\n                \"id\": 9,\n                \"url\": \"https://randomuser.me/api/portraits/men/85.jpg\",\n                \"isMain\": true\n            }\n        ]\n    },\n    {\n        \"id\": 10,\n        \"username\": \"stout\",\n        \"age\": 50,\n        \"photoUrl\": \"https://randomuser.me/api/portraits/men/82.jpg\",\n        \"knownAs\": \"Stout\",\n        \"created\": \"2020-03-07T00:00:00\",\n        \"lastActive\": \"2020-05-15T00:00:00\",\n        \"gender\": \"male\",\n        \"introduction\": \"Minim aute sint quis aliqua quis aute sint ullamco deserunt proident ut culpa ullamco. Nulla labore adipisicing fugiat consequat sint sint adipisicing. Eiusmod culpa labore exercitation culpa voluptate est est consequat duis. Reprehenderit deserunt id in ipsum voluptate ex fugiat consequat veniam. Sunt in ullamco laboris voluptate enim voluptate elit qui anim mollit ipsum mollit.\\r\\n\",\n        \"interests\": \"Eu irure non nulla cillum ipsum pariatur aliquip anim laboris amet commodo elit.\",\n        \"lookingFor\": \"Velit dolor qui eu sint. Laborum ut quis tempor esse exercitation minim ipsum sunt ea. Voluptate consectetur aliquip dolor mollit velit nulla commodo consectetur. Irure dolore incididunt aliqua qui laborum culpa sit aliquip laboris deserunt sit. Reprehenderit pariatur do cillum voluptate irure nisi culpa ea quis elit ipsum tempor ullamco.\\r\\n\",\n        \"city\": \"Cliffside\",\n        \"country\": \"Spain\",\n        \"photos\": [\n            {\n                \"id\": 10,\n                \"url\": \"https://randomuser.me/api/portraits/men/82.jpg\",\n                \"isMain\": true\n            }\n        ]\n    },\n    {\n        \"id\": 11,\n        \"username\": \"bob\",\n        \"age\": 36,\n        \"photoUrl\": \"https://res.cloudinary.com/devmediacloudserver/image/upload/v1751963540/DatingApp/gg5z6t5vcu3lgecbnnwr.jpg\",\n        \"knownAs\": \"Bob\",\n        \"created\": \"2025-07-08T08:25:41.1034518\",\n        \"lastActive\": \"2025-07-08T08:25:41.1034519\",\n        \"gender\": \"male\",\n        \"introduction\": \"This is my description\",\n        \"interests\": \"I like a lot of things\",\n        \"lookingFor\": \"I am looking for some fun\",\n        \"city\": \"London\",\n        \"country\": \"UK\",\n        \"photos\": [\n            {\n                \"id\": 25,\n                \"url\": \"https://res.cloudinary.com/devmediacloudserver/image/upload/v1751963160/DatingApp/nwweuxqwqbmamrlx7sa5.jpg\",\n                \"isMain\": false\n            },\n            {\n                \"id\": 26,\n                \"url\": \"https://res.cloudinary.com/devmediacloudserver/image/upload/v1751963540/DatingApp/gg5z6t5vcu3lgecbnnwr.jpg\",\n                \"isMain\": true\n            }\n        ]\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "Get Users (minimum age 50, check filtering)",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:{{portNumber}}/api/users?minAge=50",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "{{portNumber}}",
+							"path": [
+								"api",
+								"users"
+							],
+							"query": [
+								{
+									"key": "minAge",
+									"value": "50"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get Users (minimum age 50, check filtering)",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://localhost:{{portNumber}}/api/users?minAge=50",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"port": "{{portNumber}}",
+									"path": [
+										"api",
+										"users"
+									],
+									"query": [
+										{
+											"key": "minAge",
+											"value": "50"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 11 Jul 2025 12:04:23 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Kestrel"
+								},
+								{
+									"key": "Access-Control-Expose-Headers",
+									"value": "Pagination"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Pagination",
+									"value": "{\"currentPage\":1,\"totalPages\":1,\"itemsPerPage\":10,\"totalItems\":6}"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": 4,\n        \"username\": \"desiree\",\n        \"age\": 72,\n        \"photoUrl\": \"https://randomuser.me/api/portraits/women/57.jpg\",\n        \"knownAs\": \"Desiree\",\n        \"created\": \"2019-10-19T00:00:00\",\n        \"lastActive\": \"2020-05-17T00:00:00\",\n        \"gender\": \"female\",\n        \"introduction\": \"Nulla irure consequat occaecat elit voluptate dolor reprehenderit id ipsum. Ea excepteur aliquip exercitation nisi fugiat nulla ullamco aute magna do qui mollit velit. Aliqua irure nostrud aliqua fugiat consectetur eu velit qui in elit enim anim. Dolor occaecat reprehenderit amet qui minim aliqua esse sunt magna adipisicing eiusmod tempor. Excepteur laborum et ad non quis. Lorem eu dolor sit elit dolore esse ea duis nostrud Lorem.\\r\\n\",\n        \"interests\": \"Consequat voluptate eiusmod ullamco commodo dolor do.\",\n        \"lookingFor\": \"Eu eiusmod elit deserunt sit velit dolore velit in est. Consectetur enim qui Lorem qui est. Laborum consequat reprehenderit minim esse magna. In ut aliquip qui do do anim elit consectetur consequat ea consequat proident deserunt. Commodo ex aute excepteur voluptate ea duis tempor. Proident amet exercitation ipsum officia ad non. Elit esse reprehenderit deserunt irure ipsum exercitation eiusmod labore in consectetur cillum ipsum.\\r\\n\",\n        \"city\": \"Johnsonburg\",\n        \"country\": \"Uganda\",\n        \"photos\": [\n            {\n                \"id\": 4,\n                \"url\": \"https://randomuser.me/api/portraits/women/57.jpg\",\n                \"isMain\": true\n            }\n        ]\n    },\n    {\n        \"id\": 5,\n        \"username\": \"susanne\",\n        \"age\": 57,\n        \"photoUrl\": \"https://randomuser.me/api/portraits/women/88.jpg\",\n        \"knownAs\": \"Susanne\",\n        \"created\": \"2020-02-05T00:00:00\",\n        \"lastActive\": \"2020-05-27T00:00:00\",\n        \"gender\": \"female\",\n        \"introduction\": \"Ut ad occaecat laborum voluptate. Elit proident sint magna ullamco enim pariatur anim. Mollit dolore consectetur enim veniam. Incididunt cupidatat eu enim cillum officia irure aute non aute laborum ipsum nostrud irure officia. Deserunt aliqua qui aliqua velit minim aliqua ex ipsum nostrud consectetur excepteur labore veniam. Eiusmod dolor elit culpa proident. Irure incididunt do cillum mollit.\\r\\n\",\n        \"interests\": \"Excepteur aliqua do ea tempor ea adipisicing cupidatat laborum occaecat anim.\",\n        \"lookingFor\": \"Sint mollit incididunt id dolor laborum in do eu enim sit ullamco consequat quis. Veniam officia in pariatur consequat adipisicing non duis amet anim mollit duis. Ex enim ut laboris adipisicing. Laboris aliquip elit quis voluptate. Labore sint nostrud nulla irure sit esse ad amet consequat tempor est quis aute exercitation.\\r\\n\",\n        \"city\": \"Bloomington\",\n        \"country\": \"Hungary\",\n        \"photos\": [\n            {\n                \"id\": 5,\n                \"url\": \"https://randomuser.me/api/portraits/women/88.jpg\",\n                \"isMain\": true\n            }\n        ]\n    },\n    {\n        \"id\": 6,\n        \"username\": \"kirk\",\n        \"age\": 53,\n        \"photoUrl\": \"https://randomuser.me/api/portraits/men/12.jpg\",\n        \"knownAs\": \"Kirk\",\n        \"created\": \"2019-12-03T00:00:00\",\n        \"lastActive\": \"2020-05-13T00:00:00\",\n        \"gender\": \"male\",\n        \"introduction\": \"Minim elit cupidatat aute commodo tempor aliquip est officia culpa consequat. Id eiusmod dolore minim aliquip. Cupidatat ex non do ex labore magna enim. Labore quis veniam quis ea ea.\\r\\n\",\n        \"interests\": \"Eu proident mollit est non.\",\n        \"lookingFor\": \"Laboris elit cillum fugiat elit cupidatat irure nostrud fugiat cillum sint excepteur laboris ipsum eiusmod. Et consequat esse aliqua sunt aliqua mollit fugiat duis. Deserunt proident reprehenderit dolore ut voluptate. Sit esse et do id ex cupidatat eu. In tempor consectetur fugiat ipsum nostrud enim occaecat exercitation cupidatat commodo.\\r\\n\",\n        \"city\": \"Taft\",\n        \"country\": \"Saint Lucia\",\n        \"photos\": [\n            {\n                \"id\": 6,\n                \"url\": \"https://randomuser.me/api/portraits/men/12.jpg\",\n                \"isMain\": true\n            }\n        ]\n    },\n    {\n        \"id\": 7,\n        \"username\": \"cook\",\n        \"age\": 67,\n        \"photoUrl\": \"https://randomuser.me/api/portraits/men/19.jpg\",\n        \"knownAs\": \"Cook\",\n        \"created\": \"2019-08-18T00:00:00\",\n        \"lastActive\": \"2020-05-11T00:00:00\",\n        \"gender\": \"male\",\n        \"introduction\": \"In fugiat veniam fugiat enim magna cillum occaecat esse est anim quis consectetur nostrud deserunt. Sint sit qui non mollit veniam non aliqua laborum tempor aute dolore culpa do aute. Officia aliquip ad eu anim est sit officia Lorem ipsum consequat deserunt amet consequat commodo. Labore magna commodo ea laborum nostrud do cillum nisi dolor excepteur aliqua. Aute amet culpa enim ullamco dolore anim quis ad.\\r\\n\",\n        \"interests\": \"Voluptate duis eu eu sunt dolor ipsum amet velit elit labore dolor tempor occaecat.\",\n        \"lookingFor\": \"Aliqua irure sint Lorem sint sit commodo adipisicing reprehenderit consequat qui mollit. Sint deserunt sit incididunt voluptate voluptate exercitation. Id magna in cupidatat officia irure culpa id elit consequat velit sint excepteur non fugiat. Tempor enim Lorem eiusmod pariatur magna enim enim non anim esse reprehenderit ad. Non veniam excepteur velit est fugiat magna occaecat sint commodo irure reprehenderit. Dolore velit non consequat in ea adipisicing cillum ut sint ad.\\r\\n\",\n        \"city\": \"Caroline\",\n        \"country\": \"India\",\n        \"photos\": [\n            {\n                \"id\": 7,\n                \"url\": \"https://randomuser.me/api/portraits/men/19.jpg\",\n                \"isMain\": true\n            }\n        ]\n    },\n    {\n        \"id\": 8,\n        \"username\": \"stevenson\",\n        \"age\": 61,\n        \"photoUrl\": \"https://randomuser.me/api/portraits/men/9.jpg\",\n        \"knownAs\": \"Stevenson\",\n        \"created\": \"2019-09-08T00:00:00\",\n        \"lastActive\": \"2020-06-06T00:00:00\",\n        \"gender\": \"male\",\n        \"introduction\": \"Amet aliqua irure consectetur irure. Dolor non aliquip quis cupidatat nisi enim id laboris pariatur sint culpa excepteur. Ea voluptate commodo nostrud veniam veniam Lorem ut ut duis cupidatat officia sit ut. Tempor fugiat officia commodo id sit consequat cillum cupidatat deserunt ipsum occaecat. Qui laboris fugiat duis excepteur culpa nulla sint duis dolore fugiat enim elit. Tempor duis ullamco veniam duis. Ad dolor dolor culpa reprehenderit veniam.\\r\\n\",\n        \"interests\": \"Eu tempor qui officia proident aliqua.\",\n        \"lookingFor\": \"Ea quis culpa anim id non cupidatat sit velit. Enim fugiat aliqua eiusmod excepteur aliqua nisi mollit aliqua nostrud fugiat veniam voluptate cillum. Enim ea fugiat non aute culpa est non. Sint reprehenderit fugiat pariatur mollit elit aliquip. Sunt ullamco non Lorem fugiat et est ad tempor et laboris. Tempor enim dolore et eu veniam.\\r\\n\",\n        \"city\": \"Tyro\",\n        \"country\": \"Ethiopia\",\n        \"photos\": [\n            {\n                \"id\": 8,\n                \"url\": \"https://randomuser.me/api/portraits/men/9.jpg\",\n                \"isMain\": true\n            }\n        ]\n    },\n    {\n        \"id\": 10,\n        \"username\": \"stout\",\n        \"age\": 50,\n        \"photoUrl\": \"https://randomuser.me/api/portraits/men/82.jpg\",\n        \"knownAs\": \"Stout\",\n        \"created\": \"2020-03-07T00:00:00\",\n        \"lastActive\": \"2020-05-15T00:00:00\",\n        \"gender\": \"male\",\n        \"introduction\": \"Minim aute sint quis aliqua quis aute sint ullamco deserunt proident ut culpa ullamco. Nulla labore adipisicing fugiat consequat sint sint adipisicing. Eiusmod culpa labore exercitation culpa voluptate est est consequat duis. Reprehenderit deserunt id in ipsum voluptate ex fugiat consequat veniam. Sunt in ullamco laboris voluptate enim voluptate elit qui anim mollit ipsum mollit.\\r\\n\",\n        \"interests\": \"Eu irure non nulla cillum ipsum pariatur aliquip anim laboris amet commodo elit.\",\n        \"lookingFor\": \"Velit dolor qui eu sint. Laborum ut quis tempor esse exercitation minim ipsum sunt ea. Voluptate consectetur aliquip dolor mollit velit nulla commodo consectetur. Irure dolore incididunt aliqua qui laborum culpa sit aliquip laboris deserunt sit. Reprehenderit pariatur do cillum voluptate irure nisi culpa ea quis elit ipsum tempor ullamco.\\r\\n\",\n        \"city\": \"Cliffside\",\n        \"country\": \"Spain\",\n        \"photos\": [\n            {\n                \"id\": 10,\n                \"url\": \"https://randomuser.me/api/portraits/men/82.jpg\",\n                \"isMain\": true\n            }\n        ]\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "Get Users (minimum 20, maximum 29, age filtering)",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:{{portNumber}}/api/users?minAge=20&maxAge=29",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "{{portNumber}}",
+							"path": [
+								"api",
+								"users"
+							],
+							"query": [
+								{
+									"key": "minAge",
+									"value": "20"
+								},
+								{
+									"key": "maxAge",
+									"value": "29"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get Users (minimum 20, maximum 29, age filtering)",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://localhost:{{portNumber}}/api/users?minAge=20&maxAge=29",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"port": "{{portNumber}}",
+									"path": [
+										"api",
+										"users"
+									],
+									"query": [
+										{
+											"key": "minAge",
+											"value": "20"
+										},
+										{
+											"key": "maxAge",
+											"value": "29"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 11 Jul 2025 12:06:14 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Kestrel"
+								},
+								{
+									"key": "Access-Control-Expose-Headers",
+									"value": "Pagination"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Pagination",
+									"value": "{\"currentPage\":1,\"totalPages\":1,\"itemsPerPage\":10,\"totalItems\":1}"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": 9,\n        \"username\": \"roach\",\n        \"age\": 29,\n        \"photoUrl\": \"https://randomuser.me/api/portraits/men/85.jpg\",\n        \"knownAs\": \"Roach\",\n        \"created\": \"2019-02-06T00:00:00\",\n        \"lastActive\": \"2020-05-30T00:00:00\",\n        \"gender\": \"male\",\n        \"introduction\": \"Incididunt culpa reprehenderit excepteur sint irure veniam aliquip officia duis aute amet commodo velit ea. Dolore minim esse eiusmod nulla officia non. Labore ipsum mollit dolor exercitation esse in consequat do elit in veniam culpa. Non consequat magna enim velit adipisicing est velit. Quis et minim sint officia commodo laborum ipsum cillum exercitation duis irure magna reprehenderit esse. Nisi fugiat est qui aliquip irure pariatur aliqua exercitation enim.\\r\\n\",\n        \"interests\": \"Anim mollit mollit duis qui officia aliqua laborum do mollit tempor.\",\n        \"lookingFor\": \"Sit dolor aliquip aliqua cupidatat ea. Aliquip sint nulla est eiusmod non fugiat. Nulla eiusmod adipisicing ex sit minim. Eiusmod tempor excepteur culpa amet sunt occaecat aliquip incididunt sit ullamco. Ipsum officia cupidatat in adipisicing nisi. Aliqua veniam proident ea exercitation dolore ipsum dolor laboris enim culpa deserunt ipsum adipisicing exercitation. Adipisicing cupidatat ad enim id.\\r\\n\",\n        \"city\": \"Indio\",\n        \"country\": \"Puerto Rico\",\n        \"photos\": [\n            {\n                \"id\": 9,\n                \"url\": \"https://randomuser.me/api/portraits/men/85.jpg\",\n                \"isMain\": true\n            }\n        ]\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "Get Users (female ordered by created date filtering)",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:{{portNumber}}/api/users?orderBy=created&gender=female",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "{{portNumber}}",
+							"path": [
+								"api",
+								"users"
+							],
+							"query": [
+								{
+									"key": "orderBy",
+									"value": "created"
+								},
+								{
+									"key": "gender",
+									"value": "female"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get Users (female ordered by created date filtering)",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://localhost:{{portNumber}}/api/users?orderBy=created&gender=female",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"port": "{{portNumber}}",
+									"path": [
+										"api",
+										"users"
+									],
+									"query": [
+										{
+											"key": "orderBy",
+											"value": "created"
+										},
+										{
+											"key": "gender",
+											"value": "female"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 11 Jul 2025 14:01:50 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Kestrel"
+								},
+								{
+									"key": "Access-Control-Expose-Headers",
+									"value": "Pagination"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Pagination",
+									"value": "{\"currentPage\":1,\"totalPages\":1,\"itemsPerPage\":10,\"totalItems\":4}"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": 5,\n        \"username\": \"susanne\",\n        \"age\": 57,\n        \"photoUrl\": \"https://randomuser.me/api/portraits/women/88.jpg\",\n        \"knownAs\": \"Susanne\",\n        \"created\": \"2020-02-05T00:00:00\",\n        \"lastActive\": \"2020-05-27T00:00:00\",\n        \"gender\": \"female\",\n        \"introduction\": \"Ut ad occaecat laborum voluptate. Elit proident sint magna ullamco enim pariatur anim. Mollit dolore consectetur enim veniam. Incididunt cupidatat eu enim cillum officia irure aute non aute laborum ipsum nostrud irure officia. Deserunt aliqua qui aliqua velit minim aliqua ex ipsum nostrud consectetur excepteur labore veniam. Eiusmod dolor elit culpa proident. Irure incididunt do cillum mollit.\\r\\n\",\n        \"interests\": \"Excepteur aliqua do ea tempor ea adipisicing cupidatat laborum occaecat anim.\",\n        \"lookingFor\": \"Sint mollit incididunt id dolor laborum in do eu enim sit ullamco consequat quis. Veniam officia in pariatur consequat adipisicing non duis amet anim mollit duis. Ex enim ut laboris adipisicing. Laboris aliquip elit quis voluptate. Labore sint nostrud nulla irure sit esse ad amet consequat tempor est quis aute exercitation.\\r\\n\",\n        \"city\": \"Bloomington\",\n        \"country\": \"Hungary\",\n        \"photos\": [\n            {\n                \"id\": 5,\n                \"url\": \"https://randomuser.me/api/portraits/women/88.jpg\",\n                \"isMain\": true\n            }\n        ]\n    },\n    {\n        \"id\": 4,\n        \"username\": \"desiree\",\n        \"age\": 72,\n        \"photoUrl\": \"https://randomuser.me/api/portraits/women/57.jpg\",\n        \"knownAs\": \"Desiree\",\n        \"created\": \"2019-10-19T00:00:00\",\n        \"lastActive\": \"2020-05-17T00:00:00\",\n        \"gender\": \"female\",\n        \"introduction\": \"Nulla irure consequat occaecat elit voluptate dolor reprehenderit id ipsum. Ea excepteur aliquip exercitation nisi fugiat nulla ullamco aute magna do qui mollit velit. Aliqua irure nostrud aliqua fugiat consectetur eu velit qui in elit enim anim. Dolor occaecat reprehenderit amet qui minim aliqua esse sunt magna adipisicing eiusmod tempor. Excepteur laborum et ad non quis. Lorem eu dolor sit elit dolore esse ea duis nostrud Lorem.\\r\\n\",\n        \"interests\": \"Consequat voluptate eiusmod ullamco commodo dolor do.\",\n        \"lookingFor\": \"Eu eiusmod elit deserunt sit velit dolore velit in est. Consectetur enim qui Lorem qui est. Laborum consequat reprehenderit minim esse magna. In ut aliquip qui do do anim elit consectetur consequat ea consequat proident deserunt. Commodo ex aute excepteur voluptate ea duis tempor. Proident amet exercitation ipsum officia ad non. Elit esse reprehenderit deserunt irure ipsum exercitation eiusmod labore in consectetur cillum ipsum.\\r\\n\",\n        \"city\": \"Johnsonburg\",\n        \"country\": \"Uganda\",\n        \"photos\": [\n            {\n                \"id\": 4,\n                \"url\": \"https://randomuser.me/api/portraits/women/57.jpg\",\n                \"isMain\": true\n            }\n        ]\n    },\n    {\n        \"id\": 2,\n        \"username\": \"luella\",\n        \"age\": 48,\n        \"photoUrl\": \"https://randomuser.me/api/portraits/women/19.jpg\",\n        \"knownAs\": \"Luella\",\n        \"created\": \"2019-02-09T00:00:00\",\n        \"lastActive\": \"2020-06-16T00:00:00\",\n        \"gender\": \"female\",\n        \"introduction\": \"Proident labore dolore nostrud cupidatat amet eiusmod. Incididunt duis tempor eu aliquip aliqua nulla excepteur et excepteur laboris incididunt cupidatat proident commodo. Officia magna velit eiusmod ut qui ullamco. Excepteur Lorem adipisicing voluptate in nulla laborum ea. Labore fugiat sit in minim anim occaecat duis enim Lorem cillum enim. Ad dolor culpa est proident reprehenderit aliquip amet cillum.\\r\\n\",\n        \"interests\": \"Duis id ut ullamco dolore ea occaecat ipsum mollit exercitation esse irure sint veniam ipsum.\",\n        \"lookingFor\": \"Anim quis eu reprehenderit aliquip ullamco proident ipsum consectetur magna culpa eiusmod et sit. Cupidatat voluptate dolore non pariatur ad qui irure labore do officia esse irure. Lorem sint do commodo ex velit cupidatat amet consectetur non Lorem exercitation irure sint. Cillum labore ex consectetur commodo amet eu excepteur mollit sunt ad exercitation qui irure. Enim anim deserunt amet occaecat. Tempor aliqua labore aliquip consectetur ullamco id eu nulla duis nisi. Ea sit veniam nisi deserunt officia magna laboris anim.\\r\\n\",\n        \"city\": \"Cumminsville\",\n        \"country\": \"British Indian Ocean Territory\",\n        \"photos\": [\n            {\n                \"id\": 2,\n                \"url\": \"https://randomuser.me/api/portraits/women/19.jpg\",\n                \"isMain\": true\n            }\n        ]\n    },\n    {\n        \"id\": 1,\n        \"username\": \"ida\",\n        \"age\": 47,\n        \"photoUrl\": \"https://randomuser.me/api/portraits/women/14.jpg\",\n        \"knownAs\": \"Ida\",\n        \"created\": \"2019-01-15T00:00:00\",\n        \"lastActive\": \"2020-05-16T00:00:00\",\n        \"gender\": \"female\",\n        \"introduction\": \"Eu esse irure nostrud cupidatat ad. Ex do deserunt pariatur voluptate velit non sit duis. Sint esse nostrud tempor aliquip deserunt id magna.\\r\\n\",\n        \"interests\": \"Consectetur sit mollit anim deserunt et irure pariatur ipsum duis esse proident excepteur culpa fugiat.\",\n        \"lookingFor\": \"Incididunt adipisicing amet ullamco sit amet. Exercitation et veniam ea ullamco. Cupidatat eiusmod anim officia eiusmod ea nisi ad. Do commodo laborum laboris do cupidatat consectetur nisi Lorem excepteur duis mollit nostrud. Eiusmod do eu occaecat esse sunt nulla enim cillum minim excepteur eiusmod culpa voluptate aliqua. Velit esse laboris labore ut eiusmod voluptate commodo tempor.\\r\\n\",\n        \"city\": \"Westboro\",\n        \"country\": \"Saint Vincent and The Grenadines\",\n        \"photos\": [\n            {\n                \"id\": 1,\n                \"url\": \"https://randomuser.me/api/portraits/women/14.jpg\",\n                \"isMain\": true\n            }\n        ]\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "Get Users (female ordered by lastActive date filtering)",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:{{portNumber}}/api/users?orderBy=lastActive&gender=female",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "{{portNumber}}",
+							"path": [
+								"api",
+								"users"
+							],
+							"query": [
+								{
+									"key": "orderBy",
+									"value": "lastActive"
+								},
+								{
+									"key": "gender",
+									"value": "female"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get Users (female ordered by lastActive date filtering)",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://localhost:{{portNumber}}/api/users?orderBy=lastActive&gender=female",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"port": "{{portNumber}}",
+									"path": [
+										"api",
+										"users"
+									],
+									"query": [
+										{
+											"key": "orderBy",
+											"value": "lastActive"
+										},
+										{
+											"key": "gender",
+											"value": "female"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 11 Jul 2025 14:04:24 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Kestrel"
+								},
+								{
+									"key": "Access-Control-Expose-Headers",
+									"value": "Pagination"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Pagination",
+									"value": "{\"currentPage\":1,\"totalPages\":1,\"itemsPerPage\":10,\"totalItems\":4}"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": 2,\n        \"username\": \"luella\",\n        \"age\": 48,\n        \"photoUrl\": \"https://randomuser.me/api/portraits/women/19.jpg\",\n        \"knownAs\": \"Luella\",\n        \"created\": \"2019-02-09T00:00:00\",\n        \"lastActive\": \"2020-06-16T00:00:00\",\n        \"gender\": \"female\",\n        \"introduction\": \"Proident labore dolore nostrud cupidatat amet eiusmod. Incididunt duis tempor eu aliquip aliqua nulla excepteur et excepteur laboris incididunt cupidatat proident commodo. Officia magna velit eiusmod ut qui ullamco. Excepteur Lorem adipisicing voluptate in nulla laborum ea. Labore fugiat sit in minim anim occaecat duis enim Lorem cillum enim. Ad dolor culpa est proident reprehenderit aliquip amet cillum.\\r\\n\",\n        \"interests\": \"Duis id ut ullamco dolore ea occaecat ipsum mollit exercitation esse irure sint veniam ipsum.\",\n        \"lookingFor\": \"Anim quis eu reprehenderit aliquip ullamco proident ipsum consectetur magna culpa eiusmod et sit. Cupidatat voluptate dolore non pariatur ad qui irure labore do officia esse irure. Lorem sint do commodo ex velit cupidatat amet consectetur non Lorem exercitation irure sint. Cillum labore ex consectetur commodo amet eu excepteur mollit sunt ad exercitation qui irure. Enim anim deserunt amet occaecat. Tempor aliqua labore aliquip consectetur ullamco id eu nulla duis nisi. Ea sit veniam nisi deserunt officia magna laboris anim.\\r\\n\",\n        \"city\": \"Cumminsville\",\n        \"country\": \"British Indian Ocean Territory\",\n        \"photos\": [\n            {\n                \"id\": 2,\n                \"url\": \"https://randomuser.me/api/portraits/women/19.jpg\",\n                \"isMain\": true\n            }\n        ]\n    },\n    {\n        \"id\": 5,\n        \"username\": \"susanne\",\n        \"age\": 57,\n        \"photoUrl\": \"https://randomuser.me/api/portraits/women/88.jpg\",\n        \"knownAs\": \"Susanne\",\n        \"created\": \"2020-02-05T00:00:00\",\n        \"lastActive\": \"2020-05-27T00:00:00\",\n        \"gender\": \"female\",\n        \"introduction\": \"Ut ad occaecat laborum voluptate. Elit proident sint magna ullamco enim pariatur anim. Mollit dolore consectetur enim veniam. Incididunt cupidatat eu enim cillum officia irure aute non aute laborum ipsum nostrud irure officia. Deserunt aliqua qui aliqua velit minim aliqua ex ipsum nostrud consectetur excepteur labore veniam. Eiusmod dolor elit culpa proident. Irure incididunt do cillum mollit.\\r\\n\",\n        \"interests\": \"Excepteur aliqua do ea tempor ea adipisicing cupidatat laborum occaecat anim.\",\n        \"lookingFor\": \"Sint mollit incididunt id dolor laborum in do eu enim sit ullamco consequat quis. Veniam officia in pariatur consequat adipisicing non duis amet anim mollit duis. Ex enim ut laboris adipisicing. Laboris aliquip elit quis voluptate. Labore sint nostrud nulla irure sit esse ad amet consequat tempor est quis aute exercitation.\\r\\n\",\n        \"city\": \"Bloomington\",\n        \"country\": \"Hungary\",\n        \"photos\": [\n            {\n                \"id\": 5,\n                \"url\": \"https://randomuser.me/api/portraits/women/88.jpg\",\n                \"isMain\": true\n            }\n        ]\n    },\n    {\n        \"id\": 4,\n        \"username\": \"desiree\",\n        \"age\": 72,\n        \"photoUrl\": \"https://randomuser.me/api/portraits/women/57.jpg\",\n        \"knownAs\": \"Desiree\",\n        \"created\": \"2019-10-19T00:00:00\",\n        \"lastActive\": \"2020-05-17T00:00:00\",\n        \"gender\": \"female\",\n        \"introduction\": \"Nulla irure consequat occaecat elit voluptate dolor reprehenderit id ipsum. Ea excepteur aliquip exercitation nisi fugiat nulla ullamco aute magna do qui mollit velit. Aliqua irure nostrud aliqua fugiat consectetur eu velit qui in elit enim anim. Dolor occaecat reprehenderit amet qui minim aliqua esse sunt magna adipisicing eiusmod tempor. Excepteur laborum et ad non quis. Lorem eu dolor sit elit dolore esse ea duis nostrud Lorem.\\r\\n\",\n        \"interests\": \"Consequat voluptate eiusmod ullamco commodo dolor do.\",\n        \"lookingFor\": \"Eu eiusmod elit deserunt sit velit dolore velit in est. Consectetur enim qui Lorem qui est. Laborum consequat reprehenderit minim esse magna. In ut aliquip qui do do anim elit consectetur consequat ea consequat proident deserunt. Commodo ex aute excepteur voluptate ea duis tempor. Proident amet exercitation ipsum officia ad non. Elit esse reprehenderit deserunt irure ipsum exercitation eiusmod labore in consectetur cillum ipsum.\\r\\n\",\n        \"city\": \"Johnsonburg\",\n        \"country\": \"Uganda\",\n        \"photos\": [\n            {\n                \"id\": 4,\n                \"url\": \"https://randomuser.me/api/portraits/women/57.jpg\",\n                \"isMain\": true\n            }\n        ]\n    },\n    {\n        \"id\": 1,\n        \"username\": \"ida\",\n        \"age\": 47,\n        \"photoUrl\": \"https://randomuser.me/api/portraits/women/14.jpg\",\n        \"knownAs\": \"Ida\",\n        \"created\": \"2019-01-15T00:00:00\",\n        \"lastActive\": \"2020-05-16T00:00:00\",\n        \"gender\": \"female\",\n        \"introduction\": \"Eu esse irure nostrud cupidatat ad. Ex do deserunt pariatur voluptate velit non sit duis. Sint esse nostrud tempor aliquip deserunt id magna.\\r\\n\",\n        \"interests\": \"Consectetur sit mollit anim deserunt et irure pariatur ipsum duis esse proident excepteur culpa fugiat.\",\n        \"lookingFor\": \"Incididunt adipisicing amet ullamco sit amet. Exercitation et veniam ea ullamco. Cupidatat eiusmod anim officia eiusmod ea nisi ad. Do commodo laborum laboris do cupidatat consectetur nisi Lorem excepteur duis mollit nostrud. Eiusmod do eu occaecat esse sunt nulla enim cillum minim excepteur eiusmod culpa voluptate aliqua. Velit esse laboris labore ut eiusmod voluptate commodo tempor.\\r\\n\",\n        \"city\": \"Westboro\",\n        \"country\": \"Saint Vincent and The Grenadines\",\n        \"photos\": [\n            {\n                \"id\": 1,\n                \"url\": \"https://randomuser.me/api/portraits/women/14.jpg\",\n                \"isMain\": true\n            }\n        ]\n    }\n]"
+						}
+					]
+				}
+			]
 		}
 	]
 }

@@ -15,6 +15,7 @@
 - Asynchronous code
 - AutoMapper
 - Repository Pattern
+- Paging, Sorting and Filtering
 - Routing
 - Services & Injection
 - Guards & Interceptors

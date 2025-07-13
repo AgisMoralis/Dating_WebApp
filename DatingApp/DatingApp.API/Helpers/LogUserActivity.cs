@@ -1,0 +1,28 @@
+using DatingApp.API.Extensions;
+using DatingApp.API.Interfaces;
+using Microsoft.AspNetCore.Mvc.Filters;
+
+namespace DatingApp.API.Helpers;
+
+public class LogUserActivity : IAsyncActionFilter
+{
+    public async Task OnActionExecutionAsync(ActionExecutingContext context, ActionExecutionDelegate next)
+    {
+        // Here first the action ofthe API controller is executed
+        // and then the user activity is logged
+        var resultContext = await next();
+
+        // If the user is not authenticated, we do not log activity
+        if (context.HttpContext.User.Identity?.IsAuthenticated != true) return;
+        
+        var userId = context.HttpContext.User.GetUserId();
+        var repo = resultContext.HttpContext.RequestServices
+            .GetRequiredService<IUserRepository>();
+        var user = await repo.GetMemberByIdAsync(userId);
+        if (user == null) return;
+        
+        user.LastActive = DateTime.UtcNow;
+        await repo.SaveAllAsync();
+        
+    }
+}
