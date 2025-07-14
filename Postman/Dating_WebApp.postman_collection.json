@@ -2320,6 +2320,660 @@
 					]
 				}
 			]
+		},
+		{
+			"name": "Likes",
+			"item": [
+				{
+					"name": "Login Existing User (Delores) and Save Token to Custom Environment",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const user = pm.response.json()\r",
+									"\r",
+									"pm.test(\"Has properties\", function(){\r",
+									"    pm.expect(user).to.have.property('username');\r",
+									"    pm.expect(user).to.have.property('token');\r",
+									"})\r",
+									"\r",
+									"if (pm.test(\"Has properties\")){\r",
+									"    pm.environment.set('token_delores', user.token);\r",
+									"}"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"delores\",\r\n    \"password\": \"pa$$word\"    \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:{{portNumber}}/api/account/login",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "{{portNumber}}",
+							"path": [
+								"api",
+								"account",
+								"login"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Login Existing User (Delores) and Save Token to Custom Environment",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\": \"delores\",\r\n    \"password\": \"pa$$word\"    \r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://localhost:{{portNumber}}/api/account/login",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"port": "{{portNumber}}",
+									"path": [
+										"api",
+										"account",
+										"login"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 14 Jul 2025 12:48:38 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Kestrel"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"username\": \"delores\",\n    \"knownAs\": \"Delores\",\n    \"gender\": \"female\",\n    \"token\": \"eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiIzIiwidW5pcXVlX25hbWUiOiJkZWxvcmVzIiwibmJmIjoxNzUyNDk3MzE5LCJleHAiOjE3NTMxMDIxMTksImlhdCI6MTc1MjQ5NzMxOX0.HNzochWceA7vQFInLAj5YyS6UKLQAWs9btMlT9EmamGtb7FLzTsSXGUIouP7I2VYXvo6VL_AbRvsWj2hJEdBlg\",\n    \"photoUrl\": \"https://randomuser.me/api/portraits/women/41.jpg\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Login Existing User (Kirk) and Save Token to Custom Environment",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const user = pm.response.json()\r",
+									"\r",
+									"pm.test(\"Has properties\", function(){\r",
+									"    pm.expect(user).to.have.property('username');\r",
+									"    pm.expect(user).to.have.property('token');\r",
+									"})\r",
+									"\r",
+									"if (pm.test(\"Has properties\")){\r",
+									"    pm.environment.set('token_kirk', user.token);\r",
+									"}"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"kirk\",\r\n    \"password\": \"pa$$word\"    \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:{{portNumber}}/api/account/login",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "{{portNumber}}",
+							"path": [
+								"api",
+								"account",
+								"login"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Login Existing User (Kirk) and Save Token to Custom Environment",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\": \"kirk\",\r\n    \"password\": \"pa$$word\"    \r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://localhost:{{portNumber}}/api/account/login",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"port": "{{portNumber}}",
+									"path": [
+										"api",
+										"account",
+										"login"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 14 Jul 2025 12:49:11 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Kestrel"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"username\": \"kirk\",\n    \"knownAs\": \"Kirk\",\n    \"gender\": \"male\",\n    \"token\": \"eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiI2IiwidW5pcXVlX25hbWUiOiJraXJrIiwibmJmIjoxNzUyNDk3MzUxLCJleHAiOjE3NTMxMDIxNTEsImlhdCI6MTc1MjQ5NzM1MX0.urTENr8htr5ph7xDtZbVz5XsiPSAZCSDHNrMwjfWjr62Kx3dn7VA5QhamJ5LpCAe5cA_GRiYExre6ahu0axYoQ\",\n    \"photoUrl\": \"https://randomuser.me/api/portraits/men/12.jpg\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Add like from current user (Delores) to the user with ID 6 (Kirk)",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token_delores}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:{{portNumber}}/api/likes/6",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "{{portNumber}}",
+							"path": [
+								"api",
+								"likes",
+								"6"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Add like from current user (Delores) to the user with ID 6 (Kirk)",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "https://localhost:{{portNumber}}/api/likes/6",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"port": "{{portNumber}}",
+									"path": [
+										"api",
+										"likes",
+										"6"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "Content-Length",
+									"value": "0"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 14 Jul 2025 12:42:44 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Kestrel"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				},
+				{
+					"name": "Add like from current user (Kirk) to the user with ID 3 (Delores)",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token_kirk}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:{{portNumber}}/api/likes/3",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "{{portNumber}}",
+							"path": [
+								"api",
+								"likes",
+								"3"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Add like from current user (Kirk) to the user with ID 3 (Delores)",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "https://localhost:{{portNumber}}/api/likes/3",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"port": "{{portNumber}}",
+									"path": [
+										"api",
+										"likes",
+										"3"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "Content-Length",
+									"value": "0"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 14 Jul 2025 12:50:45 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Kestrel"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				},
+				{
+					"name": "Get the users that the current one (Delores) likes (predicate = 'likes')",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token_delores}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:{{portNumber}}/api/likes?predicate=likes",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "{{portNumber}}",
+							"path": [
+								"api",
+								"likes"
+							],
+							"query": [
+								{
+									"key": "predicate",
+									"value": "likes"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get the users that the current one (Delores) likes (predicate = 'likes')",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://localhost:{{portNumber}}/api/likes?predicate=likes",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"port": "{{portNumber}}",
+									"path": [
+										"api",
+										"likes"
+									],
+									"query": [
+										{
+											"key": "predicate",
+											"value": "likes"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 14 Jul 2025 15:32:47 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Kestrel"
+								},
+								{
+									"key": "Access-Control-Expose-Headers",
+									"value": "Pagination"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Pagination",
+									"value": "{\"currentPage\":1,\"totalPages\":1,\"itemsPerPage\":10,\"totalItems\":2}"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": 6,\n        \"username\": \"kirk\",\n        \"age\": 53,\n        \"photoUrl\": \"https://randomuser.me/api/portraits/men/12.jpg\",\n        \"knownAs\": \"Kirk\",\n        \"created\": \"2019-12-03T00:00:00\",\n        \"lastActive\": \"2025-07-14T13:14:03.6244407\",\n        \"gender\": \"male\",\n        \"introduction\": \"Minim elit cupidatat aute commodo tempor aliquip est officia culpa consequat. Id eiusmod dolore minim aliquip. Cupidatat ex non do ex labore magna enim. Labore quis veniam quis ea ea.\\r\\n\",\n        \"interests\": \"Eu proident mollit est non.\",\n        \"lookingFor\": \"Laboris elit cillum fugiat elit cupidatat irure nostrud fugiat cillum sint excepteur laboris ipsum eiusmod. Et consequat esse aliqua sunt aliqua mollit fugiat duis. Deserunt proident reprehenderit dolore ut voluptate. Sit esse et do id ex cupidatat eu. In tempor consectetur fugiat ipsum nostrud enim occaecat exercitation cupidatat commodo.\\r\\n\",\n        \"city\": \"Taft\",\n        \"country\": \"Saint Lucia\",\n        \"photos\": [\n            {\n                \"id\": 6,\n                \"url\": \"https://randomuser.me/api/portraits/men/12.jpg\",\n                \"isMain\": true\n            }\n        ]\n    },\n    {\n        \"id\": 8,\n        \"username\": \"stevenson\",\n        \"age\": 61,\n        \"photoUrl\": \"https://randomuser.me/api/portraits/men/9.jpg\",\n        \"knownAs\": \"Stevenson\",\n        \"created\": \"2019-09-08T00:00:00\",\n        \"lastActive\": \"2020-06-06T00:00:00\",\n        \"gender\": \"male\",\n        \"introduction\": \"Amet aliqua irure consectetur irure. Dolor non aliquip quis cupidatat nisi enim id laboris pariatur sint culpa excepteur. Ea voluptate commodo nostrud veniam veniam Lorem ut ut duis cupidatat officia sit ut. Tempor fugiat officia commodo id sit consequat cillum cupidatat deserunt ipsum occaecat. Qui laboris fugiat duis excepteur culpa nulla sint duis dolore fugiat enim elit. Tempor duis ullamco veniam duis. Ad dolor dolor culpa reprehenderit veniam.\\r\\n\",\n        \"interests\": \"Eu tempor qui officia proident aliqua.\",\n        \"lookingFor\": \"Ea quis culpa anim id non cupidatat sit velit. Enim fugiat aliqua eiusmod excepteur aliqua nisi mollit aliqua nostrud fugiat veniam voluptate cillum. Enim ea fugiat non aute culpa est non. Sint reprehenderit fugiat pariatur mollit elit aliquip. Sunt ullamco non Lorem fugiat et est ad tempor et laboris. Tempor enim dolore et eu veniam.\\r\\n\",\n        \"city\": \"Tyro\",\n        \"country\": \"Ethiopia\",\n        \"photos\": [\n            {\n                \"id\": 8,\n                \"url\": \"https://randomuser.me/api/portraits/men/9.jpg\",\n                \"isMain\": true\n            }\n        ]\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "Get the users that like the current one (Delores) (predicate = 'likedby')",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token_delores}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:{{portNumber}}/api/likes?predicate=likedBy",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "{{portNumber}}",
+							"path": [
+								"api",
+								"likes"
+							],
+							"query": [
+								{
+									"key": "predicate",
+									"value": "likedBy"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get the users that like the current one (Delores) (predicate = 'likedby')",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://localhost:{{portNumber}}/api/likes?predicate=likedBy",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"port": "{{portNumber}}",
+									"path": [
+										"api",
+										"likes"
+									],
+									"query": [
+										{
+											"key": "predicate",
+											"value": "likedBy"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 14 Jul 2025 15:33:02 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Kestrel"
+								},
+								{
+									"key": "Access-Control-Expose-Headers",
+									"value": "Pagination"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Pagination",
+									"value": "{\"currentPage\":1,\"totalPages\":1,\"itemsPerPage\":10,\"totalItems\":2}"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": 6,\n        \"username\": \"kirk\",\n        \"age\": 53,\n        \"photoUrl\": \"https://randomuser.me/api/portraits/men/12.jpg\",\n        \"knownAs\": \"Kirk\",\n        \"created\": \"2019-12-03T00:00:00\",\n        \"lastActive\": \"2025-07-14T13:14:03.6244407\",\n        \"gender\": \"male\",\n        \"introduction\": \"Minim elit cupidatat aute commodo tempor aliquip est officia culpa consequat. Id eiusmod dolore minim aliquip. Cupidatat ex non do ex labore magna enim. Labore quis veniam quis ea ea.\\r\\n\",\n        \"interests\": \"Eu proident mollit est non.\",\n        \"lookingFor\": \"Laboris elit cillum fugiat elit cupidatat irure nostrud fugiat cillum sint excepteur laboris ipsum eiusmod. Et consequat esse aliqua sunt aliqua mollit fugiat duis. Deserunt proident reprehenderit dolore ut voluptate. Sit esse et do id ex cupidatat eu. In tempor consectetur fugiat ipsum nostrud enim occaecat exercitation cupidatat commodo.\\r\\n\",\n        \"city\": \"Taft\",\n        \"country\": \"Saint Lucia\",\n        \"photos\": [\n            {\n                \"id\": 6,\n                \"url\": \"https://randomuser.me/api/portraits/men/12.jpg\",\n                \"isMain\": true\n            }\n        ]\n    },\n    {\n        \"id\": 11,\n        \"username\": \"bob\",\n        \"age\": 36,\n        \"photoUrl\": \"https://res.cloudinary.com/devmediacloudserver/image/upload/v1751963540/DatingApp/gg5z6t5vcu3lgecbnnwr.jpg\",\n        \"knownAs\": \"Bob\",\n        \"created\": \"2025-07-08T08:25:41.1034518\",\n        \"lastActive\": \"2025-07-14T14:58:26.2190528\",\n        \"gender\": \"male\",\n        \"introduction\": \"This is my description\",\n        \"interests\": \"I like a lot of things\",\n        \"lookingFor\": \"I am looking for some fun\",\n        \"city\": \"London\",\n        \"country\": \"UK\",\n        \"photos\": [\n            {\n                \"id\": 25,\n                \"url\": \"https://res.cloudinary.com/devmediacloudserver/image/upload/v1751963160/DatingApp/nwweuxqwqbmamrlx7sa5.jpg\",\n                \"isMain\": false\n            },\n            {\n                \"id\": 26,\n                \"url\": \"https://res.cloudinary.com/devmediacloudserver/image/upload/v1751963540/DatingApp/gg5z6t5vcu3lgecbnnwr.jpg\",\n                \"isMain\": true\n            }\n        ]\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "Get the users that like the current one and are liked by the current one (Kirk) (predicate = 'mutual')",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token_kirk}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:{{portNumber}}/api/likes?predicate=mutual",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "{{portNumber}}",
+							"path": [
+								"api",
+								"likes"
+							],
+							"query": [
+								{
+									"key": "predicate",
+									"value": "mutual"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get the users that like the current one and are liked by the current one (Kirk) (predicate = 'mutual')",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://localhost:{{portNumber}}/api/likes?predicate=mutual",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"port": "{{portNumber}}",
+									"path": [
+										"api",
+										"likes"
+									],
+									"query": [
+										{
+											"key": "predicate",
+											"value": "mutual"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 14 Jul 2025 15:33:57 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Kestrel"
+								},
+								{
+									"key": "Access-Control-Expose-Headers",
+									"value": "Pagination"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Pagination",
+									"value": "{\"currentPage\":1,\"totalPages\":1,\"itemsPerPage\":10,\"totalItems\":1}"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": 3,\n        \"username\": \"delores\",\n        \"age\": 41,\n        \"photoUrl\": \"https://randomuser.me/api/portraits/women/41.jpg\",\n        \"knownAs\": \"Delores\",\n        \"created\": \"2020-03-29T00:00:00\",\n        \"lastActive\": \"2025-07-14T15:33:03.0893854\",\n        \"gender\": \"female\",\n        \"introduction\": \"Esse qui nulla nulla nisi dolore elit fugiat ex et sint minim non. Reprehenderit fugiat exercitation laborum nostrud reprehenderit deserunt ad sit incididunt id sunt. Quis cillum occaecat do quis Lorem labore ad.\\r\\n\",\n        \"interests\": \"Sunt minim cupidatat in ut consequat consectetur et velit proident tempor ad mollit.\",\n        \"lookingFor\": \"Labore quis commodo excepteur ullamco ipsum dolore. Ut ad eu deserunt veniam incididunt et sit dolore. Fugiat ea culpa aute est irure cillum laborum incididunt veniam amet in do sit sint. Consequat proident do nostrud cupidatat commodo tempor excepteur nostrud dolore minim eiusmod. Dolore enim esse exercitation dolor voluptate. Cupidatat in non aliquip labore non fugiat nulla quis ad velit magna reprehenderit. In eiusmod consectetur minim irure nisi duis do dolore mollit nostrud sint pariatur ea dolore.\\r\\n\",\n        \"city\": \"Goochland\",\n        \"country\": \"Panama\",\n        \"photos\": [\n            {\n                \"id\": 3,\n                \"url\": \"https://randomuser.me/api/portraits/women/41.jpg\",\n                \"isMain\": true\n            },\n            {\n                \"id\": 24,\n                \"url\": \"https://res.cloudinary.com/devmediacloudserver/image/upload/v1751884234/DatingApp/bwxgzvx3n30kex1j83jp.jpg\",\n                \"isMain\": false\n            }\n        ]\n    }\n]"
+						}
+					]
+				}
+			]
 		}
 	]
 }

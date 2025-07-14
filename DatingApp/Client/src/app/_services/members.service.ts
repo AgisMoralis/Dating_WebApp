@@ -7,6 +7,7 @@ import { Photo } from '../_models/photo';
 import { PaginatedResult } from '../_models/pagination';
 import { MemberParameters } from '../_models/memberParameters';
 import { AccountService } from './account.service';
+import { setPaginatedResponse, setPaginationHeaders } from './paginationHelper';
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +17,7 @@ export class MembersService {
   private accountService = inject(AccountService);
   user = this.accountService.currentUser();
   baseUrl = environment.apiUrl;
-  paginatedResults = signal<PaginatedResult<Member[]> | null>(null);
+  paginatedResult = signal<PaginatedResult<Member[]> | null>(null);
   memberParams = signal<MemberParameters>(new MemberParameters(this.user));
   memberCache = new Map();
 
@@ -27,10 +28,10 @@ export class MembersService {
   getMembers() {
     const response = this.memberCache.get(Object.values(this.memberParams()).join('-'));
     if (response) {
-      return this.setPaginatedResults(response);
+      return setPaginatedResponse(response, this.paginatedResult);
     }
 
-    let params = this.setPaginationHeaders(this.memberParams().pageNumber, this.memberParams().pageSize);
+    let params = setPaginationHeaders(this.memberParams().pageNumber, this.memberParams().pageSize);
     params = params.append('gender', this.memberParams().gender)
     params = params.append('minAge', this.memberParams().minAge);
     params = params.append('maxAge', this.memberParams().maxAge);
@@ -38,28 +39,10 @@ export class MembersService {
 
     return this.http.get<Member[]>(this.baseUrl + 'users', { observe: 'response', params }).subscribe({
       next: response => {
-        this.setPaginatedResults(response);
+        setPaginatedResponse(response, this.paginatedResult);
         this.memberCache.set(Object.values(this.memberParams()).join('-'), response);
       }
     })
-  }
-
-  private setPaginatedResults(response: HttpResponse<Member[]>) {
-    this.paginatedResults.set({
-      items: response.body as Member[],
-      pagination: JSON.parse(response.headers.get('Pagination')!)
-    })
-  }
-
-  private setPaginationHeaders(pageNumber: number, pageSize: number) {
-    let params = new HttpParams();
-
-    if (pageNumber && pageSize) {
-      params = params.append('pageNumber', pageNumber);
-      params = params.append('pageSize', pageSize);
-    }
-
-    return params;
   }
 
   getMember(username: string) {
@@ -75,42 +58,14 @@ export class MembersService {
   }
 
   updateMember(member: Member) {
-    return this.http.put(this.baseUrl + 'users', member).pipe(
-      //tap(() => {
-      //  this.members.update(members => members.map(m => m.username === member.username ? member : m))
-      //})
-    )
+    return this.http.put(this.baseUrl + 'users', member);
   }
 
   setMainPhoto(photo: Photo) {
-    return this.http.put(this.baseUrl + 'users/set-main-photo/' + photo.id, {}).pipe(
-      //tap(() => {
-      //  this.updateMainPhoto(photo.id, photo.url);
-      //})
-    );
-  }
-
-  updateMainPhoto(id: number, url: string) {
-    //this.members.update(members =>
-    //  members.map(m => {
-    //    if (m.photos.some(p => p.id === id && p.url === url)){
-    //      m.photoUrl = url;
-    //    }
-    //    return m;
-    //  }))
+    return this.http.put(this.baseUrl + 'users/set-main-photo/' + photo.id, {});
   }
 
   deletePhoto(photo: Photo) {
-    return this.http.delete(this.baseUrl + 'users/delete-photo/' + photo.id).pipe(
-      //tap(() => {
-      //  this.members.update(members =>
-      //    members.map(m => {
-      //      if(m.photos.includes(photo)){
-      //        m.photos = m.photos.filter(p => p.id !== photo.id);
-      //      }
-      //      return m;
-      //    }))
-      //})
-    );
+    return this.http.delete(this.baseUrl + 'users/delete-photo/' + photo.id);
   };
 }

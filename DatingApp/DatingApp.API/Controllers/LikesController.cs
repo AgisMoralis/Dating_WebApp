@@ -1,0 +1,58 @@
+using DatingApp.API.Data;
+using DatingApp.API.Extensions;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+
+namespace DatingApp.API.Controllers;
+
+[Authorize]
+public class LikesController(ILikesRepository likesRepository) : BaseAPIController
+{
+    [HttpPost("{targetUserId:int}")]
+    public async Task<ActionResult> ToggleLike(int targetUserId)
+    {
+        var sourceUserId = User.GetUserId();
+        if (sourceUserId == targetUserId)
+        {
+            return BadRequest("You cannot like yourself");
+        }
+
+        var existingLike = await likesRepository.GetUserLike(sourceUserId, targetUserId);
+        if (existingLike == null)
+        {
+            var newLike = new Entities.UserLike
+            {
+                SourceUserId = sourceUserId,
+                TargetUserId = targetUserId
+            };
+            likesRepository.AddLike(newLike);
+        }
+        else
+        {
+            likesRepository.DeleteLike(existingLike);
+        }
+
+        if (await likesRepository.SaveAllAsync())
+        {
+            return Ok();
+        }
+        return BadRequest("Failed to update like");
+    }
+
+    [HttpGet("{list}")]
+    public async Task<ActionResult<IEnumerable<int>>> GetCurrentUserLikeIds()
+    {
+        return Ok(await likesRepository.GetCurrentUserLikeIds(User.GetUserId()));
+    }
+
+    [HttpGet]
+    public async Task<ActionResult<IEnumerable<Models.MemberDto>>> GetUserLikes([FromQuery]Models.LikesParametersDto likesParams)
+    {
+        likesParams.UserId = User.GetUserId();
+        var users = await likesRepository.GetUserLikes(likesParams);
+
+        Response.AddPaginationHeader(users);
+
+        return Ok(users);
+    }
+}
