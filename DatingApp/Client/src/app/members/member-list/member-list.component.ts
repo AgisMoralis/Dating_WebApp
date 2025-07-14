@@ -18,7 +18,7 @@ export class MemberListComponent implements OnInit {
   genderList = [{value: 'male', display: 'Males'}, {value: 'female', display: 'Females'}]
 
   ngOnInit(): void {
-    if(!this.memberService.paginatedResults()){
+    if(!this.memberService.paginatedResult()){
       this.loadMembers();
     }
   }
@@ -33,7 +33,7 @@ export class MemberListComponent implements OnInit {
   }
 
   pageChanged($event: any) {
-    if(this.memberService.memberParams().pageNumber !==  $event.page) {
+    if(this.memberService.memberParams().pageNumber !== $event.page) {
       this.memberService.memberParams().pageNumber = $event.page;
       this.loadMembers();
     }
