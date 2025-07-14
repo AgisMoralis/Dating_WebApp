@@ -2763,19 +2763,27 @@
 								},
 								{
 									"key": "Date",
-									"value": "Mon, 14 Jul 2025 12:43:07 GMT"
+									"value": "Mon, 14 Jul 2025 15:32:47 GMT"
 								},
 								{
 									"key": "Server",
 									"value": "Kestrel"
 								},
 								{
+									"key": "Access-Control-Expose-Headers",
+									"value": "Pagination"
+								},
+								{
 									"key": "Transfer-Encoding",
 									"value": "chunked"
+								},
+								{
+									"key": "Pagination",
+									"value": "{\"currentPage\":1,\"totalPages\":1,\"itemsPerPage\":10,\"totalItems\":2}"
 								}
 							],
 							"cookie": [],
-							"body": "[\n    {\n        \"id\": 6,\n        \"username\": \"kirk\",\n        \"age\": 53,\n        \"photoUrl\": \"https://randomuser.me/api/portraits/men/12.jpg\",\n        \"knownAs\": \"Kirk\",\n        \"created\": \"2019-12-03T00:00:00\",\n        \"lastActive\": \"2020-05-13T00:00:00\",\n        \"gender\": \"male\",\n        \"introduction\": \"Minim elit cupidatat aute commodo tempor aliquip est officia culpa consequat. Id eiusmod dolore minim aliquip. Cupidatat ex non do ex labore magna enim. Labore quis veniam quis ea ea.\\r\\n\",\n        \"interests\": \"Eu proident mollit est non.\",\n        \"lookingFor\": \"Laboris elit cillum fugiat elit cupidatat irure nostrud fugiat cillum sint excepteur laboris ipsum eiusmod. Et consequat esse aliqua sunt aliqua mollit fugiat duis. Deserunt proident reprehenderit dolore ut voluptate. Sit esse et do id ex cupidatat eu. In tempor consectetur fugiat ipsum nostrud enim occaecat exercitation cupidatat commodo.\\r\\n\",\n        \"city\": \"Taft\",\n        \"country\": \"Saint Lucia\",\n        \"photos\": [\n            {\n                \"id\": 6,\n                \"url\": \"https://randomuser.me/api/portraits/men/12.jpg\",\n                \"isMain\": true\n            }\n        ]\n    }\n]"
+							"body": "[\n    {\n        \"id\": 6,\n        \"username\": \"kirk\",\n        \"age\": 53,\n        \"photoUrl\": \"https://randomuser.me/api/portraits/men/12.jpg\",\n        \"knownAs\": \"Kirk\",\n        \"created\": \"2019-12-03T00:00:00\",\n        \"lastActive\": \"2025-07-14T13:14:03.6244407\",\n        \"gender\": \"male\",\n        \"introduction\": \"Minim elit cupidatat aute commodo tempor aliquip est officia culpa consequat. Id eiusmod dolore minim aliquip. Cupidatat ex non do ex labore magna enim. Labore quis veniam quis ea ea.\\r\\n\",\n        \"interests\": \"Eu proident mollit est non.\",\n        \"lookingFor\": \"Laboris elit cillum fugiat elit cupidatat irure nostrud fugiat cillum sint excepteur laboris ipsum eiusmod. Et consequat esse aliqua sunt aliqua mollit fugiat duis. Deserunt proident reprehenderit dolore ut voluptate. Sit esse et do id ex cupidatat eu. In tempor consectetur fugiat ipsum nostrud enim occaecat exercitation cupidatat commodo.\\r\\n\",\n        \"city\": \"Taft\",\n        \"country\": \"Saint Lucia\",\n        \"photos\": [\n            {\n                \"id\": 6,\n                \"url\": \"https://randomuser.me/api/portraits/men/12.jpg\",\n                \"isMain\": true\n            }\n        ]\n    },\n    {\n        \"id\": 8,\n        \"username\": \"stevenson\",\n        \"age\": 61,\n        \"photoUrl\": \"https://randomuser.me/api/portraits/men/9.jpg\",\n        \"knownAs\": \"Stevenson\",\n        \"created\": \"2019-09-08T00:00:00\",\n        \"lastActive\": \"2020-06-06T00:00:00\",\n        \"gender\": \"male\",\n        \"introduction\": \"Amet aliqua irure consectetur irure. Dolor non aliquip quis cupidatat nisi enim id laboris pariatur sint culpa excepteur. Ea voluptate commodo nostrud veniam veniam Lorem ut ut duis cupidatat officia sit ut. Tempor fugiat officia commodo id sit consequat cillum cupidatat deserunt ipsum occaecat. Qui laboris fugiat duis excepteur culpa nulla sint duis dolore fugiat enim elit. Tempor duis ullamco veniam duis. Ad dolor dolor culpa reprehenderit veniam.\\r\\n\",\n        \"interests\": \"Eu tempor qui officia proident aliqua.\",\n        \"lookingFor\": \"Ea quis culpa anim id non cupidatat sit velit. Enim fugiat aliqua eiusmod excepteur aliqua nisi mollit aliqua nostrud fugiat veniam voluptate cillum. Enim ea fugiat non aute culpa est non. Sint reprehenderit fugiat pariatur mollit elit aliquip. Sunt ullamco non Lorem fugiat et est ad tempor et laboris. Tempor enim dolore et eu veniam.\\r\\n\",\n        \"city\": \"Tyro\",\n        \"country\": \"Ethiopia\",\n        \"photos\": [\n            {\n                \"id\": 8,\n                \"url\": \"https://randomuser.me/api/portraits/men/9.jpg\",\n                \"isMain\": true\n            }\n        ]\n    }\n]"
 						}
 					]
 				},
@@ -2848,19 +2856,27 @@
 								},
 								{
 									"key": "Date",
-									"value": "Mon, 14 Jul 2025 12:51:28 GMT"
+									"value": "Mon, 14 Jul 2025 15:33:02 GMT"
 								},
 								{
 									"key": "Server",
 									"value": "Kestrel"
 								},
 								{
+									"key": "Access-Control-Expose-Headers",
+									"value": "Pagination"
+								},
+								{
 									"key": "Transfer-Encoding",
 									"value": "chunked"
+								},
+								{
+									"key": "Pagination",
+									"value": "{\"currentPage\":1,\"totalPages\":1,\"itemsPerPage\":10,\"totalItems\":2}"
 								}
 							],
 							"cookie": [],
-							"body": "[\n    {\n        \"id\": 6,\n        \"username\": \"kirk\",\n        \"age\": 53,\n        \"photoUrl\": \"https://randomuser.me/api/portraits/men/12.jpg\",\n        \"knownAs\": \"Kirk\",\n        \"created\": \"2019-12-03T00:00:00\",\n        \"lastActive\": \"2025-07-14T12:50:45.8605531\",\n        \"gender\": \"male\",\n        \"introduction\": \"Minim elit cupidatat aute commodo tempor aliquip est officia culpa consequat. Id eiusmod dolore minim aliquip. Cupidatat ex non do ex labore magna enim. Labore quis veniam quis ea ea.\\r\\n\",\n        \"interests\": \"Eu proident mollit est non.\",\n        \"lookingFor\": \"Laboris elit cillum fugiat elit cupidatat irure nostrud fugiat cillum sint excepteur laboris ipsum eiusmod. Et consequat esse aliqua sunt aliqua mollit fugiat duis. Deserunt proident reprehenderit dolore ut voluptate. Sit esse et do id ex cupidatat eu. In tempor consectetur fugiat ipsum nostrud enim occaecat exercitation cupidatat commodo.\\r\\n\",\n        \"city\": \"Taft\",\n        \"country\": \"Saint Lucia\",\n        \"photos\": [\n            {\n                \"id\": 6,\n                \"url\": \"https://randomuser.me/api/portraits/men/12.jpg\",\n                \"isMain\": true\n            }\n        ]\n    }\n]"
+							"body": "[\n    {\n        \"id\": 6,\n        \"username\": \"kirk\",\n        \"age\": 53,\n        \"photoUrl\": \"https://randomuser.me/api/portraits/men/12.jpg\",\n        \"knownAs\": \"Kirk\",\n        \"created\": \"2019-12-03T00:00:00\",\n        \"lastActive\": \"2025-07-14T13:14:03.6244407\",\n        \"gender\": \"male\",\n        \"introduction\": \"Minim elit cupidatat aute commodo tempor aliquip est officia culpa consequat. Id eiusmod dolore minim aliquip. Cupidatat ex non do ex labore magna enim. Labore quis veniam quis ea ea.\\r\\n\",\n        \"interests\": \"Eu proident mollit est non.\",\n        \"lookingFor\": \"Laboris elit cillum fugiat elit cupidatat irure nostrud fugiat cillum sint excepteur laboris ipsum eiusmod. Et consequat esse aliqua sunt aliqua mollit fugiat duis. Deserunt proident reprehenderit dolore ut voluptate. Sit esse et do id ex cupidatat eu. In tempor consectetur fugiat ipsum nostrud enim occaecat exercitation cupidatat commodo.\\r\\n\",\n        \"city\": \"Taft\",\n        \"country\": \"Saint Lucia\",\n        \"photos\": [\n            {\n                \"id\": 6,\n                \"url\": \"https://randomuser.me/api/portraits/men/12.jpg\",\n                \"isMain\": true\n            }\n        ]\n    },\n    {\n        \"id\": 11,\n        \"username\": \"bob\",\n        \"age\": 36,\n        \"photoUrl\": \"https://res.cloudinary.com/devmediacloudserver/image/upload/v1751963540/DatingApp/gg5z6t5vcu3lgecbnnwr.jpg\",\n        \"knownAs\": \"Bob\",\n        \"created\": \"2025-07-08T08:25:41.1034518\",\n        \"lastActive\": \"2025-07-14T14:58:26.2190528\",\n        \"gender\": \"male\",\n        \"introduction\": \"This is my description\",\n        \"interests\": \"I like a lot of things\",\n        \"lookingFor\": \"I am looking for some fun\",\n        \"city\": \"London\",\n        \"country\": \"UK\",\n        \"photos\": [\n            {\n                \"id\": 25,\n                \"url\": \"https://res.cloudinary.com/devmediacloudserver/image/upload/v1751963160/DatingApp/nwweuxqwqbmamrlx7sa5.jpg\",\n                \"isMain\": false\n            },\n            {\n                \"id\": 26,\n                \"url\": \"https://res.cloudinary.com/devmediacloudserver/image/upload/v1751963540/DatingApp/gg5z6t5vcu3lgecbnnwr.jpg\",\n                \"isMain\": true\n            }\n        ]\n    }\n]"
 						}
 					]
 				},
@@ -2933,19 +2949,27 @@
 								},
 								{
 									"key": "Date",
-									"value": "Mon, 14 Jul 2025 12:53:14 GMT"
+									"value": "Mon, 14 Jul 2025 15:33:57 GMT"
 								},
 								{
 									"key": "Server",
 									"value": "Kestrel"
 								},
 								{
+									"key": "Access-Control-Expose-Headers",
+									"value": "Pagination"
+								},
+								{
 									"key": "Transfer-Encoding",
 									"value": "chunked"
+								},
+								{
+									"key": "Pagination",
+									"value": "{\"currentPage\":1,\"totalPages\":1,\"itemsPerPage\":10,\"totalItems\":1}"
 								}
 							],
 							"cookie": [],
-							"body": "[\n    {\n        \"id\": 3,\n        \"username\": \"delores\",\n        \"age\": 41,\n        \"photoUrl\": \"https://randomuser.me/api/portraits/women/41.jpg\",\n        \"knownAs\": \"Delores\",\n        \"created\": \"2020-03-29T00:00:00\",\n        \"lastActive\": \"2025-07-14T12:51:29.0492162\",\n        \"gender\": \"female\",\n        \"introduction\": \"Esse qui nulla nulla nisi dolore elit fugiat ex et sint minim non. Reprehenderit fugiat exercitation laborum nostrud reprehenderit deserunt ad sit incididunt id sunt. Quis cillum occaecat do quis Lorem labore ad.\\r\\n\",\n        \"interests\": \"Sunt minim cupidatat in ut consequat consectetur et velit proident tempor ad mollit.\",\n        \"lookingFor\": \"Labore quis commodo excepteur ullamco ipsum dolore. Ut ad eu deserunt veniam incididunt et sit dolore. Fugiat ea culpa aute est irure cillum laborum incididunt veniam amet in do sit sint. Consequat proident do nostrud cupidatat commodo tempor excepteur nostrud dolore minim eiusmod. Dolore enim esse exercitation dolor voluptate. Cupidatat in non aliquip labore non fugiat nulla quis ad velit magna reprehenderit. In eiusmod consectetur minim irure nisi duis do dolore mollit nostrud sint pariatur ea dolore.\\r\\n\",\n        \"city\": \"Goochland\",\n        \"country\": \"Panama\",\n        \"photos\": [\n            {\n                \"id\": 3,\n                \"url\": \"https://randomuser.me/api/portraits/women/41.jpg\",\n                \"isMain\": true\n            },\n            {\n                \"id\": 24,\n                \"url\": \"https://res.cloudinary.com/devmediacloudserver/image/upload/v1751884234/DatingApp/bwxgzvx3n30kex1j83jp.jpg\",\n                \"isMain\": false\n            }\n        ]\n    }\n]"
+							"body": "[\n    {\n        \"id\": 3,\n        \"username\": \"delores\",\n        \"age\": 41,\n        \"photoUrl\": \"https://randomuser.me/api/portraits/women/41.jpg\",\n        \"knownAs\": \"Delores\",\n        \"created\": \"2020-03-29T00:00:00\",\n        \"lastActive\": \"2025-07-14T15:33:03.0893854\",\n        \"gender\": \"female\",\n        \"introduction\": \"Esse qui nulla nulla nisi dolore elit fugiat ex et sint minim non. Reprehenderit fugiat exercitation laborum nostrud reprehenderit deserunt ad sit incididunt id sunt. Quis cillum occaecat do quis Lorem labore ad.\\r\\n\",\n        \"interests\": \"Sunt minim cupidatat in ut consequat consectetur et velit proident tempor ad mollit.\",\n        \"lookingFor\": \"Labore quis commodo excepteur ullamco ipsum dolore. Ut ad eu deserunt veniam incididunt et sit dolore. Fugiat ea culpa aute est irure cillum laborum incididunt veniam amet in do sit sint. Consequat proident do nostrud cupidatat commodo tempor excepteur nostrud dolore minim eiusmod. Dolore enim esse exercitation dolor voluptate. Cupidatat in non aliquip labore non fugiat nulla quis ad velit magna reprehenderit. In eiusmod consectetur minim irure nisi duis do dolore mollit nostrud sint pariatur ea dolore.\\r\\n\",\n        \"city\": \"Goochland\",\n        \"country\": \"Panama\",\n        \"photos\": [\n            {\n                \"id\": 3,\n                \"url\": \"https://randomuser.me/api/portraits/women/41.jpg\",\n                \"isMain\": true\n            },\n            {\n                \"id\": 24,\n                \"url\": \"https://res.cloudinary.com/devmediacloudserver/image/upload/v1751884234/DatingApp/bwxgzvx3n30kex1j83jp.jpg\",\n                \"isMain\": false\n            }\n        ]\n    }\n]"
 						}
 					]
 				}
