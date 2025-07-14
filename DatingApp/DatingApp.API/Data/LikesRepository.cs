@@ -19,7 +19,7 @@ public class LikesRepository(DataContext context, IMapper mapper) : ILikesReposi
 
         switch (predicate)
         {
-            case "liked":
+            case "likes":
                 return await likes
                     .Where(l => l.SourceUserId == userId)
                     .Select(l => l.TargetUser)
