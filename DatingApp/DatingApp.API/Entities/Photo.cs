@@ -10,6 +10,7 @@ public class Photo
     public bool IsMain { get; set; }
     public string? PublicId { get; set; }
 
-    public int AppUserId { get; set; }
+    // Navigation properties
+    public int MemberId { get; set; }
     public Member Member { get; set; } = null!;
 }
