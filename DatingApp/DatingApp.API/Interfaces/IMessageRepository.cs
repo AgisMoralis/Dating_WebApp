@@ -7,7 +7,7 @@ public interface IMessageRepository
     void AddMessage(Entities.Message message);
     void DeleteMessage(Entities.Message message);
     Task<Entities.Message?> GetMessageAsync(int id);
-    Task<PagedList<Models.MessageDto>> GetMessagesForUserAsync();
-    Task<IEnumerable<Models.MessageDto>> GetMessageThreadAsync(string currentUsername, string recipientUsername);
+    Task<PagedList<Models.MessageDto>> GetMessagesForUserAsync(Models.MessageParametersDto messageParams);
+    Task<IEnumerable<Models.MessageDto>> GetThreadMessagesAsync(string currentUsername, string recipientUsername);
     Task<bool> SaveAllAsync();
 }
