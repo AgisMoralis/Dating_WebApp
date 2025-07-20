@@ -2619,7 +2619,7 @@
 								}
 							],
 							"cookie": [],
-							"body": ""
+							"body": null
 						}
 					]
 				},
@@ -2690,7 +2690,7 @@
 								}
 							],
 							"cookie": [],
-							"body": ""
+							"body": null
 						}
 					]
 				},
@@ -2970,6 +2970,846 @@
 							],
 							"cookie": [],
 							"body": "[\n    {\n        \"id\": 3,\n        \"username\": \"delores\",\n        \"age\": 41,\n        \"photoUrl\": \"https://randomuser.me/api/portraits/women/41.jpg\",\n        \"knownAs\": \"Delores\",\n        \"created\": \"2020-03-29T00:00:00\",\n        \"lastActive\": \"2025-07-14T15:33:03.0893854\",\n        \"gender\": \"female\",\n        \"introduction\": \"Esse qui nulla nulla nisi dolore elit fugiat ex et sint minim non. Reprehenderit fugiat exercitation laborum nostrud reprehenderit deserunt ad sit incididunt id sunt. Quis cillum occaecat do quis Lorem labore ad.\\r\\n\",\n        \"interests\": \"Sunt minim cupidatat in ut consequat consectetur et velit proident tempor ad mollit.\",\n        \"lookingFor\": \"Labore quis commodo excepteur ullamco ipsum dolore. Ut ad eu deserunt veniam incididunt et sit dolore. Fugiat ea culpa aute est irure cillum laborum incididunt veniam amet in do sit sint. Consequat proident do nostrud cupidatat commodo tempor excepteur nostrud dolore minim eiusmod. Dolore enim esse exercitation dolor voluptate. Cupidatat in non aliquip labore non fugiat nulla quis ad velit magna reprehenderit. In eiusmod consectetur minim irure nisi duis do dolore mollit nostrud sint pariatur ea dolore.\\r\\n\",\n        \"city\": \"Goochland\",\n        \"country\": \"Panama\",\n        \"photos\": [\n            {\n                \"id\": 3,\n                \"url\": \"https://randomuser.me/api/portraits/women/41.jpg\",\n                \"isMain\": true\n            },\n            {\n                \"id\": 24,\n                \"url\": \"https://res.cloudinary.com/devmediacloudserver/image/upload/v1751884234/DatingApp/bwxgzvx3n30kex1j83jp.jpg\",\n                \"isMain\": false\n            }\n        ]\n    }\n]"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Messages",
+			"item": [
+				{
+					"name": "Login Existing User (Delores) and Save Token to Custom Environment",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const user = pm.response.json()\r",
+									"\r",
+									"pm.test(\"Has properties\", function(){\r",
+									"    pm.expect(user).to.have.property('username');\r",
+									"    pm.expect(user).to.have.property('token');\r",
+									"})\r",
+									"\r",
+									"if (pm.test(\"Has properties\")){\r",
+									"    pm.environment.set('token_delores', user.token);\r",
+									"}"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"delores\",\r\n    \"password\": \"pa$$word\"    \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:{{portNumber}}/api/account/login",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "{{portNumber}}",
+							"path": [
+								"api",
+								"account",
+								"login"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Login Existing User (Delores) and Save Token to Custom Environment",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\": \"delores\",\r\n    \"password\": \"pa$$word\"    \r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://localhost:{{portNumber}}/api/account/login",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"port": "{{portNumber}}",
+									"path": [
+										"api",
+										"account",
+										"login"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 16 Jul 2025 11:57:14 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Kestrel"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"username\": \"delores\",\n    \"knownAs\": \"Delores\",\n    \"gender\": \"female\",\n    \"token\": \"eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiIzIiwidW5pcXVlX25hbWUiOiJkZWxvcmVzIiwibmJmIjoxNzUyNjY3MDM0LCJleHAiOjE3NTMyNzE4MzQsImlhdCI6MTc1MjY2NzAzNH0.iFrtCkfDk6mpJMvRpnV3EVgVvJFRkF4gMdfi_f0xD7jU9DrqAVaR4ApJbhpgV-4nPj-HiOPMqdXrxIdU2G45Dg\",\n    \"photoUrl\": \"https://randomuser.me/api/portraits/women/41.jpg\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Login Existing User (Kirk) and Save Token to Custom Environment",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const user = pm.response.json()\r",
+									"\r",
+									"pm.test(\"Has properties\", function(){\r",
+									"    pm.expect(user).to.have.property('username');\r",
+									"    pm.expect(user).to.have.property('token');\r",
+									"})\r",
+									"\r",
+									"if (pm.test(\"Has properties\")){\r",
+									"    pm.environment.set('token_kirk', user.token);\r",
+									"}"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"kirk\",\r\n    \"password\": \"pa$$word\"    \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:{{portNumber}}/api/account/login",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "{{portNumber}}",
+							"path": [
+								"api",
+								"account",
+								"login"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Login Existing User (Kirk) and Save Token to Custom Environment",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\": \"kirk\",\r\n    \"password\": \"pa$$word\"    \r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://localhost:{{portNumber}}/api/account/login",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"port": "{{portNumber}}",
+									"path": [
+										"api",
+										"account",
+										"login"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 16 Jul 2025 12:00:30 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Kestrel"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"username\": \"kirk\",\n    \"knownAs\": \"Kirk\",\n    \"gender\": \"male\",\n    \"token\": \"eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiI2IiwidW5pcXVlX25hbWUiOiJraXJrIiwibmJmIjoxNzUyNjY3MjMxLCJleHAiOjE3NTMyNzIwMzEsImlhdCI6MTc1MjY2NzIzMX0.6DkxeOvUG7A9Eco6cADE1-iBejE147gkQxwERc4UUYYs-C6mDJ5-jztmNEe-aXkpYTnuLNj8CqhdNByuzu-EnA\",\n    \"photoUrl\": \"https://randomuser.me/api/portraits/men/12.jpg\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Send new message from Delores to Kirk",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token_delores}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"recipientUsername\": \"kirk\",\r\n    \"content\": \"New message from Delores to Kirk\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:{{portNumber}}/api/messages",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "{{portNumber}}",
+							"path": [
+								"api",
+								"messages"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Send new message from Delores to Kirk",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"recipientUsername\": \"kirk\",\r\n    \"content\": \"New message from Delores to Kirk\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://localhost:{{portNumber}}/api/messages",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"port": "{{portNumber}}",
+									"path": [
+										"api",
+										"messages"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 16 Jul 2025 11:59:16 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Kestrel"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 1,\n    \"senderId\": 3,\n    \"senderUsername\": \"delores\",\n    \"senderPhotoUrl\": \"https://randomuser.me/api/portraits/women/41.jpg\",\n    \"recipientId\": 6,\n    \"recipientUsername\": \"kirk\",\n    \"recipientPhotoUrl\": \"https://randomuser.me/api/portraits/men/12.jpg\",\n    \"content\": \"New message from Delores to Kirk\",\n    \"dateRead\": null,\n    \"messageSent\": \"2025-07-16T13:59:17.3015127+02:00\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Send new message from Kirk to Delores",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token_kirk}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"recipientUsername\": \"delores\",\r\n    \"content\": \"New message sent back from Kirk to Delores as a reply\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:{{portNumber}}/api/messages",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "{{portNumber}}",
+							"path": [
+								"api",
+								"messages"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Send new message from Delores to Kirk Copy",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"recipientUsername\": \"delores\",\r\n    \"content\": \"New message sent back from Kirk to Delores as a reply\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://localhost:{{portNumber}}/api/messages",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"port": "{{portNumber}}",
+									"path": [
+										"api",
+										"messages"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 16 Jul 2025 12:01:53 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Kestrel"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 2,\n    \"senderId\": 6,\n    \"senderUsername\": \"kirk\",\n    \"senderPhotoUrl\": \"https://randomuser.me/api/portraits/men/12.jpg\",\n    \"recipientId\": 3,\n    \"recipientUsername\": \"delores\",\n    \"recipientPhotoUrl\": \"https://randomuser.me/api/portraits/women/41.jpg\",\n    \"content\": \"New message sent back from Kirk to Delores as a reply\",\n    \"dateRead\": null,\n    \"messageSent\": \"2025-07-16T14:01:53.2086183+02:00\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Get default (unread) messages to Delores",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token_delores}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:{{portNumber}}/api/messages",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "{{portNumber}}",
+							"path": [
+								"api",
+								"messages"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get default (unread) messages to Delores",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://localhost:{{portNumber}}/api/messages",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"port": "{{portNumber}}",
+									"path": [
+										"api",
+										"messages"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 16 Jul 2025 12:46:40 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Kestrel"
+								},
+								{
+									"key": "Access-Control-Expose-Headers",
+									"value": "Pagination"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Pagination",
+									"value": "{\"currentPage\":1,\"totalPages\":1,\"itemsPerPage\":10,\"totalItems\":1}"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": 2,\n        \"senderId\": 6,\n        \"senderUsername\": \"kirk\",\n        \"senderPhotoUrl\": \"https://randomuser.me/api/portraits/men/12.jpg\",\n        \"recipientId\": 3,\n        \"recipientUsername\": \"delores\",\n        \"recipientPhotoUrl\": \"https://randomuser.me/api/portraits/women/41.jpg\",\n        \"content\": \"New message sent back from Kirk to Delores as a reply\",\n        \"dateRead\": null,\n        \"messageSent\": \"2025-07-16T14:01:53.2086183\"\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "Get outbox messages from Delores",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token_delores}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:{{portNumber}}/api/messages?container=Outbox",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "{{portNumber}}",
+							"path": [
+								"api",
+								"messages"
+							],
+							"query": [
+								{
+									"key": "container",
+									"value": "Outbox"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get outbox messages from Delores",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://localhost:{{portNumber}}/api/messages?Container=Outbox",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"port": "{{portNumber}}",
+									"path": [
+										"api",
+										"messages"
+									],
+									"query": [
+										{
+											"key": "Container",
+											"value": "Outbox"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 16 Jul 2025 12:44:54 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Kestrel"
+								},
+								{
+									"key": "Access-Control-Expose-Headers",
+									"value": "Pagination"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Pagination",
+									"value": "{\"currentPage\":1,\"totalPages\":1,\"itemsPerPage\":10,\"totalItems\":2}"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": 3,\n        \"senderId\": 3,\n        \"senderUsername\": \"delores\",\n        \"senderPhotoUrl\": \"https://randomuser.me/api/portraits/women/41.jpg\",\n        \"recipientId\": 6,\n        \"recipientUsername\": \"kirk\",\n        \"recipientPhotoUrl\": \"https://randomuser.me/api/portraits/men/12.jpg\",\n        \"content\": \"Delores reply to Kirk as a final message\",\n        \"dateRead\": null,\n        \"messageSent\": \"2025-07-16T14:03:03.6550734\"\n    },\n    {\n        \"id\": 1,\n        \"senderId\": 3,\n        \"senderUsername\": \"delores\",\n        \"senderPhotoUrl\": \"https://randomuser.me/api/portraits/women/41.jpg\",\n        \"recipientId\": 6,\n        \"recipientUsername\": \"kirk\",\n        \"recipientPhotoUrl\": \"https://randomuser.me/api/portraits/men/12.jpg\",\n        \"content\": \"New message from Delores to Kirk\",\n        \"dateRead\": null,\n        \"messageSent\": \"2025-07-16T13:59:17.3015127\"\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "Get default (unread) messages to Kirk",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token_kirk}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:{{portNumber}}/api/messages",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "{{portNumber}}",
+							"path": [
+								"api",
+								"messages"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get default (unread) messages to Kirk",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://localhost:{{portNumber}}/api/messages",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"port": "{{portNumber}}",
+									"path": [
+										"api",
+										"messages"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 16 Jul 2025 12:47:35 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Kestrel"
+								},
+								{
+									"key": "Access-Control-Expose-Headers",
+									"value": "Pagination"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Pagination",
+									"value": "{\"currentPage\":1,\"totalPages\":1,\"itemsPerPage\":10,\"totalItems\":2}"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": 3,\n        \"senderId\": 3,\n        \"senderUsername\": \"delores\",\n        \"senderPhotoUrl\": \"https://randomuser.me/api/portraits/women/41.jpg\",\n        \"recipientId\": 6,\n        \"recipientUsername\": \"kirk\",\n        \"recipientPhotoUrl\": \"https://randomuser.me/api/portraits/men/12.jpg\",\n        \"content\": \"Delores reply to Kirk as a final message\",\n        \"dateRead\": null,\n        \"messageSent\": \"2025-07-16T14:03:03.6550734\"\n    },\n    {\n        \"id\": 1,\n        \"senderId\": 3,\n        \"senderUsername\": \"delores\",\n        \"senderPhotoUrl\": \"https://randomuser.me/api/portraits/women/41.jpg\",\n        \"recipientId\": 6,\n        \"recipientUsername\": \"kirk\",\n        \"recipientPhotoUrl\": \"https://randomuser.me/api/portraits/men/12.jpg\",\n        \"content\": \"New message from Delores to Kirk\",\n        \"dateRead\": null,\n        \"messageSent\": \"2025-07-16T13:59:17.3015127\"\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "Get outbox messages from Krik",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token_kirk}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:{{portNumber}}/api/messages?container=Outbox",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "{{portNumber}}",
+							"path": [
+								"api",
+								"messages"
+							],
+							"query": [
+								{
+									"key": "container",
+									"value": "Outbox"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get outbox messages from Kirk",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://localhost:{{portNumber}}/api/messages?Container=Outbox",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"port": "{{portNumber}}",
+									"path": [
+										"api",
+										"messages"
+									],
+									"query": [
+										{
+											"key": "Container",
+											"value": "Outbox"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 16 Jul 2025 12:48:24 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Kestrel"
+								},
+								{
+									"key": "Access-Control-Expose-Headers",
+									"value": "Pagination"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Pagination",
+									"value": "{\"currentPage\":1,\"totalPages\":1,\"itemsPerPage\":10,\"totalItems\":1}"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": 2,\n        \"senderId\": 6,\n        \"senderUsername\": \"kirk\",\n        \"senderPhotoUrl\": \"https://randomuser.me/api/portraits/men/12.jpg\",\n        \"recipientId\": 3,\n        \"recipientUsername\": \"delores\",\n        \"recipientPhotoUrl\": \"https://randomuser.me/api/portraits/women/41.jpg\",\n        \"content\": \"New message sent back from Kirk to Delores as a reply\",\n        \"dateRead\": null,\n        \"messageSent\": \"2025-07-16T14:01:53.2086183\"\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "Get messages from thread with Kirk (current user = Delores)",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token_delores}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:{{portNumber}}/api/messages/thread/kirk",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "{{portNumber}}",
+							"path": [
+								"api",
+								"messages",
+								"thread",
+								"kirk"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get messages from thread with Kirk (current user = Delores)",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://localhost:{{portNumber}}/api/messages/thread/kirk",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"port": "{{portNumber}}",
+									"path": [
+										"api",
+										"messages",
+										"thread",
+										"kirk"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 16 Jul 2025 13:23:55 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Kestrel"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": 1,\n        \"senderId\": 3,\n        \"senderUsername\": \"delores\",\n        \"senderPhotoUrl\": \"https://randomuser.me/api/portraits/women/41.jpg\",\n        \"recipientId\": 6,\n        \"recipientUsername\": \"kirk\",\n        \"recipientPhotoUrl\": \"https://randomuser.me/api/portraits/men/12.jpg\",\n        \"content\": \"New message from Delores to Kirk\",\n        \"dateRead\": null,\n        \"messageSent\": \"2025-07-16T13:59:17.3015127\"\n    },\n    {\n        \"id\": 2,\n        \"senderId\": 6,\n        \"senderUsername\": \"kirk\",\n        \"senderPhotoUrl\": \"https://randomuser.me/api/portraits/men/12.jpg\",\n        \"recipientId\": 3,\n        \"recipientUsername\": \"delores\",\n        \"recipientPhotoUrl\": \"https://randomuser.me/api/portraits/women/41.jpg\",\n        \"content\": \"New message sent back from Kirk to Delores as a reply\",\n        \"dateRead\": \"2025-07-16T13:20:13.6046406\",\n        \"messageSent\": \"2025-07-16T14:01:53.2086183\"\n    },\n    {\n        \"id\": 3,\n        \"senderId\": 3,\n        \"senderUsername\": \"delores\",\n        \"senderPhotoUrl\": \"https://randomuser.me/api/portraits/women/41.jpg\",\n        \"recipientId\": 6,\n        \"recipientUsername\": \"kirk\",\n        \"recipientPhotoUrl\": \"https://randomuser.me/api/portraits/men/12.jpg\",\n        \"content\": \"Delores reply to Kirk as a final message\",\n        \"dateRead\": null,\n        \"messageSent\": \"2025-07-16T14:03:03.6550734\"\n    }\n]"
 						}
 					]
 				}

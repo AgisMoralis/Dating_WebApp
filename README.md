@@ -16,7 +16,7 @@
 - AutoMapper
 - Repository Pattern
 - Paging, Sorting and Filtering
-- Routing
+- Routing & Route resolvers
 - Services & Injection
 - Guards & Interceptors
 - Database migrations

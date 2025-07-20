@@ -6,6 +6,7 @@ public class DataContext(DbContextOptions options) : DbContext(options)
 {
     public DbSet<Entities.Member> Members { get; set; }
     public DbSet<Entities.UserLike> Likes { get; set; }
+    public DbSet<Entities.Message> Messages { get; set; }
 
     protected override void OnModelCreating(ModelBuilder builder)
     {
@@ -25,5 +26,15 @@ public class DataContext(DbContextOptions options) : DbContext(options)
             .WithMany(u => u.LikedByUsers)
             .HasForeignKey(l => l.TargetUserId)
             .OnDelete(DeleteBehavior.Cascade);
+
+        builder.Entity<Entities.Message>()
+            .HasOne(m => m.Recipient)
+            .WithMany(u => u.MessagesReceived)
+            .OnDelete(DeleteBehavior.Restrict);
+
+        builder.Entity<Entities.Message>()
+            .HasOne(m => m.Sender)
+            .WithMany(u => u.MessagesSent)
+            .OnDelete(DeleteBehavior.Restrict);
     }
 }

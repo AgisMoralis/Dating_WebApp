@@ -9,7 +9,7 @@ namespace DatingApp.API.Controllers;
 public class LikesController(ILikesRepository likesRepository) : BaseAPIController
 {
     [HttpPost("{targetUserId:int}")]
-    public async Task<ActionResult> ToggleLike(int targetUserId)
+    public async Task<ActionResult> ToggleLikeAsync(int targetUserId)
     {
         var sourceUserId = User.GetUserId();
         if (sourceUserId == targetUserId)
@@ -17,7 +17,7 @@ public class LikesController(ILikesRepository likesRepository) : BaseAPIControll
             return BadRequest("You cannot like yourself");
         }
 
-        var existingLike = await likesRepository.GetUserLike(sourceUserId, targetUserId);
+        var existingLike = await likesRepository.GetUserLikeAsync(sourceUserId, targetUserId);
         if (existingLike == null)
         {
             var newLike = new Entities.UserLike
@@ -40,16 +40,16 @@ public class LikesController(ILikesRepository likesRepository) : BaseAPIControll
     }
 
     [HttpGet("{list}")]
-    public async Task<ActionResult<IEnumerable<int>>> GetCurrentUserLikeIds()
+    public async Task<ActionResult<IEnumerable<int>>> GetCurrentUserLikeIdsAsync()
     {
-        return Ok(await likesRepository.GetCurrentUserLikeIds(User.GetUserId()));
+        return Ok(await likesRepository.GetCurrentUserLikeIdsAsync(User.GetUserId()));
     }
 
     [HttpGet]
-    public async Task<ActionResult<IEnumerable<Models.MemberDto>>> GetUserLikes([FromQuery]Models.LikesParametersDto likesParams)
+    public async Task<ActionResult<IEnumerable<Models.MemberDto>>> GetUserLikesAsync([FromQuery]Models.LikesParametersDto likesParams)
     {
         likesParams.UserId = User.GetUserId();
-        var users = await likesRepository.GetUserLikes(likesParams);
+        var users = await likesRepository.GetUserLikesAsync(likesParams);
 
         Response.AddPaginationHeader(users);
 
