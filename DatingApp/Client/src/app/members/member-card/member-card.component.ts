@@ -6,7 +6,7 @@ import { LikesService } from '../../_services/likes.service';
 @Component({
   selector: 'app-member-card',
   standalone: true,
-  imports: [RouterLink],
+  imports: [RouterLink, RouterLink],
   templateUrl: './member-card.component.html',
   styleUrl: './member-card.component.css'
 })
