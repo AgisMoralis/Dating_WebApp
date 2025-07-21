@@ -12,35 +12,35 @@ public class UserRepository(DataContext context, IMapper mapper) : IUserReposito
 {
     public async Task<Member?> GetMemberByIdAsync(int id)
     {
-        return await context.Members.FindAsync(id);
+        return await context.Users.FindAsync(id);
     }
 
     public async Task<Member?> GetMemberByUsernameAsync(string username)
     {
-        return await context.Members
+        return await context.Users
             .Include(u => u.Photos)
-            .SingleOrDefaultAsync(u => u.Username == username);
+            .SingleOrDefaultAsync(u => u.UserName == username);
     }
 
     public async Task<MemberDto?> GetMemberDtoByUsernameAsync(string username)
     {
-        return await context.Members
-            .Where(u => u.Username == username)
+        return await context.Users
+            .Where(u => u.UserName == username)
             .ProjectTo<MemberDto>(mapper.ConfigurationProvider)
             .SingleOrDefaultAsync();
     }
 
     public async Task<IEnumerable<Member>> GetMembersAsync()
     {
-        return await context.Members
+        return await context.Users
             .Include(u => u.Photos)
             .ToListAsync();
     }
 
     public async Task<PagedList<MemberDto>> GetMemberDtosAsync(MemberParametersDto memberParams)
     {
-        var query = context.Members.AsQueryable()
-            .Where(u => u.Username != memberParams.CurrentUsername);
+        var query = context.Users.AsQueryable()
+            .Where(u => u.UserName != memberParams.CurrentUsername);
 
         if (memberParams.Gender != null)
         {

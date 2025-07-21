@@ -20,7 +20,7 @@ public class MessagesController(IUserRepository userRepository, IMessageReposito
 
         var sender = await userRepository.GetMemberByUsernameAsync(username);
         var recipient = await userRepository.GetMemberByUsernameAsync(newMessage.RecipientUsername);
-        if (sender is null || recipient is null)
+        if (sender is null || recipient is null || sender.UserName == null || recipient.UserName == null)
         {
             return BadRequest("Cannot send message at this time");
         }
@@ -29,8 +29,8 @@ public class MessagesController(IUserRepository userRepository, IMessageReposito
         {
             Sender = sender,
             Recipient = recipient,
-            SenderUsername = sender.Username,
-            RecipientUsername = recipient.Username,
+            SenderUsername = sender.UserName,
+            RecipientUsername = recipient.UserName,
             Content = newMessage.Content
         };
         messageRepository.AddMessage(message);

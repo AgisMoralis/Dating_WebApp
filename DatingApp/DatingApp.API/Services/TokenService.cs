@@ -11,12 +11,13 @@ public class TokenService(IConfiguration config) : ITokenService
     {
         var tokenKey = config["TokenKey"] ?? throw new ArgumentNullException("Cannot access TokenKey from appsettings.json");
         if (tokenKey.Length < 64) throw new ArgumentException("TokenKey must be at least 64 characters long");
+        if (user.UserName == null) throw new Exception("No username for user");
 
         var key = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes(tokenKey));
         var claims = new Claim[]
         {
             new (ClaimTypes.NameIdentifier, user.Id.ToString()),
-            new (ClaimTypes.Name, user.Username),
+            new (ClaimTypes.Name, user.UserName),
         };
         var tokenDescriptor = new SecurityTokenDescriptor
         {

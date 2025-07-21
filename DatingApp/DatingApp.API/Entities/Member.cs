@@ -1,11 +1,9 @@
+using Microsoft.AspNetCore.Identity;
+
 namespace DatingApp.API.Entities;
 
-public class Member
+public class Member : IdentityUser<int>
 {
-    public int Id { get; set; }
-    public required string Username { get; set; }
-    public required byte[] PasswordHash { get; set; } = [];
-    public required byte[] PasswordSalt { get; set; } = [];
     public required DateOnly DateOfBirth { get; set; }
     public required string KnownAs { get; set; } = string.Empty;
     public DateTime Created { get; set; } = DateTime.UtcNow;
@@ -23,4 +21,5 @@ public class Member
     public List<UserLike> LikedByUsers { get; set; } = [];
     public List<Message> MessagesSent { get; set; } = [];
     public List<Message> MessagesReceived { get; set; } = [];
+    public ICollection<MemberRole> MemberRoles { get; set; } = [];
 }

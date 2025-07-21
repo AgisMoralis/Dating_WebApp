@@ -16,16 +16,14 @@ public class AccountController(DataContext context, ITokenService tokenService, 
 
         using var hmac = new HMACSHA512();
         var newUser = mapper.Map<Entities.Member>(registerDTO);
-        newUser.Username = registerDTO.Username.ToLower();
-        newUser.PasswordHash = hmac.ComputeHash(System.Text.Encoding.UTF8.GetBytes(registerDTO.Password));
-        newUser.PasswordSalt = hmac.Key;
+        newUser.UserName = registerDTO.Username.ToLower();
 
-        context.Members.Add(newUser);
+        context.Users.Add(newUser);
         await context.SaveChangesAsync();
         
         var authenticatedUser = new Models.AuthenticatedUserDto
         {
-            Username = newUser.Username,
+            Username = newUser.UserName,
             KnownAs = newUser.KnownAs,
             Gender = newUser.Gender,
             Token = tokenService.CreateToken(newUser)
@@ -36,21 +34,14 @@ public class AccountController(DataContext context, ITokenService tokenService, 
     [HttpPost("login")]
     public async Task<ActionResult<Models.AuthenticatedUserDto>> LoginAsync(Models.LoginDto loginDTO)
     {
-        var user = await context.Members
+        var user = await context.Users
             .Include(u => u.Photos)
-            .FirstOrDefaultAsync(u => u.Username.ToLower() == loginDTO.Username.ToLower());
-        if (user == null) return Unauthorized("Invalid username");
-
-        using var hmac = new HMACSHA512(user.PasswordSalt);
-        var computedHash = hmac.ComputeHash(System.Text.Encoding.UTF8.GetBytes(loginDTO.Password));
-        for (int i = 0; i < computedHash.Length; i++)
-        {
-            if (computedHash[i] != user.PasswordHash[i]) return Unauthorized("Invalid password");
-        }
+            .FirstOrDefaultAsync(u => u.NormalizedUserName == loginDTO.Username.ToUpper());
+        if (user == null || user.UserName == null) return Unauthorized("Invalid username");
 
         var authenticatedUser = new Models.AuthenticatedUserDto
         {
-            Username = user.Username,
+            Username = user.UserName,
             KnownAs = user.KnownAs,
             Gender = user.Gender,
             Token = tokenService.CreateToken(user),
@@ -58,9 +49,9 @@ public class AccountController(DataContext context, ITokenService tokenService, 
         };
         return Ok(authenticatedUser);
     }
-
+    
     private async Task<bool> UserExistsAsync(string username)
     {
-        return await context.Members.AnyAsync(u => u.Username.ToLower() == username.ToLower());
+        return await context.Users.AnyAsync(u => u.NormalizedUserName == username.ToUpper());
     }
 }
