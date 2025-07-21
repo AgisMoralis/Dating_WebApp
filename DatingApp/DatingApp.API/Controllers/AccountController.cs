@@ -1,25 +1,23 @@
 using AutoMapper;
-using DatingApp.API.Data;
 using DatingApp.API.Interfaces;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using System.Security.Cryptography;
 
 namespace DatingApp.API.Controllers;
 
-public class AccountController(DataContext context, ITokenService tokenService, IMapper mapper) : BaseAPIController
+public class AccountController(UserManager<Entities.Member> userManager, ITokenService tokenService, IMapper mapper) : BaseAPIController
 {
     [HttpPost("register")]
     public async Task<ActionResult<Models.AuthenticatedUserDto>> RegisterAsync(Models.RegisterDto registerDTO)
     {
         if (await UserExistsAsync(registerDTO.Username)) return BadRequest("Username already exists");
 
-        using var hmac = new HMACSHA512();
         var newUser = mapper.Map<Entities.Member>(registerDTO);
         newUser.UserName = registerDTO.Username.ToLower();
 
-        context.Users.Add(newUser);
-        await context.SaveChangesAsync();
+        var result = await userManager.CreateAsync(newUser, registerDTO.Password);
+        if (!result.Succeeded) return BadRequest(result.Errors);
         
         var authenticatedUser = new Models.AuthenticatedUserDto
         {
@@ -34,10 +32,13 @@ public class AccountController(DataContext context, ITokenService tokenService, 
     [HttpPost("login")]
     public async Task<ActionResult<Models.AuthenticatedUserDto>> LoginAsync(Models.LoginDto loginDTO)
     {
-        var user = await context.Users
+        var user = await userManager.Users
             .Include(u => u.Photos)
             .FirstOrDefaultAsync(u => u.NormalizedUserName == loginDTO.Username.ToUpper());
         if (user == null || user.UserName == null) return Unauthorized("Invalid username");
+
+        var result = await userManager.CheckPasswordAsync(user, loginDTO.Password);
+        if (!result) return Unauthorized();
 
         var authenticatedUser = new Models.AuthenticatedUserDto
         {
@@ -52,6 +53,6 @@ public class AccountController(DataContext context, ITokenService tokenService, 
     
     private async Task<bool> UserExistsAsync(string username)
     {
-        return await context.Users.AnyAsync(u => u.NormalizedUserName == username.ToUpper());
+        return await userManager.Users.AnyAsync(u => u.NormalizedUserName == username.ToUpper());
     }
 }
