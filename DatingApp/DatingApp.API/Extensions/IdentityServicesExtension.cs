@@ -13,6 +13,7 @@ public static class IdentityServicesExtension
             // Here we can configure a lot of options (e.g. tokens, user, passwords etc) using "Microsoft.AspNetCore.Identity"
             options.Password.RequireDigit = true;
             options.Password.RequireNonAlphanumeric = true;
+            options.Password.RequireUppercase = false;
         })
             .AddRoles<Entities.Role>()
             .AddRoleManager<RoleManager<Entities.Role>>()

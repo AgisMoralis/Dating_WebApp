@@ -1,13 +1,14 @@
 using System.Text.Json;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
 namespace DatingApp.API.Data;
 
 public class Seed
 {
-    public static async Task SeedUsersAsync(DataContext context)
+    public static async Task SeedUsersAsync(UserManager<Entities.Member> userManager)
     {
-        if (await context.Users.AnyAsync()) return;
+        if (await userManager.Users.AnyAsync()) return;
 
         var userData = await File.ReadAllTextAsync("Data/UserSeedData.json");
         var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
@@ -17,9 +18,7 @@ public class Seed
 
         foreach (var user in users)
         {
-            context.Users.Add(user);
+            await userManager.CreateAsync(user, "pa$$w0rd");
         }
-        
-        await context.SaveChangesAsync();
     }
 }
