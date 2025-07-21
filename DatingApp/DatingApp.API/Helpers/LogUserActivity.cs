@@ -8,7 +8,7 @@ public class LogUserActivity : IAsyncActionFilter
 {
     public async Task OnActionExecutionAsync(ActionExecutingContext context, ActionExecutionDelegate next)
     {
-        // Here first the action ofthe API controller is executed
+        // Here first the action of the API controller is executed
         // and then the user activity is logged
         var resultContext = await next();
 

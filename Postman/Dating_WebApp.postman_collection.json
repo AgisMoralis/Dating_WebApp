@@ -377,7 +377,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"username\": \"bob\",\r\n    \"password\": \"randomPassword\"\r\n}",
+							"raw": "{\r\n    \"username\": \"nick\",\r\n    \"password\": \"randomPassword\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -406,7 +406,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"username\": \"bob\",\r\n    \"password\": \"randomPassword\"\r\n}",
+									"raw": "{\r\n    \"username\": \"nick\",\r\n    \"password\": \"randomPassword\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -794,20 +794,13 @@
 					"name": "Register New User (Updated body)",
 					"request": {
 						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{token}}",
-									"type": "string"
-								}
-							]
+							"type": "noauth"
 						},
 						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"gender\": \"male\",\r\n    \"knownAs\": \"Bob\",\r\n    \"username\": \"bob\",\r\n    \"password\": \"pa$$word\",\r\n    \"dateOfBirth\": \"23-01-1989\",\r\n    \"city\": \"London\",\r\n    \"country\": \"UK\"\r\n}",
+							"raw": "{\r\n    \"gender\": \"male\",\r\n    \"knownAs\": \"Bob\",\r\n    \"username\": \"bob\",\r\n    \"password\": \"pa$$w0rd\",\r\n    \"dateOfBirth\": \"23-01-1989\",\r\n    \"city\": \"London\",\r\n    \"country\": \"UK\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -815,7 +808,7 @@
 							}
 						},
 						"url": {
-							"raw": "https://localhost:{{portNumber}}/api/account/register/",
+							"raw": "https://localhost:{{portNumber}}/api/account/register",
 							"protocol": "https",
 							"host": [
 								"localhost"
@@ -824,8 +817,7 @@
 							"path": [
 								"api",
 								"account",
-								"register",
-								""
+								"register"
 							]
 						}
 					},
@@ -837,7 +829,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"gender\": \"male\",\r\n    \"knownAs\": \"Bob\",\r\n    \"username\": \"bob\",\r\n    \"password\": \"pa$$word\",\r\n    \"dateOfBirth\": \"23-01-1989\",\r\n    \"city\": \"London\",\r\n    \"country\": \"UK\"\r\n}",
+									"raw": "{\r\n    \"gender\": \"male\",\r\n    \"knownAs\": \"Bob\",\r\n    \"username\": \"bob\",\r\n    \"password\": \"pa$$w0rd\",\r\n    \"dateOfBirth\": \"23-01-1989\",\r\n    \"city\": \"London\",\r\n    \"country\": \"UK\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -845,7 +837,7 @@
 									}
 								},
 								"url": {
-									"raw": "https://localhost:{{portNumber}}/api/account/register/",
+									"raw": "https://localhost:{{portNumber}}/api/account/register",
 									"protocol": "https",
 									"host": [
 										"localhost"
@@ -854,8 +846,7 @@
 									"path": [
 										"api",
 										"account",
-										"register",
-										""
+										"register"
 									]
 								}
 							},
@@ -869,7 +860,7 @@
 								},
 								{
 									"key": "Date",
-									"value": "Mon, 07 Jul 2025 17:03:31 GMT"
+									"value": "Mon, 21 Jul 2025 21:51:13 GMT"
 								},
 								{
 									"key": "Server",
@@ -881,7 +872,7 @@
 								}
 							],
 							"cookie": [],
-							"body": "{\n    \"username\": \"bob\",\n    \"knownAs\": \"Bob\",\n    \"token\": \"eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiJib2IiLCJuYmYiOjE3NTE5MDc4MTEsImV4cCI6MTc1MjUxMjYxMSwiaWF0IjoxNzUxOTA3ODExfQ.alJDdIquOfdkkUkDmsb8ENzfWVCW72XCLWMV5iHcGrbFWH3rTKTVDtuMB1imdRSwDvlcBwhiHVFv7nEG9m9eUQ\",\n    \"photoUrl\": null\n}"
+							"body": "{\n    \"username\": \"bob\",\n    \"knownAs\": \"Bob\",\n    \"gender\": \"male\",\n    \"token\": \"eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiIxMSIsInVuaXF1ZV9uYW1lIjoiYm9iIiwibmJmIjoxNzUzMTM0NjczLCJleHAiOjE3NTM3Mzk0NzMsImlhdCI6MTc1MzEzNDY3M30.AF3uC1xLMMQOAAVEOfXaXwtTj6kimYTANrJKFUYWXiFns9p9dmOiAbtEGPU9dDsKv2qH27E0tXSuOJDbOaQ_6g\",\n    \"photoUrl\": null\n}"
 						}
 					]
 				},
@@ -913,7 +904,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"username\": \"delores\",\r\n    \"password\": \"pa$$word\"    \r\n}",
+							"raw": "{\r\n    \"username\": \"delores\",\r\n    \"password\": \"pa$$w0rd\"    \r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -2362,7 +2353,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"username\": \"delores\",\r\n    \"password\": \"pa$$word\"    \r\n}",
+							"raw": "{\r\n    \"username\": \"delores\",\r\n    \"password\": \"pa$$w0rd\"    \r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -2476,7 +2467,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"username\": \"kirk\",\r\n    \"password\": \"pa$$word\"    \r\n}",
+							"raw": "{\r\n    \"username\": \"kirk\",\r\n    \"password\": \"pa$$w0rd\"    \r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -3016,7 +3007,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"username\": \"delores\",\r\n    \"password\": \"pa$$word\"    \r\n}",
+							"raw": "{\r\n    \"username\": \"delores\",\r\n    \"password\": \"pa$$w0rd\"    \r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -3130,7 +3121,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"username\": \"kirk\",\r\n    \"password\": \"pa$$word\"    \r\n}",
+							"raw": "{\r\n    \"username\": \"kirk\",\r\n    \"password\": \"pa$$w0rd\"    \r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
