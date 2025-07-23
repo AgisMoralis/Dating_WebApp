@@ -11,6 +11,9 @@
 npm-debug.log
 yarn-error.log
 
+# SSL Certificate (local development)
+/ssl
+
 # IDEs and editors
 .idea/
 .project

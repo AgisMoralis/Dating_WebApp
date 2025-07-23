@@ -1,0 +1,4 @@
+Inside the "...\Dating_WebApp\DatingApp\DatingApp.API\" directory:
+- Duplicate the "appsettings_TEMPLATE.json" and rename the new file to "appsettings.json"
+- Inside this new file (that is used by the Web API as the configuration file) the following entry needs to be modified "CloudinarySettings"
+- Use the Cloud Name and the API Key and Secret from Cloudinary account

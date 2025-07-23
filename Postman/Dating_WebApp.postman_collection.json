@@ -3805,6 +3805,649 @@
 					]
 				}
 			]
+		},
+		{
+			"name": "Roles",
+			"item": [
+				{
+					"name": "Login as admin and Save Token to Custom Environment",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const user = pm.response.json()\r",
+									"\r",
+									"pm.test(\"Has properties\", function(){\r",
+									"    pm.expect(user).to.have.property('username');\r",
+									"    pm.expect(user).to.have.property('token');\r",
+									"})\r",
+									"\r",
+									"if (pm.test(\"Has properties\")){\r",
+									"    pm.environment.set('token_admin', user.token);\r",
+									"}"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"admin\",\r\n    \"password\": \"pa$$w0rd\"    \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:{{portNumber}}/api/account/login",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "{{portNumber}}",
+							"path": [
+								"api",
+								"account",
+								"login"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Login as admin and Save Token to Custom Environment",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\": \"admin\",\r\n    \"password\": \"pa$$w0rd\"    \r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://localhost:{{portNumber}}/api/account/login",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"port": "{{portNumber}}",
+									"path": [
+										"api",
+										"account",
+										"login"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 23 Jul 2025 11:53:28 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Kestrel"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"username\": \"admin\",\n    \"knownAs\": \"Admin\",\n    \"gender\": \"\",\n    \"token\": \"eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiIxMSIsInVuaXF1ZV9uYW1lIjoiYWRtaW4iLCJyb2xlIjpbIkFkbWluIiwiTW9kZXJhdG9yIl0sIm5iZiI6MTc1MzI3MTYwOSwiZXhwIjoxNzUzODc2NDA5LCJpYXQiOjE3NTMyNzE2MDl9.OqeGfWzsi7Nwgf2P_MAU9nypG_3-DMhA492E4-kUDgojKJURrnvAQsXOEiGA48P9y1Jbs1YRtriLFpoGpY1s7g\",\n    \"photoUrl\": null\n}"
+						}
+					]
+				},
+				{
+					"name": "Login as member (Delores) and Save Token to Custom Environment",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const user = pm.response.json()\r",
+									"\r",
+									"pm.test(\"Has properties\", function(){\r",
+									"    pm.expect(user).to.have.property('username');\r",
+									"    pm.expect(user).to.have.property('token');\r",
+									"})\r",
+									"\r",
+									"if (pm.test(\"Has properties\")){\r",
+									"    pm.environment.set('token_delores', user.token);\r",
+									"}"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"delores\",\r\n    \"password\": \"pa$$w0rd\"    \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:{{portNumber}}/api/account/login",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "{{portNumber}}",
+							"path": [
+								"api",
+								"account",
+								"login"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Login as member (Delores) and Save Token to Custom Environment",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\": \"delores\",\r\n    \"password\": \"pa$$w0rd\"    \r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://localhost:{{portNumber}}/api/account/login",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"port": "{{portNumber}}",
+									"path": [
+										"api",
+										"account",
+										"login"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 23 Jul 2025 11:58:21 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Kestrel"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"username\": \"delores\",\n    \"knownAs\": \"Delores\",\n    \"gender\": \"female\",\n    \"token\": \"eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiIzIiwidW5pcXVlX25hbWUiOiJkZWxvcmVzIiwicm9sZSI6Ik1lbWJlciIsIm5iZiI6MTc1MzI3MTkwMSwiZXhwIjoxNzUzODc2NzAxLCJpYXQiOjE3NTMyNzE5MDF9.yR0i61m7j_81rPJzdAkmNK0ro0wYTDwLXJYCdnWIWSAnSgD2zT46jkQxZVGkc6gJt0DCxKBtFqRDe2oitGHCmA\",\n    \"photoUrl\": \"https://randomuser.me/api/portraits/women/41.jpg\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Get user roles as admin",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token_admin}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:{{portNumber}}/api/admin/users-with-roles",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "{{portNumber}}",
+							"path": [
+								"api",
+								"admin",
+								"users-with-roles"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get user roles as admin",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://localhost:{{portNumber}}/api/admin/users-with-roles",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"port": "{{portNumber}}",
+									"path": [
+										"api",
+										"admin",
+										"users-with-roles"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 01 Aug 2025 08:35:24 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Kestrel"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": 11,\n        \"username\": \"admin\",\n        \"roles\": [\n            \"Admin\",\n            \"Moderator\"\n        ]\n    },\n    {\n        \"id\": 7,\n        \"username\": \"cook\",\n        \"roles\": [\n            \"Member\"\n        ]\n    },\n    {\n        \"id\": 3,\n        \"username\": \"delores\",\n        \"roles\": [\n            \"Member\"\n        ]\n    },\n    {\n        \"id\": 4,\n        \"username\": \"desiree\",\n        \"roles\": [\n            \"Member\"\n        ]\n    },\n    {\n        \"id\": 1,\n        \"username\": \"ida\",\n        \"roles\": [\n            \"Member\"\n        ]\n    },\n    {\n        \"id\": 6,\n        \"username\": \"kirk\",\n        \"roles\": [\n            \"Member\"\n        ]\n    },\n    {\n        \"id\": 2,\n        \"username\": \"luella\",\n        \"roles\": [\n            \"Member\"\n        ]\n    },\n    {\n        \"id\": 9,\n        \"username\": \"roach\",\n        \"roles\": [\n            \"Member\"\n        ]\n    },\n    {\n        \"id\": 8,\n        \"username\": \"stevenson\",\n        \"roles\": [\n            \"Member\"\n        ]\n    },\n    {\n        \"id\": 10,\n        \"username\": \"stout\",\n        \"roles\": [\n            \"Member\"\n        ]\n    },\n    {\n        \"id\": 5,\n        \"username\": \"susanne\",\n        \"roles\": [\n            \"Member\"\n        ]\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "Get user roles as member (Delores)",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token_delores}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:{{portNumber}}/api/admin/users-with-roles",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "{{portNumber}}",
+							"path": [
+								"api",
+								"admin",
+								"users-with-roles"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get user roles as member (Delores)",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://localhost:{{portNumber}}/api/admin/users-with-roles",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"port": "{{portNumber}}",
+									"path": [
+										"api",
+										"admin",
+										"users-with-roles"
+									]
+								}
+							},
+							"status": "Forbidden",
+							"code": 403,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "Content-Length",
+									"value": "0"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 23 Jul 2025 11:59:16 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Kestrel"
+								}
+							],
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "Edit roles for a member (Delores) and make them moderator",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token_admin}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:{{portNumber}}/api/admin/edit-roles/delores?roles=Moderator",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "{{portNumber}}",
+							"path": [
+								"api",
+								"admin",
+								"edit-roles",
+								"delores"
+							],
+							"query": [
+								{
+									"key": "roles",
+									"value": "Moderator"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Edit roles for a member (Delores) and make them moderator",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "https://localhost:{{portNumber}}/api/admin/edit-roles/delores?roles=Moderator",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"port": "{{portNumber}}",
+									"path": [
+										"api",
+										"admin",
+										"edit-roles",
+										"delores"
+									],
+									"query": [
+										{
+											"key": "roles",
+											"value": "Moderator"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 01 Aug 2025 08:41:56 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Kestrel"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    \"Moderator\"\n]"
+						}
+					]
+				},
+				{
+					"name": "Get photos as moderator",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token_admin}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:{{portNumber}}/api/admin/photos-for-moderation",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "{{portNumber}}",
+							"path": [
+								"api",
+								"admin",
+								"photos-for-moderation"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get photos as moderator",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://localhost:{{portNumber}}/api/admin/photos-for-moderation",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"port": "{{portNumber}}",
+									"path": [
+										"api",
+										"admin",
+										"photos-for-moderation"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 23 Jul 2025 12:00:33 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Kestrel"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"body": "Only admins or moderators can see this"
+						}
+					]
+				},
+				{
+					"name": "Get photos as member (Delores)",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token_delores}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:{{portNumber}}/api/admin/photos-for-moderation",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "{{portNumber}}",
+							"path": [
+								"api",
+								"admin",
+								"photos-for-moderation"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get photos as a member (Delores) with member role",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://localhost:{{portNumber}}/api/admin/photos-for-moderation",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"port": "{{portNumber}}",
+									"path": [
+										"api",
+										"admin",
+										"photos-for-moderation"
+									]
+								}
+							},
+							"status": "Forbidden",
+							"code": 403,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "Content-Length",
+									"value": "0"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 23 Jul 2025 12:01:05 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Kestrel"
+								}
+							],
+							"cookie": [],
+							"body": null
+						},
+						{
+							"name": "Get photos as a member (Delores) with moderator role",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://localhost:{{portNumber}}/api/admin/photos-for-moderation",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"port": "{{portNumber}}",
+									"path": [
+										"api",
+										"admin",
+										"photos-for-moderation"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 01 Aug 2025 08:43:45 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Kestrel"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"body": "Admins or moderators can see this"
+						}
+					]
+				}
+			]
 		}
 	]
 }
