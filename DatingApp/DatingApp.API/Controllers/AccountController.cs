@@ -24,7 +24,7 @@ public class AccountController(UserManager<Entities.Member> userManager, ITokenS
             Username = newUser.UserName,
             KnownAs = newUser.KnownAs,
             Gender = newUser.Gender,
-            Token = tokenService.CreateToken(newUser)
+            Token = await tokenService.CreateTokenAsync(newUser)
         };
         return Ok(authenticatedUser);
     }
@@ -45,7 +45,7 @@ public class AccountController(UserManager<Entities.Member> userManager, ITokenS
             Username = user.UserName,
             KnownAs = user.KnownAs,
             Gender = user.Gender,
-            Token = tokenService.CreateToken(user),
+            Token = await tokenService.CreateTokenAsync(user),
             PhotoUrl = user.Photos.FirstOrDefault(p => p.IsMain)?.Url
         };
         return Ok(authenticatedUser);
