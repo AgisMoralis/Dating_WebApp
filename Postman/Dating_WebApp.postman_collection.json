@@ -4074,7 +4074,7 @@
 							},
 							"status": "OK",
 							"code": 200,
-							"_postman_previewlanguage": "",
+							"_postman_previewlanguage": null,
 							"header": [
 								{
 									"key": "Content-Type",
@@ -4185,7 +4185,7 @@
 						"method": "POST",
 						"header": [],
 						"url": {
-							"raw": "https://localhost:{{portNumber}}/api/admin/edit-roles/delores?roles=Moderator",
+							"raw": "https://localhost:{{portNumber}}/api/admin/edit-roles/delores?roles=Member,Moderator",
 							"protocol": "https",
 							"host": [
 								"localhost"
@@ -4200,7 +4200,7 @@
 							"query": [
 								{
 									"key": "roles",
-									"value": "Moderator"
+									"value": "Member,Moderator"
 								}
 							]
 						}
@@ -4212,7 +4212,7 @@
 								"method": "POST",
 								"header": [],
 								"url": {
-									"raw": "https://localhost:{{portNumber}}/api/admin/edit-roles/delores?roles=Moderator",
+									"raw": "https://localhost:{{portNumber}}/api/admin/edit-roles/delores?roles=Member,Moderator",
 									"protocol": "https",
 									"host": [
 										"localhost"
@@ -4227,7 +4227,7 @@
 									"query": [
 										{
 											"key": "roles",
-											"value": "Moderator"
+											"value": "Member,Moderator"
 										}
 									]
 								}
@@ -4242,7 +4242,7 @@
 								},
 								{
 									"key": "Date",
-									"value": "Fri, 01 Aug 2025 08:41:56 GMT"
+									"value": "Fri, 01 Aug 2025 12:29:31 GMT"
 								},
 								{
 									"key": "Server",
@@ -4254,7 +4254,7 @@
 								}
 							],
 							"cookie": [],
-							"body": "[\n    \"Moderator\"\n]"
+							"body": "[\n    \"Member\",\n    \"Moderator\"\n]"
 						}
 					]
 				},
