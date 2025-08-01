@@ -1,0 +1,14 @@
+- Download the latest mkcert-vX.X.X-windows-amd64.exe from the official releases page:
+https://github.com/FiloSottile/mkcert/releases
+
+- Rename it to "mkcert.exe"
+
+- Move it to a custom directory under the following path:
+"C:\Program Files (x86)\mkCert\"
+
+- Navigate under the repository directory "...\Dating_WebApp\DatingApp\Client\ssl" (create the "ssl" folder if it does not exist) and open there a new "cmd" command line (with admin rights)
+
+- Execute the following command to create the new local certificate:
+"C:\Program Files (x86)\mkCert\mkcert" -key-file localhost-key.pem -cert-file localhost.pem localhost
+
+- Now under the repository directory "...\Dating_WebApp\DatingApp\Client\ssl" there should have been created the following 2 files: "localhost.pem" & "localhost-key.pem"

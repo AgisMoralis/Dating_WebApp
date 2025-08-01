@@ -1,4 +1,6 @@
+using DatingApp.API.Data;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Identity;
 
 namespace DatingApp.API.Extensions;
 
@@ -6,6 +8,17 @@ public static class IdentityServicesExtension
 {
     public static IServiceCollection AddIdentityServices(this IServiceCollection services, IConfiguration config)
     {
+        services.AddIdentityCore<Entities.Member>(options =>
+        {
+            // Here we can configure a lot of options (e.g. tokens, user, passwords etc) using "Microsoft.AspNetCore.Identity"
+            options.Password.RequireDigit = true;
+            options.Password.RequireNonAlphanumeric = true;
+            options.Password.RequireUppercase = false;
+        })
+            .AddRoles<Entities.Role>()
+            .AddRoleManager<RoleManager<Entities.Role>>()
+            .AddEntityFrameworkStores<DataContext>();
+
         services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
         .AddJwtBearer(options =>
         {
@@ -18,6 +31,10 @@ public static class IdentityServicesExtension
                 ValidateAudience = false
             };
         });
+
+        services.AddAuthorizationBuilder()
+            .AddPolicy("RequireAdminRole", policy => policy.RequireRole("Admin"))
+            .AddPolicy("ModeratePhotoRole", policy => policy.RequireRole("Admin", "Moderator"));
 
         return services;
     }

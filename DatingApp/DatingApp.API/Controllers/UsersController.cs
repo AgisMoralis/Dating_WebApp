@@ -80,7 +80,7 @@ public class UsersController(IUserRepository userRepository, IMapper mapper, IPh
         {
             return CreatedAtAction(
                 nameof(GetUserAsync).Replace("Async", ""),
-                new { username = user.Username },
+                new { username = user.UserName },
                 mapper.Map<Models.PhotoDto>(photo));
         }
         return BadRequest("A problem occurred while trying to add a new photo");

@@ -1,15 +1,14 @@
-using System;
 using System.Text.Json;
-using System.Threading.Tasks;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
 namespace DatingApp.API.Data;
 
 public class Seed
 {
-    public static async Task SeedUsersAsync(DataContext context)
+    public static async Task SeedUsersAsync(UserManager<Entities.Member> userManager, RoleManager<Entities.Role> roleManager)
     {
-        if (await context.Members.AnyAsync()) return;
+        if (await userManager.Users.AnyAsync()) return;
 
         var userData = await File.ReadAllTextAsync("Data/UserSeedData.json");
         var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
@@ -17,17 +16,37 @@ public class Seed
 
         if (users == null || users.Count == 0) return;
 
+        // Create some roles in the database
+        var roles = new List<Entities.Role>()
+        {
+            new() { Name = "Member" },
+            new() { Name = "Admin" },
+            new() { Name = "Moderator" },
+        };
+        foreach (var role in roles)
+        {
+            await roleManager.CreateAsync(role);
+        }
+
+        // Create password for each "Member" user and store them in the database
         foreach (var user in users)
         {
-            using var hmac = new System.Security.Cryptography.HMACSHA512();
-
-            user.Username = user.Username.ToLower();
-            user.PasswordHash = hmac.ComputeHash(System.Text.Encoding.UTF8.GetBytes("pa$$word"));
-            user.PasswordSalt = hmac.Key;
-
-            context.Members.Add(user);
+            user.UserName = user.UserName!.ToLower();
+            await userManager.CreateAsync(user, "pa$$w0rd");
+            await userManager.AddToRoleAsync(user, "Member");
         }
-        
-        await context.SaveChangesAsync();
+
+        // Create a new "Admin" user with a password and store it in the database
+        var admin = new Entities.Member
+        {
+            UserName = "admin",
+            KnownAs = "Admin",
+            DateOfBirth = default,
+            Gender = "",
+            City = "",
+            Country = ""
+        };
+        await userManager.CreateAsync(admin, "pa$$w0rd");
+        await userManager.AddToRolesAsync(admin, [ "Admin", "Moderator" ]);
     }
 }
