@@ -19,5 +19,6 @@ app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
+app.MapHub<DatingApp.API.SignalR.PresenceHub>("/hubs/presence");
 
 app.Run();

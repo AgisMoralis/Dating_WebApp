@@ -30,6 +30,23 @@ public static class IdentityServicesExtension
                 ValidateIssuer = false,
                 ValidateAudience = false
             };
+            options.Events = new JwtBearerEvents
+            {
+                OnMessageReceived = context =>
+                {
+                    // For any normal client HTTP request (that goes to a controller), the JWT is sent in the Authorization header
+                    // For the client "handshake" SignalR HTTP request, the client app shall fill the query parameter "access_token"
+                    var accessToken = context.Request.Query["access_token"];
+                    // The initial SignalR connection is established via an HTTP request (called the "handshake")
+                    // During the "handshake", we have access to the full HTTP context (e.g. request path "/hubs/presence" or query param "access_token")
+                    var httpRequestPath = context.HttpContext.Request.Path;
+                    if (!string.IsNullOrEmpty(accessToken) && httpRequestPath.StartsWithSegments("/hubs/presence"))
+                    {
+                        context.Token = accessToken;
+                    }
+                    return Task.CompletedTask;
+                }
+            };
         });
 
         services.AddAuthorizationBuilder()

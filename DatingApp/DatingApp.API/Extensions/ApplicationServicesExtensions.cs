@@ -21,7 +21,8 @@ public static class ApplicationServicesExtensions
             {
                 policy.WithOrigins("http://localhost:4200", "https://localhost:4200")
                       .AllowAnyHeader()
-                      .AllowAnyMethod();
+                      .AllowAnyMethod()
+                      .AllowCredentials();
             });
         });
         services.AddScoped<ITokenService, TokenService>();
@@ -32,6 +33,7 @@ public static class ApplicationServicesExtensions
         services.AddScoped<LogUserActivity>();
         services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
         services.Configure<CloudinarySettings>(config.GetSection("CloudinarySettings"));
+        services.AddSignalR();
 
         return services;
     }
