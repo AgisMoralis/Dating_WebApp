@@ -20,5 +20,6 @@ app.UseAuthorization();
 
 app.MapControllers();
 app.MapHub<DatingApp.API.SignalR.PresenceHub>("/hubs/presence");
+app.MapHub<DatingApp.API.SignalR.MessageHub>("/hubs/message");
 
 app.Run();

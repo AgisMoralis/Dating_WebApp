@@ -1,4 +1,4 @@
-import { Component, inject, OnInit, ViewChild } from '@angular/core';
+import { Component, inject, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Member } from '../../_models/member';
 import { TabDirective, TabsetComponent, TabsModule } from 'ngx-bootstrap/tabs';
@@ -9,6 +9,7 @@ import { MemberMessagesComponent } from "../member-messages/member-messages.comp
 import { Message } from '../../_models/message';
 import { MessageService } from '../../_services/message.service';
 import { PresenceService } from '../../_services/presence.service';
+import { AccountService } from '../../_services/account.service';
 
 @Component({
   selector: 'app-member-detail',
@@ -17,15 +18,15 @@ import { PresenceService } from '../../_services/presence.service';
   templateUrl: './member-detail.component.html',
   styleUrl: './member-detail.component.css'
 })
-export class MemberDetailComponent implements OnInit {
+export class MemberDetailComponent implements OnInit, OnDestroy {
   private messageService = inject(MessageService)
   private route = inject(ActivatedRoute);
+  private accountService = inject(AccountService);
   presenceService = inject(PresenceService);
   member: Member = {} as Member;
   images: GalleryItem[] = [];
   @ViewChild('memberTabs', {static: true}) memberTabs?: TabsetComponent
   activeTab?: TabDirective;
-  messages: Message[] = [];
 
   ngOnInit(): void {
    this.route.data.subscribe({
@@ -49,8 +50,8 @@ export class MemberDetailComponent implements OnInit {
 
   }
 
-  onUpdateMessages($event: Message){
-    this.messages.push($event);
+  ngOnDestroy(): void {
+    this.messageService.stopHubConnection();
   }
 
   selectTab(heading: string) {
@@ -64,10 +65,12 @@ export class MemberDetailComponent implements OnInit {
 
   onTabActivated(data: TabDirective) {
     this.activeTab = data;
-    if (this.activeTab.heading === 'Messages' && this.messages.length === 0 && this.member) {
-      this.messageService.getMessageThread(this.member.username).subscribe({
-        next: messages => this.messages = messages
-    });
+    if (this.activeTab.heading === 'Messages' && this.member) {
+        const user = this.accountService.currentUser();
+        if(!user) return;
+        this.messageService.createHubConnection(user, this.member.username);
+    } else {
+      this.messageService.stopHubConnection();
     }
   }
 
