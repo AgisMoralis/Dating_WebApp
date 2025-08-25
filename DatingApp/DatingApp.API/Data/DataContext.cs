@@ -13,6 +13,8 @@ public class DataContext(DbContextOptions options) :
 {
     public DbSet<Entities.UserLike> Likes { get; set; }
     public DbSet<Entities.Message> Messages { get; set; }
+    public DbSet<Entities.Group> Groups { get; set; }
+    public DbSet<Entities.Connection> Connections { get; set; }
 
     protected override void OnModelCreating(ModelBuilder builder)
     {

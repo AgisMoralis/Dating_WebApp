@@ -18,6 +18,7 @@ public class MessageHub(IUserRepository userRepository, IMessageRepository messa
             throw new HubException("Cannot join group");
         var groupName = GetGroupName(Context.User.GetUsername(), otherUser);
         await Groups.AddToGroupAsync(Context.ConnectionId, groupName);
+        await AddToMessageGroupAsync(groupName);
 
         var messages = await messageRepository.GetThreadMessagesAsync(Context.User.GetUsername(), otherUser!);
         await Clients.Group(groupName).SendAsync("ReceiveMessageThread", messages);
@@ -25,6 +26,7 @@ public class MessageHub(IUserRepository userRepository, IMessageRepository messa
 
     public override async Task OnDisconnectedAsync(Exception? exception)
     {
+        await RemoveFromMessageGroup();
         await base.OnDisconnectedAsync(exception);
     }
 
@@ -51,12 +53,50 @@ public class MessageHub(IUserRepository userRepository, IMessageRepository messa
             RecipientUsername = recipient.UserName,
             Content = newMessage.Content
         };
+
+        var groupName = GetGroupName(sender.UserName, recipient.UserName);
+
+        // If the group exists and the recipient is connected to that group, set the message as read
+        var group = await messageRepository.GetMessageGroup(groupName);
+        if (group != null && group.Connections.Any(c => c.Username == recipient.UserName))
+        {
+            message.DateRead = DateTime.UtcNow;
+        }
+        // Add the new message to the database
         messageRepository.AddMessage(message);
 
         if (await messageRepository.SaveAllAsync())
         {
-            var groupName = GetGroupName(sender.UserName, recipient.UserName);
             await Clients.Group(groupName).SendAsync("NewMessage", mapper.Map<Models.MessageDto>(message));
+        }
+    }
+
+    private async Task<bool> AddToMessageGroupAsync(string groupName)
+    {
+        var username = Context.User?.GetUsername() ?? throw new HubException("Cannot get current username");
+
+        // Find the existing group from the database or create a new one
+        var group = await messageRepository.GetMessageGroup(groupName);
+        if (group is null)
+        {
+            group = new Entities.Group { Name = groupName };
+            messageRepository.AddGroup(group);
+        }
+
+        // Add the new connection to the group
+        var connection = new Entities.Connection { ConnectionId = Context.ConnectionId, Username = username };
+        group.Connections.Add(connection);
+
+        return await messageRepository.SaveAllAsync();
+    }
+
+    private async Task RemoveFromMessageGroup()
+    {
+        var connection = await messageRepository.GetConnection(Context.ConnectionId);
+        if (connection != null)
+        {
+            messageRepository.RemoveConnection(connection);
+            await messageRepository.SaveAllAsync();
         }
     }
 

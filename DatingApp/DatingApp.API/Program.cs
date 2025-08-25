@@ -1,5 +1,6 @@
 using DatingApp.API.Extensions;
 using DatingApp.API.Middleware;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -21,5 +22,9 @@ app.UseAuthorization();
 app.MapControllers();
 app.MapHub<DatingApp.API.SignalR.PresenceHub>("/hubs/presence");
 app.MapHub<DatingApp.API.SignalR.MessageHub>("/hubs/message");
+
+// Clear the Connections table on startup of the app
+var context = app.Services.CreateScope().ServiceProvider.GetRequiredService<DatingApp.API.Data.DataContext>();
+await context.Database.ExecuteSqlRawAsync("DELETE FROM [Connections]");
 
 app.Run();
