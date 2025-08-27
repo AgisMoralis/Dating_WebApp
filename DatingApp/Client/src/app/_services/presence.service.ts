@@ -28,10 +28,10 @@ export class PresenceService {
 
     // Online status notifications
     this.hubConnection.on('UserIsOnline', username => {
-      this.toastr.info(username + ' has connected');
+      this.onlineUsers.update(users => [...users, username]);
     });
     this.hubConnection.on('UserIsOffline', username => {
-      this.toastr.warning(username + ' has disconnected');
+      this.onlineUsers.update(users => users.filter(x => x !== username));
     });
 
     // List of online users
@@ -41,7 +41,7 @@ export class PresenceService {
 
     // New message notification
     this.hubConnection.on('NewMessageReceived', ({username, knownAs}) => {
-      this.toastr.info(knownAs + 'has sent you a new message! Click me to see it.')
+      this.toastr.info(knownAs + ' has sent you a new message! Click me to see it.')
         .onTap.pipe(take(1))
         .subscribe(() => { this.router.navigateByUrl('/members/' + username + '?tab=Messages'); });
     });

@@ -15,8 +15,9 @@ public class PresenceTracker
     /// </summary>
     private static readonly Dictionary<string, List<string>> OnlineUsers = new();
 
-    public Task UserConnected(string username, string connectionId)
+    public Task<bool> UserConnected(string username, string connectionId)
     {
+        var userBecomesConnected = false;
         lock (OnlineUsers)
         {
             if (OnlineUsers.ContainsKey(username))
@@ -26,25 +27,34 @@ public class PresenceTracker
             else
             {
                 OnlineUsers.Add(username, new List<string> { connectionId });
+                userBecomesConnected = true;
             }
         }
-        return Task.CompletedTask;
+
+        // Returns true only if the user was not before connected from another device before
+        // and therefore the user is considered online now and we should notify others about it.
+        return Task.FromResult(userBecomesConnected);
     }
 
-    public Task UserDisconnected(string username, string connectionId)
+    public Task<bool> UserDisconnected(string username, string connectionId)
     {
+        var userBecomesDisconnected = false;
         lock (OnlineUsers)
         {
-            if (!OnlineUsers.ContainsKey(username)) return Task.CompletedTask;
+            if (!OnlineUsers.ContainsKey(username)) return Task.FromResult(userBecomesDisconnected);
 
             OnlineUsers[username].Remove(connectionId);
 
             if (OnlineUsers[username].Count == 0)
             {
                 OnlineUsers.Remove(username);
+                userBecomesDisconnected = true;
             }
         }
-        return Task.CompletedTask;
+
+        // Returns true only if the user was connected before from any device and now has no active connections
+        // and therefore the user is considered offline now and we should notify others about it.
+        return Task.FromResult(userBecomesDisconnected);
     }
 
     public Task<string[]> GetOnlineUsers()
