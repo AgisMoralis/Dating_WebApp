@@ -10,4 +10,9 @@ public interface IMessageRepository
     Task<PagedList<Models.MessageDto>> GetMessagesForUserAsync(Models.MessageParametersDto messageParams);
     Task<IEnumerable<Models.MessageDto>> GetThreadMessagesAsync(string currentUsername, string recipientUsername);
     Task<bool> SaveAllAsync();
+    void AddGroup(Entities.Group group);
+    void RemoveConnection(Entities.Connection connection);
+    Task<Entities.Connection?> GetConnection(string connectionId);
+    Task<Entities.Group?> GetMessageGroup(string groupName);
+    Task<Entities.Group?> GetGroupForConnection(string connectionId);
 }
