@@ -2,6 +2,7 @@
 - ASP.NET Core (.NET 8.0)
 - Entity Framework
 - Microsoft ASP Core Identity
+- SignalR (WebSockets)
 - SQLite
 - Postman
 - DBeaver
