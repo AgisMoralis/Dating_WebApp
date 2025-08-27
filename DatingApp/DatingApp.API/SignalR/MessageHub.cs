@@ -7,7 +7,8 @@ using Microsoft.AspNetCore.SignalR;
 namespace DatingApp.API.SignalR;
 
 [Authorize]
-public class MessageHub(IUserRepository userRepository, IMessageRepository messageRepository, IMapper mapper) : Hub
+public class MessageHub(IUserRepository userRepository, IMessageRepository messageRepository,
+IMapper mapper, IHubContext<PresenceHub> presenceHub) : Hub
 {
     public override async Task OnConnectedAsync()
     {
@@ -62,6 +63,20 @@ public class MessageHub(IUserRepository userRepository, IMessageRepository messa
         {
             message.DateRead = DateTime.UtcNow;
         }
+        else
+        {
+            var connectionIds = await PresenceTracker.GetConnectionsForUser(recipient.UserName);
+            if(connectionIds != null && connectionIds.Count > 0)
+            {
+                await presenceHub.Clients.Clients(connectionIds).SendAsync("NewMessageReceived",
+                    new
+                    {
+                        username = sender.UserName,
+                        knownAs = sender.KnownAs
+                    });
+            }
+        }
+
         // Add the new message to the database
         messageRepository.AddMessage(message);
 

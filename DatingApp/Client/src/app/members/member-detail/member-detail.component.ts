@@ -1,5 +1,5 @@
 import { Component, inject, OnDestroy, OnInit, ViewChild } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Member } from '../../_models/member';
 import { TabDirective, TabsetComponent, TabsModule } from 'ngx-bootstrap/tabs';
 import { GalleryModule, GalleryItem, ImageItem } from 'ng-gallery';
@@ -10,6 +10,7 @@ import { Message } from '../../_models/message';
 import { MessageService } from '../../_services/message.service';
 import { PresenceService } from '../../_services/presence.service';
 import { AccountService } from '../../_services/account.service';
+import { HubConnection, HubConnectionState } from '@microsoft/signalr';
 
 @Component({
   selector: 'app-member-detail',
@@ -21,6 +22,7 @@ import { AccountService } from '../../_services/account.service';
 export class MemberDetailComponent implements OnInit, OnDestroy {
   private messageService = inject(MessageService)
   private route = inject(ActivatedRoute);
+  private router = inject(Router);
   private accountService = inject(AccountService);
   presenceService = inject(PresenceService);
   member: Member = {} as Member;
@@ -40,6 +42,12 @@ export class MemberDetailComponent implements OnInit, OnDestroy {
           }));
         })
     }
+   })
+
+   // "".paramMap" is an Observable that emits a "ParamMap" object whenever the route parameters change.
+   // The subscribtion here sets up a listener, that runs the "onRouteParametersChange" every time the route parameters change.
+   this.route.paramMap.subscribe({
+    next: _ => this.onRouteParametersChange()
    })
 
    this.route.queryParams.subscribe({
@@ -63,8 +71,30 @@ export class MemberDetailComponent implements OnInit, OnDestroy {
     }
   }
 
+  // This method is called whenever the route parameters change.
+  // It is useful to resolve the bug when we navigate to a specific member "Messages" tab
+  // and a message notification arrives from another member. In that case, the active
+  // message hub connection should be stopped and a new one should be created for the new member.
+  onRouteParametersChange() {
+    const user = this.accountService.currentUser();
+    if(!user) return;
+    if(this.messageService.hubConnection?.state === HubConnectionState.Connected && this.activeTab?.heading === 'Messages') {
+      this.messageService.hubConnection.stop().then(() => {
+        this.messageService.createHubConnection(user, this.member.username);
+      });
+    }
+  }
+
   onTabActivated(data: TabDirective) {
     this.activeTab = data;
+    // Whenever a tab is activated, this code updates the query params in the URL,
+    // by using the router's navigate method and adding the tab heading as a query param
+    this.router.navigate([], {
+      relativeTo: this.route,
+      queryParams: { tab: this.activeTab.heading },
+      queryParamsHandling: 'merge'
+    });
+
     if (this.activeTab.heading === 'Messages' && this.member) {
         const user = this.accountService.currentUser();
         if(!user) return;

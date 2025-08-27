@@ -13,7 +13,7 @@ import { HubConnection, HubConnectionBuilder, HubConnectionState } from '@micros
 export class MessageService {
   baseUrl = environment.apiUrl;
   hubsUrl = environment.hubsUrl;
-  private hubConnection?: HubConnection;
+  hubConnection?: HubConnection;
   private http = inject(HttpClient)
   paginatedResult = signal<PaginatedResult<Message[]> | null>(null);
   messageThread = signal<Message[]>([]);
