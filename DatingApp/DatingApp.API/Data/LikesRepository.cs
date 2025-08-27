@@ -2,6 +2,7 @@ using AutoMapper;
 using AutoMapper.QueryableExtensions;
 using DatingApp.API.Entities;
 using DatingApp.API.Helpers;
+using DatingApp.API.Interfaces;
 using DatingApp.API.Models;
 using Microsoft.EntityFrameworkCore;
 
@@ -62,10 +63,5 @@ public class LikesRepository(DataContext context, IMapper mapper) : ILikesReposi
     public void AddLike(UserLike like)
     {
         context.Likes.Add(like);
-    }
-
-    public async Task<bool> SaveAllAsync()
-    {
-        return await context.SaveChangesAsync() > 0;
     }
 }

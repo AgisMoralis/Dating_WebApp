@@ -52,7 +52,11 @@ public class MessageRepository(DataContext context, IMapper mapper) : IMessageRe
                     (x.SenderUsername == currentUsername && !x.SenderDeleted && x.RecipientUsername == recipientUsername)
                 )
             )
-            .ExecuteUpdateAsync(setters => setters.SetProperty(m => m.DateRead, DateTime.UtcNow));
+            .ToListAsync();
+        foreach (var m in unreadMessages)
+        {
+            m.DateRead = DateTime.UtcNow;
+        }
 
         // Query and return the message thread
         var messages = await context.Messages
@@ -65,12 +69,7 @@ public class MessageRepository(DataContext context, IMapper mapper) : IMessageRe
 
         return messages;
     }
-
-    public async Task<bool> SaveAllAsync()
-    {
-        return await context.SaveChangesAsync() > 0;
-    }
-
+    
     public void AddGroup(Group group)
     {
         context.Groups.Add(group);

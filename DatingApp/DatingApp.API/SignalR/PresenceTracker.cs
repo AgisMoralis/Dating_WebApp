@@ -1,5 +1,3 @@
-using System;
-
 namespace DatingApp.API.SignalR;
 
 /// <summary>

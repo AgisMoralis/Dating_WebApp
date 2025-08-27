@@ -10,5 +10,4 @@ public interface IUserRepository
     Task<IEnumerable<Entities.Member>> GetMembersAsync();
     Task<PagedList<Models.MemberDto>> GetMemberDtosAsync(Models.MemberParametersDto memberParams);
     void Update(Entities.Member member);
-    Task<bool> SaveAllAsync();
 }

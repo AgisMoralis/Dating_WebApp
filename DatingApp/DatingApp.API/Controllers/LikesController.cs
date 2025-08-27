@@ -1,12 +1,12 @@
-using DatingApp.API.Data;
 using DatingApp.API.Extensions;
+using DatingApp.API.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DatingApp.API.Controllers;
 
 [Authorize]
-public class LikesController(ILikesRepository likesRepository) : BaseAPIController
+public class LikesController(IUnitOfWork unitOfWork) : BaseAPIController
 {
     [HttpPost("{targetUserId:int}")]
     public async Task<ActionResult> ToggleLikeAsync(int targetUserId)
@@ -17,7 +17,7 @@ public class LikesController(ILikesRepository likesRepository) : BaseAPIControll
             return BadRequest("You cannot like yourself");
         }
 
-        var existingLike = await likesRepository.GetUserLikeAsync(sourceUserId, targetUserId);
+        var existingLike = await unitOfWork.LikesRepository.GetUserLikeAsync(sourceUserId, targetUserId);
         if (existingLike == null)
         {
             var newLike = new Entities.UserLike
@@ -25,14 +25,14 @@ public class LikesController(ILikesRepository likesRepository) : BaseAPIControll
                 SourceUserId = sourceUserId,
                 TargetUserId = targetUserId
             };
-            likesRepository.AddLike(newLike);
+            unitOfWork.LikesRepository.AddLike(newLike);
         }
         else
         {
-            likesRepository.DeleteLike(existingLike);
+            unitOfWork.LikesRepository.DeleteLike(existingLike);
         }
 
-        if (await likesRepository.SaveAllAsync())
+        if (await unitOfWork.CompleteAsync())
         {
             return Ok();
         }
@@ -42,14 +42,14 @@ public class LikesController(ILikesRepository likesRepository) : BaseAPIControll
     [HttpGet("{list}")]
     public async Task<ActionResult<IEnumerable<int>>> GetCurrentUserLikeIdsAsync()
     {
-        return Ok(await likesRepository.GetCurrentUserLikeIdsAsync(User.GetUserId()));
+        return Ok(await unitOfWork.LikesRepository.GetCurrentUserLikeIdsAsync(User.GetUserId()));
     }
 
     [HttpGet]
     public async Task<ActionResult<IEnumerable<Models.MemberDto>>> GetUserLikesAsync([FromQuery]Models.LikesParametersDto likesParams)
     {
         likesParams.UserId = User.GetUserId();
-        var users = await likesRepository.GetUserLikesAsync(likesParams);
+        var users = await unitOfWork.LikesRepository.GetUserLikesAsync(likesParams);
 
         Response.AddPaginationHeader(users);
 

@@ -17,6 +17,7 @@
 - Asynchronous code
 - AutoMapper
 - Repository Pattern
+- Unit of Work Pattern
 - Paging, Sorting and Filtering
 - Routing & Route resolvers
 - Services & Injection

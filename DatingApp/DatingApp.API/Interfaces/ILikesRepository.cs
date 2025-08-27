@@ -1,6 +1,6 @@
 using DatingApp.API.Helpers;
 
-namespace DatingApp.API.Data;
+namespace DatingApp.API.Interfaces;
 
 public interface ILikesRepository
 {
@@ -9,5 +9,4 @@ public interface ILikesRepository
     Task<IEnumerable<int>> GetCurrentUserLikeIdsAsync(int currentUserId);
     void DeleteLike(Entities.UserLike like);
     void AddLike(Entities.UserLike like);
-    Task<bool> SaveAllAsync();
 }
