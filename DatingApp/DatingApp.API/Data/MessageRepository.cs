@@ -43,34 +43,24 @@ public class MessageRepository(DataContext context, IMapper mapper) : IMessageRe
 
     public async Task<IEnumerable<MessageDto>> GetThreadMessagesAsync(string currentUsername, string recipientUsername)
     {
-        // Bulk update unread messages
-        var unreadMessages = await context.Messages
-            .Where(x =>
-                x.DateRead == null && x.RecipientUsername == currentUsername &&
-                (
-                    (x.RecipientUsername == currentUsername && !x.RecipientDeleted && x.SenderUsername == recipientUsername) ||
-                    (x.SenderUsername == currentUsername && !x.SenderDeleted && x.RecipientUsername == recipientUsername)
-                )
-            )
-            .ExecuteUpdateAsync(setters => setters.SetProperty(m => m.DateRead, DateTime.UtcNow));
-
-        // Query and return the message thread
-        var messages = await context.Messages
+        // Create the query that shall return the message thread
+        var messagesQuery = context.Messages
             .Where(x =>
                 (x.RecipientUsername == currentUsername && !x.RecipientDeleted && x.SenderUsername == recipientUsername) ||
                 (x.SenderUsername == currentUsername && !x.SenderDeleted && x.RecipientUsername == recipientUsername))
             .OrderBy(x => x.MessageSent)
-            .ProjectTo<MessageDto>(mapper.ConfigurationProvider)
-            .ToListAsync();
+            .AsQueryable();
 
-        return messages;
+        // Execute the first query that updates all unread messages, by assigning the date now
+        var unreadMessages = messagesQuery.Where(m => m.DateRead == null && m.RecipientUsername == currentUsername).ToList();
+        if (unreadMessages.Count != 0)
+        {
+            unreadMessages.ForEach(x => x.DateRead = DateTime.UtcNow);
+        }
+
+        return await messagesQuery.ProjectTo<MessageDto>(mapper.ConfigurationProvider).ToListAsync();
     }
-
-    public async Task<bool> SaveAllAsync()
-    {
-        return await context.SaveChangesAsync() > 0;
-    }
-
+    
     public void AddGroup(Group group)
     {
         context.Groups.Add(group);
