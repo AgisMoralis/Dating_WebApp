@@ -5,3 +5,4 @@ Useful VSCode Extensions to be installed and used for the development:
 - Material Icon Theme (by Philipp Kief)
 - SQLite (by alexcvzz)
 - SQL Server (mssql) (by Microsoft)
+- Azure App Service (by Microsoft)
