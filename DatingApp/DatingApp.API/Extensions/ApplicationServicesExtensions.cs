@@ -13,8 +13,9 @@ public static class ApplicationServicesExtensions
     {
         services.AddControllers();
         services.AddDbContext<DataContext>(options =>
-        {
-            options.UseSqlServer(config.GetConnectionString("DefaultConnection"));
+        {  
+            options.UseSqlServer(config.GetConnectionString("DefaultConnection"),
+                sqlOptions => sqlOptions.EnableRetryOnFailure());
         });
         services.AddCors(options =>
         {
@@ -26,6 +27,7 @@ public static class ApplicationServicesExtensions
                       .AllowCredentials();
             });
         });
+        services.AddHostedService<ConnectionsCleanupService>();
         services.AddScoped<ITokenService, TokenService>();
         services.AddScoped<IUserRepository, UserRepository>();
         services.AddScoped<ILikesRepository, LikesRepository>();

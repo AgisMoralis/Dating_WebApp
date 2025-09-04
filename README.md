@@ -25,3 +25,5 @@
 - Database migrations
 - API securing with JWTBearer tokens
 - Database migration
+- Github Actions
+- Azure deployment (App Service and SQL Server Database)
