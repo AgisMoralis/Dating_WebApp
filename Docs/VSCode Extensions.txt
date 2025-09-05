@@ -1,0 +1,8 @@
+Useful VSCode Extensions to be installed and used for the development:
+- NuGet Gallery (by pcislo)
+- C# Dev Kit (by Microsoft)
+- NuGet Package Manager (by jmrog)
+- Material Icon Theme (by Philipp Kief)
+- SQLite (by alexcvzz)
+- SQL Server (mssql) (by Microsoft)
+- Azure App Service (by Microsoft)

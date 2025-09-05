@@ -23,6 +23,12 @@ bld/
 [Ll]og/
 [Ll]ogs/
 
+# Visual Studio 2015 cache/options directory
+.vs/
+
+# Visual Code cache/options directory
+.vscode/
+
 # .NET Core
 project.lock.json
 project.fragment.lock.json
@@ -30,6 +36,9 @@ artifacts/
 
 # ASP.NET Scaffolding
 ScaffoldingReadMe.txt
+
+# Web API project configuration
+DatingApp/DatingApp.API/appsettings.json
 
 # NuGet Packages
 *.nupkg
@@ -52,3 +61,7 @@ CodeCoverage/
 *.VisualState.xml
 TestResult.xml
 nunit-*.xml
+
+# SQLite database files
+datingApp.db-shm
+datingApp.db-wal
