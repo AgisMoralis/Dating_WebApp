@@ -22,6 +22,5 @@ public class LogUserActivity : IAsyncActionFilter
         
         user.LastActive = DateTime.UtcNow;
         await unitOfWork.CompleteAsync();
-        
     }
 }

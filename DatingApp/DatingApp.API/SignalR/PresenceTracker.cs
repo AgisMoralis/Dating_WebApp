@@ -29,7 +29,7 @@ public class PresenceTracker
             }
         }
 
-        // Returns true only if the user was not before connected from another device before
+        // Returns true only if the user was not connected from another device before
         // and therefore the user is considered online now and we should notify others about it.
         return Task.FromResult(userBecomesConnected);
     }

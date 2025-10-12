@@ -1,8 +1,12 @@
 Useful VSCode Extensions to be installed and used for the development:
+- GitHub Copilot Chat (by GitHub) -> Dependencies: GitHub Copilot
+- C# Dev Kit (by Microsoft) -> Dependencies: C#, .NET Install Tools
+- Angular Language Service (by Angular)
 - NuGet Gallery (by pcislo)
-- C# Dev Kit (by Microsoft)
-- NuGet Package Manager (by jmrog)
 - Material Icon Theme (by Philipp Kief)
 - SQLite (by alexcvzz)
-- SQL Server (mssql) (by Microsoft)
-- Azure App Service (by Microsoft)
+- SQL Database Projects (by Microsoft) -> Dependencies: SQL Server (mssql), Data Workspace
+- SQL Bindings (by Microsoft) -> Dependencies: SQL Server (mssql)
+- Azure App Service (by Microsoft) -> Dependencies: Azure Resources
+- Azure Functions (by Microsoft) -> Dependencies: Azure Resources
+- Container Tools (by Microsoft)
