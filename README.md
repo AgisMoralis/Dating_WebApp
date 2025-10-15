@@ -1,3 +1,13 @@
+# Deployed Application (Azure)
+https://datingapp-fromagis.azurewebsites.net/
+- App Services
+- SQL Database
+
+# Login
+Mock users:
+- Username: delores, kirk, stout, ida, admin
+- Password: pa$$w0rd
+
 # Dating_WebApp
 - ASP.NET Core (.NET 8.0)
 - Entity Framework
